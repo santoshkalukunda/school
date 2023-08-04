@@ -9,7 +9,7 @@
                 <div class="causes-img">
                     <img src="{{ asset('assets/img/causes-1.jpg') }}" alt="Image">
                 </div>
-                <div class="causes-progress">
+                {{-- <div class="causes-progress">
                     <div class="progress">
                         <div class="progress-bar" role="progressbar" aria-valuenow="85" aria-valuemin="0"
                             aria-valuemax="100">
@@ -20,22 +20,22 @@
                         <p><strong>Raised:</strong> $100000</p>
                         <p><strong>Goal:</strong> $50000</p>
                     </div>
-                </div>
-                <div class="causes-text">
+                </div> --}}
+                <div class="causes-text my-2">
                     <h3>Lorem ipsum dolor sit</h3>
                     <p>Lorem ipsum dolor sit amet elit. Phasell nec pretium mi. Curabit facilis ornare velit non
                         vulputa</p>
                 </div>
-                <div class="causes-btn">
+                {{-- <div class="causes-btn">
                     <a class="btn btn-custom">Learn More</a>
                     <a class="btn btn-custom">Donate Now</a>
-                </div>
+                </div> --}}
             </div>
             <div class="causes-item">
                 <div class="causes-img">
                     <img src="{{ asset('assets/img/causes-2.jpg') }}" alt="Image">
                 </div>
-                <div class="causes-progress">
+                {{-- <div class="causes-progress">
                     <div class="progress">
                         <div class="progress-bar" role="progressbar" aria-valuenow="85" aria-valuemin="0"
                             aria-valuemax="100">
@@ -46,22 +46,22 @@
                         <p><strong>Raised:</strong> $100000</p>
                         <p><strong>Goal:</strong> $50000</p>
                     </div>
-                </div>
-                <div class="causes-text">
+                </div> --}}
+                <div class="causes-text my-2">
                     <h3>Lorem ipsum dolor sit</h3>
                     <p>Lorem ipsum dolor sit amet elit. Phasell nec pretium mi. Curabit facilis ornare velit non
                         vulputa</p>
                 </div>
-                <div class="causes-btn">
+                {{-- <div class="causes-btn">
                     <a class="btn btn-custom">Learn More</a>
                     <a class="btn btn-custom">Donate Now</a>
-                </div>
+                </div> --}}
             </div>
             <div class="causes-item">
                 <div class="causes-img">
                     <img src="{{ asset('assets/img/causes-3.jpg') }}" alt="Image">
                 </div>
-                <div class="causes-progress">
+                {{-- <div class="causes-progress">
                     <div class="progress">
                         <div class="progress-bar" role="progressbar" aria-valuenow="85" aria-valuemin="0"
                             aria-valuemax="100">
@@ -72,22 +72,22 @@
                         <p><strong>Raised:</strong> $100000</p>
                         <p><strong>Goal:</strong> $50000</p>
                     </div>
-                </div>
-                <div class="causes-text">
+                </div> --}}
+                <div class="causes-text my-2">
                     <h3>Lorem ipsum dolor sit</h3>
                     <p>Lorem ipsum dolor sit amet elit. Phasell nec pretium mi. Curabit facilis ornare velit non
                         vulputa</p>
                 </div>
-                <div class="causes-btn">
+                {{-- <div class="causes-btn">
                     <a class="btn btn-custom">Learn More</a>
                     <a class="btn btn-custom">Donate Now</a>
-                </div>
+                </div> --}}
             </div>
             <div class="causes-item">
                 <div class="causes-img">
                     <img src="{{ asset('assets/img/causes-4.jpg') }}" alt="Image">
                 </div>
-                <div class="causes-progress">
+                {{-- <div class="causes-progress">
                     <div class="progress">
                         <div class="progress-bar" role="progressbar" aria-valuenow="85" aria-valuemin="0"
                             aria-valuemax="100">
@@ -98,16 +98,16 @@
                         <p><strong>Raised:</strong> $100000</p>
                         <p><strong>Goal:</strong> $50000</p>
                     </div>
-                </div>
-                <div class="causes-text">
+                </div> --}}
+                <div class="causes-text my-2">
                     <h3>Lorem ipsum dolor sit</h3>
                     <p>Lorem ipsum dolor sit amet elit. Phasell nec pretium mi. Curabit facilis ornare velit non
                         vulputa</p>
                 </div>
-                <div class="causes-btn">
+                {{-- <div class="causes-btn">
                     <a class="btn btn-custom">Learn More</a>
                     <a class="btn btn-custom">Donate Now</a>
-                </div>
+                </div> --}}
             </div>
         </div>
     </div>
