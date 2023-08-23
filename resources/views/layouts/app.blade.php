@@ -74,7 +74,6 @@
       }
     </style>
     @stack('styles')
-    @livewireStyles
 </head>
 
 <body class="{{ $class ?? '' }}">
@@ -88,8 +87,9 @@
 
     <div class="main-content">
         @include('layouts.navbars.navbar')
+        @include('layouts.headers.cards')
         @yield('content')
-        {{-- @include('layouts.footers.auth') --}}
+        @include('layouts.footers.auth')
     </div>
 
     @guest()
@@ -116,7 +116,6 @@
         });
       </script>
     @stack('scripts')
-    @livewireScripts
 </body>
 
 </html>

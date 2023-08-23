@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\FrontendController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -35,6 +36,14 @@ Route::group(['middleware' => 'auth'], function () {
 	Route::resource('user', 'App\Http\Controllers\UserController', ['except' => ['show']]);
 	Route::get('profile', ['as' => 'profile.edit', 'uses' => 'App\Http\Controllers\ProfileController@edit']);
 	Route::put('profile', ['as' => 'profile.update', 'uses' => 'App\Http\Controllers\ProfileController@update']);
+	
+	Route::get('categories',[CategoryController::class,'index'])->name('categories.index');
+	Route::post('categories',[CategoryController::class,'store'])->name('categories.store');
+	Route::get('categories/{category}',[CategoryController::class,'edit'])->name('categories.edit');
+	Route::put('categories/{category}',[CategoryController::class,'update'])->name('categories.update');
+	Route::delete('categories/{category}',[CategoryController::class,'destroy'])->name('categories.destroy');
+
+	
 	Route::get('upgrade', function () {return view('pages.upgrade');})->name('upgrade'); 
 	 Route::get('map', function () {return view('pages.maps');})->name('map');
 	 Route::get('icons', function () {return view('pages.icons');})->name('icons'); 

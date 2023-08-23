@@ -13,9 +13,15 @@ class CategoryController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Category $category)
     {
-        //
+        if (!$category) {
+            $category = new Category();
+        }
+
+        $categories = Category::latest()->get();
+
+        return view('category.index', compact('category', 'categories'));
     }
 
     /**
@@ -36,7 +42,8 @@ class CategoryController extends Controller
      */
     public function store(StoreCategoryRequest $request)
     {
-        //
+        Category::create($request->validated());
+        return redirect()->route('categories.index')->with('succes','Category created');
     }
 
     /**
@@ -58,7 +65,7 @@ class CategoryController extends Controller
      */
     public function edit(Category $category)
     {
-        //
+        return $this->index($category);
     }
 
     /**
@@ -70,7 +77,8 @@ class CategoryController extends Controller
      */
     public function update(UpdateCategoryRequest $request, Category $category)
     {
-        //
+        $category->update($request->validated());
+        return redirect()->route('categories.index')->with('succes','Category updated');
     }
 
     /**
@@ -81,6 +89,7 @@ class CategoryController extends Controller
      */
     public function destroy(Category $category)
     {
-        //
+        $category->delete();
+        return redirect()->route('categories.index')->with('succes','Category deleted');
     }
 }

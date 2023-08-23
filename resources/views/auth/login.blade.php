@@ -21,7 +21,7 @@
                                 </div>
                                 @if ($errors->has('email'))
                                     <span class="invalid-feedback" style="display: block;" role="alert">
-                                        <strong>{{ $errors->first('इमेल') }}</strong>
+                                        <strong>{{ $errors->first('Email') }}</strong>
                                     </span>
                                 @endif
                             </div>
@@ -31,7 +31,7 @@
                                         <span class="input-group-text"><i class="ni ni-lock-circle-open"></i></span>
                                     </div>
                                     <input class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}"
-                                        name="password" placeholder="{{ __('पासवर्ड') }}" type="password"
+                                        name="password" placeholder="{{ __('Password') }}" type="password"
                                         required>
                                 </div>
                                 @if ($errors->has('password'))
@@ -47,7 +47,7 @@
                         </form>
                         @if (Route::has('password.request'))
                             <a href="{{ route('password.request') }}" class="text-dark">
-                                <small>{{ __('पासवर्ड भुल्नुभयो ?') }}</small>
+                                <small>{{ __('Forget Password?') }}</small>
                             </a>
                         @endif
                     </div>
