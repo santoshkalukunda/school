@@ -3,6 +3,7 @@
 use App\Http\Controllers\CarouselImageController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\FrontendController;
+use App\Http\Controllers\ModalImageController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\PostController;
 use Illuminate\Support\Facades\Auth;
@@ -65,15 +66,23 @@ Route::group(['middleware' => 'auth'], function () {
     Route::put('pages/{page}', [PageController::class, 'update'])->name('pages.update');
     Route::delete('pages/{page}', [PageController::class, 'destroy'])->name('pages.destroy');
 
-    //pages
+    //carousel-image
     Route::get('carousel-images', [CarouselImageController::class, 'index'])->name('carousel-images.index');
     Route::get('carousel-images/create', [CarouselImageController::class, 'create'])->name('carousel-images.create');
     Route::post('carousel-images', [CarouselImageController::class, 'store'])->name('carousel-images.store');
     Route::get('carousel-images/{carouselImage}/edit', [CarouselImageController::class, 'edit'])->name('carousel-images.edit');
-    Route::get('carousel-images/{carouselImage}', [CarouselImageController::class, 'show'])->name('carousel-images.show');
+    // Route::get('carousel-images/{carouselImage}', [CarouselImageController::class, 'show'])->name('carousel-images.show');
     Route::put('carousel-images/{carouselImage}', [CarouselImageController::class, 'update'])->name('carousel-images.update');
     Route::delete('carousel-images/{carouselImage}', [CarouselImageController::class, 'destroy'])->name('carousel-images.destroy');
 
+    //modal-images
+    Route::get('modal-images', [ModalImageController::class, 'index'])->name('modal-images.index');
+    Route::get('modal-images/create', [ModalImageController::class, 'create'])->name('modal-images.create');
+    Route::post('modal-images', [ModalImageController::class, 'store'])->name('modal-images.store');
+    Route::get('modal-images/{modalImage}/edit', [ModalImageController::class, 'edit'])->name('modal-images.edit');
+    // Route::get('modal-images/{modalImage}', [ModalImageController::class, 'show'])->name('modal-images.show');
+    Route::put('modal-images/{modalImage}', [ModalImageController::class, 'update'])->name('modal-images.update');
+    Route::delete('modal-images/{modalImage}', [ModalImageController::class, 'destroy'])->name('modal-images.destroy');
 
     Route::get('upgrade', function () {
         return view('pages.upgrade');

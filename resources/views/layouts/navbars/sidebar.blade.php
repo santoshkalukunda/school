@@ -105,6 +105,11 @@
                     </a>
                 </li>
                 <li class="nav-item">
+                    <a class="nav-link" href="{{ route('modal-images.index') }}">
+                        <i class="ni ni-circle-08 text-pink"></i> {{ __('Modal Images') }}
+                    </a>
+                </li>
+                <li class="nav-item">
                     <a class="nav-link" href="{{ route('categories.index') }}">
                         <i class="ni ni-circle-08 text-pink"></i> {{ __('Categories') }}
                     </a>
