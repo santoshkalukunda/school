@@ -55,6 +55,16 @@
             color: #fa5661;
         }
 
+        .carousel-image {
+            border: 1px solid #ddd;
+            padding: 2px;
+            width: 700px;
+            height: 300px;
+            object-fit: cover;
+            position: relative;
+            /* margin: 20px; */
+        }
+
         .feature-image {
             border: 1px solid #ddd;
             padding: 2px;

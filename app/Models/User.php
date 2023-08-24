@@ -43,4 +43,9 @@ class User extends Authenticatable
     {
         return $this->hasMany(Page::class);
     }
+
+    public function carouselImages()
+    {
+        return $this->hasMany(CarouselImage::class);
+    }
 }

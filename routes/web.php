@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CarouselImageController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\FrontendController;
 use App\Http\Controllers\PageController;
@@ -35,42 +36,56 @@ Auth::routes();
 Route::get('/home', 'App\Http\Controllers\HomeController@index')->name('home');
 
 Route::group(['middleware' => 'auth'], function () {
-	Route::resource('user', 'App\Http\Controllers\UserController', ['except' => ['show']]);
-	Route::get('profile', ['as' => 'profile.edit', 'uses' => 'App\Http\Controllers\ProfileController@edit']);
-	Route::put('profile', ['as' => 'profile.update', 'uses' => 'App\Http\Controllers\ProfileController@update']);
-	
-	//categories
-	Route::get('categories',[CategoryController::class,'index'])->name('categories.index');
-	Route::post('categories',[CategoryController::class,'store'])->name('categories.store');
-	Route::get('categories/{category}',[CategoryController::class,'edit'])->name('categories.edit');
-	Route::put('categories/{category}',[CategoryController::class,'update'])->name('categories.update');
-	Route::delete('categories/{category}',[CategoryController::class,'destroy'])->name('categories.destroy');
+    Route::resource('user', 'App\Http\Controllers\UserController', ['except' => ['show']]);
+    Route::get('profile', ['as' => 'profile.edit', 'uses' => 'App\Http\Controllers\ProfileController@edit']);
+    Route::put('profile', ['as' => 'profile.update', 'uses' => 'App\Http\Controllers\ProfileController@update']);
 
-	//post
-	Route::get('posts',[PostController::class,'index'])->name('posts.index');
-	Route::get('posts/create',[PostController::class,'create'])->name('posts.create');
-	Route::post('posts',[PostController::class,'store'])->name('posts.store');
-	Route::get('posts/{post}/edit',[PostController::class,'edit'])->name('posts.edit');
-	Route::get('posts/{post}',[PostController::class,'show'])->name('posts.show');
-	Route::put('posts/{post}',[PostController::class,'update'])->name('posts.update');
-	Route::delete('posts/{post}',[PostController::class,'destroy'])->name('posts.destroy');
+    //categories
+    Route::get('categories', [CategoryController::class, 'index'])->name('categories.index');
+    Route::post('categories', [CategoryController::class, 'store'])->name('categories.store');
+    Route::get('categories/{category}', [CategoryController::class, 'edit'])->name('categories.edit');
+    Route::put('categories/{category}', [CategoryController::class, 'update'])->name('categories.update');
+    Route::delete('categories/{category}', [CategoryController::class, 'destroy'])->name('categories.destroy');
+
+    //post
+    Route::get('posts', [PostController::class, 'index'])->name('posts.index');
+    Route::get('posts/create', [PostController::class, 'create'])->name('posts.create');
+    Route::post('posts', [PostController::class, 'store'])->name('posts.store');
+    Route::get('posts/{post}/edit', [PostController::class, 'edit'])->name('posts.edit');
+    Route::get('posts/{post}', [PostController::class, 'show'])->name('posts.show');
+    Route::put('posts/{post}', [PostController::class, 'update'])->name('posts.update');
+    Route::delete('posts/{post}', [PostController::class, 'destroy'])->name('posts.destroy');
+
+    //pages
+    Route::get('pages', [PageController::class, 'index'])->name('pages.index');
+    Route::get('pages/create', [PageController::class, 'create'])->name('pages.create');
+    Route::post('pages', [PageController::class, 'store'])->name('pages.store');
+    Route::get('pages/{page}/edit', [PageController::class, 'edit'])->name('pages.edit');
+    Route::get('pages/{page}', [PageController::class, 'show'])->name('pages.show');
+    Route::put('pages/{page}', [PageController::class, 'update'])->name('pages.update');
+    Route::delete('pages/{page}', [PageController::class, 'destroy'])->name('pages.destroy');
+
+    //pages
+    Route::get('carousel-images', [CarouselImageController::class, 'index'])->name('carousel-images.index');
+    Route::get('carousel-images/create', [CarouselImageController::class, 'create'])->name('carousel-images.create');
+    Route::post('carousel-images', [CarouselImageController::class, 'store'])->name('carousel-images.store');
+    Route::get('carousel-images/{carouselImage}/edit', [CarouselImageController::class, 'edit'])->name('carousel-images.edit');
+    Route::get('carousel-images/{carouselImage}', [CarouselImageController::class, 'show'])->name('carousel-images.show');
+    Route::put('carousel-images/{carouselImage}', [CarouselImageController::class, 'update'])->name('carousel-images.update');
+    Route::delete('carousel-images/{carouselImage}', [CarouselImageController::class, 'destroy'])->name('carousel-images.destroy');
 
 
-	
-	//pages
-	Route::get('pages',[PageController::class,'index'])->name('pages.index');
-	Route::get('pages/create',[PageController::class,'create'])->name('pages.create');
-	Route::post('pages',[PageController::class,'store'])->name('pages.store');
-	Route::get('pages/{page}/edit',[PageController::class,'edit'])->name('pages.edit');
-	Route::get('pages/{page}',[PageController::class,'show'])->name('pages.show');
-	Route::put('pages/{page}',[PageController::class,'update'])->name('pages.update');
-	Route::delete('pages/{page}',[PageController::class,'destroy'])->name('pages.destroy');
-
-	
-	Route::get('upgrade', function () {return view('pages.upgrade');})->name('upgrade'); 
-	 Route::get('map', function () {return view('pages.maps');})->name('map');
-	 Route::get('icons', function () {return view('pages.icons');})->name('icons'); 
-	 Route::get('table-list', function () {return view('pages.tables');})->name('table');
-	Route::put('profile/password', ['as' => 'profile.password', 'uses' => 'App\Http\Controllers\ProfileController@password']);
+    Route::get('upgrade', function () {
+        return view('pages.upgrade');
+    })->name('upgrade');
+    Route::get('map', function () {
+        return view('pages.maps');
+    })->name('map');
+    Route::get('icons', function () {
+        return view('pages.icons');
+    })->name('icons');
+    Route::get('table-list', function () {
+        return view('pages.tables');
+    })->name('table');
+    Route::put('profile/password', ['as' => 'profile.password', 'uses' => 'App\Http\Controllers\ProfileController@password']);
 });
-
