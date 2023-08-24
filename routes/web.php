@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\FrontendController;
+use App\Http\Controllers\PageController;
 use App\Http\Controllers\PostController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -53,6 +54,17 @@ Route::group(['middleware' => 'auth'], function () {
 	Route::get('posts/{post}',[PostController::class,'show'])->name('posts.show');
 	Route::put('posts/{post}',[PostController::class,'update'])->name('posts.update');
 	Route::delete('posts/{post}',[PostController::class,'destroy'])->name('posts.destroy');
+
+
+	
+	//pages
+	Route::get('pages',[PageController::class,'index'])->name('pages.index');
+	Route::get('pages/create',[PageController::class,'create'])->name('pages.create');
+	Route::post('pages',[PageController::class,'store'])->name('pages.store');
+	Route::get('pages/{page}/edit',[PageController::class,'edit'])->name('pages.edit');
+	Route::get('pages/{page}',[PageController::class,'show'])->name('pages.show');
+	Route::put('pages/{page}',[PageController::class,'update'])->name('pages.update');
+	Route::delete('pages/{page}',[PageController::class,'destroy'])->name('pages.destroy');
 
 	
 	Route::get('upgrade', function () {return view('pages.upgrade');})->name('upgrade'); 

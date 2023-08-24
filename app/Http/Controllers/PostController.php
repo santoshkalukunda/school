@@ -19,7 +19,7 @@ class PostController extends Controller
     {
         $posts = Post::with('categories')
             ->latest()
-            ->paginate(2);
+            ->paginate(50);
         return view('post.index', compact('posts'));
     }
 
