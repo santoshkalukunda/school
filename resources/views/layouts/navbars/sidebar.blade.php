@@ -100,6 +100,11 @@
                     </a>
                 </li>
                 <li class="nav-item">
+                    <a class="nav-link" href="{{ route('carousel-images.index') }}">
+                        <i class="ni ni-circle-08 text-pink"></i> {{ __('Carousel Images') }}
+                    </a>
+                </li>
+                <li class="nav-item">
                     <a class="nav-link" href="{{ route('categories.index') }}">
                         <i class="ni ni-circle-08 text-pink"></i> {{ __('Categories') }}
                     </a>
