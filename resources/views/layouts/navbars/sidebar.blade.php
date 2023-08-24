@@ -95,6 +95,11 @@
                     </a>
                 </li>
                 <li class="nav-item">
+                    <a class="nav-link" href="{{ route('pages.index') }}">
+                        <i class="ni ni-circle-08 text-pink"></i> {{ __('Pages') }}
+                    </a>
+                </li>
+                <li class="nav-item">
                     <a class="nav-link" href="{{ route('categories.index') }}">
                         <i class="ni ni-circle-08 text-pink"></i> {{ __('Categories') }}
                     </a>
