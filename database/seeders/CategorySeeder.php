@@ -16,14 +16,22 @@ class CategorySeeder extends Seeder
     {
         $categories = [
             [
-                'name' => 'program',
-                'name' => 'event',
-                'name' => 'blog',
-                'name' => 'page',
+                'name' => 'Program',
+            ],
+            [
+                'name' => 'Event',
+            ],
+            [
+                'name' => 'Blog',
+            ],
+            [
+                'name' => 'Page',
+            ],
+            [
+                'name' => 'No-category',
             ],
         ];
         foreach ($categories as $category) {
-            # code...
             Category::create($category);
         }
     }

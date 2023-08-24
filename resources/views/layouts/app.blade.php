@@ -26,6 +26,9 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
     <link href="{{ asset('font/Kalimati.ttf') }}" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/css/select2.min.css" />
+    <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/select2-bootstrap-5-theme@1.3.0/dist/select2-bootstrap-5-theme.min.css" />
     <style>
         @font-face {
             font-family: 'Kalimati';
@@ -52,26 +55,47 @@
             color: #fa5661;
         }
 
+        .feature-image {
+            border: 1px solid #ddd;
+            padding: 2px;
+            width: 230px;
+            height: 150px;
+            object-fit: cover;
+            position: relative;
+            /* margin: 20px; */
+        }
+
+        .feature-image-thum {
+            border: 1px solid #ddd;
+            padding: 2px;
+            width: 120px;
+            height: 80px;
+            object-fit: cover;
+            position: relative;
+            margin: 2px;
+        }
+
         .profile {
-          border: 1px solid #ddd;
-          border-radius: 50%;
-          padding: 2px;
-          width: 200px;
-          height: 200px;
-          object-fit: cover;
-          position: relative;
-          margin: 20px;
-      }
-      .profile-nav {
-          border: 1px solid #ddd;
-          border-radius: 50%;
-          padding: 2px;
-          width: 40px;
-          height: 40px;
-          object-fit: cover;
-          position: relative;
-          margin: 2px;
-      }
+            border: 1px solid #ddd;
+            border-radius: 50%;
+            padding: 2px;
+            width: 200px;
+            height: 200px;
+            object-fit: cover;
+            position: relative;
+            margin: 20px;
+        }
+
+        .profile-nav {
+            border: 1px solid #ddd;
+            border-radius: 50%;
+            padding: 2px;
+            width: 40px;
+            height: 40px;
+            object-fit: cover;
+            position: relative;
+            margin: 2px;
+        }
     </style>
     @stack('styles')
 </head>
@@ -108,13 +132,21 @@
     <script src="https://unpkg.com/nepali-date-picker@2.0.1/dist/jquery.nepaliDatePicker.min.js" crossorigin="anonymous">
     </script>
     <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/js/select2.full.min.js"></script>
     <script>
         $('#summernote').summernote({
-          placeholder: 'Hello Bootstrap 5',
-          tabsize: 2,
-          height: 100
+            placeholder: 'Descriptions',
+            tabsize: 2,
+            height: 300
         });
-      </script>
+    </script>
+    <script>
+        $('.select2').select2({
+            placeholder: 'Choose',
+            theme: "bootstrap-5",
+            // placeholder: 'Vendor Select',
+        });
+    </script>
     @stack('scripts')
 </body>
 

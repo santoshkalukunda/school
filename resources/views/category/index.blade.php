@@ -27,6 +27,30 @@
                                 </div>
                             </div>
                             <div class="mb-3">
+                                <select name="parent_id" class="custom-select @error('parent_id') is-invalid @enderror "
+                                    id="" required>
+                                    <option value="">None</option>
+                                    @foreach ($categories as $firstLevelCategory)
+                                        <option value="{{ $firstLevelCategory->id }}"
+                                            @if ($category->parentCategory && $category->parentCategory->id == $firstLevelCategory->id) selected @endif>
+                                            {{ $firstLevelCategory->name }}
+                                        </option>
+                                        @foreach ($firstLevelCategory->childcategories as $secondLevelCat)
+                                            <option value="{{ $secondLevelCat->id }}"
+                                                @if ($category->parentCategory && $category->parentCategory->id == $secondLevelCat->id) selected @endif>
+                                                -- {{ $secondLevelCat->name }}
+                                            </option>
+                                        @endforeach
+                                    @endforeach
+                                </select>
+                                <div class="invalid-feedback">
+                                    @error('parent_id')
+                                        {{ $message }}
+                                    @enderror
+
+                                </div>
+                            </div>
+                            <div class="mb-3">
                                 <button type="submit" class="btn btn-primary">
                                     {{ $category->id ? 'Update' : 'Save' }}</button>
                             </div>
@@ -43,46 +67,41 @@
                         <div class="table-responsive">
                             <table class="table table-md table-bordered">
                                 <thead>
-                                    <th>Category</th>
+                                    <th>Name</th>
+                                    <th>Slug</th>
+                                    <th>Parent</th>
+                                    <th>Status</th>
                                     <th></th>
                                 </thead>
                                 <tbody>
-                                    @forelse($categories as $category)
-                                        <tr>
-                                            <td>{{ $category->name }}</td>
-                                            <td class="text-right">
-                                                <div class="dropdown">
-                                                    <a class="btn btn-sm btn-icon-only text-light" href="#"
-                                                        role="button" data-toggle="dropdown" aria-haspopup="true"
-                                                        aria-expanded="false">
-                                                        <i class="fas fa-ellipsis-v"></i>
-                                                    </a>
-                                                    <div class="dropdown-menu dropdown-menu-arrow">
-                                                        <a class="dropdown-item "
-                                                            href="{{ route('categories.edit', $category) }}">Edit</a>
+                                    @forelse($categories as $firstLevelCategory)
+                                    @include('category.table-row', [
+                                        'category' => $firstLevelCategory,
+                                        'level' => 1,
+                                    ])
 
-                                                        <form action="{{ route('categories.destroy', $category) }}"
-                                                            method="post">
-                                                            @method('delete')
-                                                            @csrf
-                                                            <button class="dropdown-item form-control text-danger"
-                                                                type="submit"
-                                                                onclick="return confirm('Are You Sure ?')">
-                                                                Delete
-                                                            </button>
-                                                        </form>
+                                    {{-- Second level --}}
+                                    @foreach ($firstLevelCategory->childCategories as $secondLevelCategory)
+                                        @include('category.table-row', [
+                                            'category' => $secondLevelCategory,
+                                            'level' => 2,
+                                            'parentCategoryName' => $firstLevelCategory->name,
+                                        ])
 
-                                                    </div>
-                                                </div>
-                                            </td>
-                                          
-                                        </tr>
-
-                                    @empty
-                                        <tr>
-                                            <td colspan="42" class="font-italic text-center">data not found !!!</td>
-                                        </tr>
-                                    @endforelse
+                                        {{-- Third level --}}
+                                        @foreach ($secondLevelCategory->childCategories as $thirdLevelCategory)
+                                            @include('category.table-row', [
+                                                'category' => $thirdLevelCategory,
+                                                'level' => 3,
+                                                'parentCategoryName' => $secondLevelCategory->name,
+                                            ])
+                                        @endforeach
+                                    @endforeach
+                                @empty
+                                    <tr>
+                                        <td colspan="42" class="font-italic text-center">No Record Found</td>
+                                    </tr>
+                                @endforelse
                                 </tbody>
 
 

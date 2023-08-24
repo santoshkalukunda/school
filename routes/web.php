@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\FrontendController;
+use App\Http\Controllers\PostController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -37,11 +38,21 @@ Route::group(['middleware' => 'auth'], function () {
 	Route::get('profile', ['as' => 'profile.edit', 'uses' => 'App\Http\Controllers\ProfileController@edit']);
 	Route::put('profile', ['as' => 'profile.update', 'uses' => 'App\Http\Controllers\ProfileController@update']);
 	
+	//categories
 	Route::get('categories',[CategoryController::class,'index'])->name('categories.index');
 	Route::post('categories',[CategoryController::class,'store'])->name('categories.store');
 	Route::get('categories/{category}',[CategoryController::class,'edit'])->name('categories.edit');
 	Route::put('categories/{category}',[CategoryController::class,'update'])->name('categories.update');
 	Route::delete('categories/{category}',[CategoryController::class,'destroy'])->name('categories.destroy');
+
+	//post
+	Route::get('posts',[PostController::class,'index'])->name('posts.index');
+	Route::get('posts/create',[PostController::class,'create'])->name('posts.create');
+	Route::post('posts',[PostController::class,'store'])->name('posts.store');
+	Route::get('posts/{post}/edit',[PostController::class,'edit'])->name('posts.edit');
+	Route::get('posts/{post}',[PostController::class,'show'])->name('posts.show');
+	Route::put('posts/{post}',[PostController::class,'update'])->name('posts.update');
+	Route::delete('posts/{post}',[PostController::class,'destroy'])->name('posts.destroy');
 
 	
 	Route::get('upgrade', function () {return view('pages.upgrade');})->name('upgrade'); 

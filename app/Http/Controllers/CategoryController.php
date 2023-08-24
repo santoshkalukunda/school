@@ -19,9 +19,11 @@ class CategoryController extends Controller
             $category = new Category();
         }
 
-        $categories = Category::latest()->get();
+        $categories = Category::with(['childCategories.childCategories'])->where('parent_id', null)->orderBy('name')->get();
 
-        return view('category.index', compact('category', 'categories'));
+        // $parentCategories = Category::with(['childCategories'])->where('parent_id', null)->actived()->orderBy('name')->get();
+
+        return view('category.index', compact('category', 'categories',));
     }
 
     /**
@@ -43,7 +45,7 @@ class CategoryController extends Controller
     public function store(StoreCategoryRequest $request)
     {
         Category::create($request->validated());
-        return redirect()->route('categories.index')->with('succes','Category created');
+        return redirect()->route('categories.index')->with('success','Category created');
     }
 
     /**
@@ -78,7 +80,7 @@ class CategoryController extends Controller
     public function update(UpdateCategoryRequest $request, Category $category)
     {
         $category->update($request->validated());
-        return redirect()->route('categories.index')->with('succes','Category updated');
+        return redirect()->route('categories.index')->with('success','Category updated');
     }
 
     /**
@@ -90,6 +92,6 @@ class CategoryController extends Controller
     public function destroy(Category $category)
     {
         $category->delete();
-        return redirect()->route('categories.index')->with('succes','Category deleted');
+        return redirect()->route('categories.index')->with('success','Category deleted');
     }
 }

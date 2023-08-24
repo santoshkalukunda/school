@@ -90,8 +90,13 @@
                     </a>
                 </li>
                 <li class="nav-item">
+                    <a class="nav-link" href="{{ route('posts.index') }}">
+                        <i class="ni ni-circle-08 text-pink"></i> {{ __('Posts') }}
+                    </a>
+                </li>
+                <li class="nav-item">
                     <a class="nav-link" href="{{ route('categories.index') }}">
-                        <i class="ni ni-circle-08 text-pink"></i> {{ __('Category') }}
+                        <i class="ni ni-circle-08 text-pink"></i> {{ __('Categories') }}
                     </a>
                 </li>
                 <li class="nav-item">
