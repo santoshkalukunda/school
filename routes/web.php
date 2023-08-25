@@ -8,6 +8,7 @@ use App\Http\Controllers\ModalImageController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\PartnerController;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\TeamController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -38,7 +39,7 @@ Auth::routes();
 
 Route::get('/home', 'App\Http\Controllers\HomeController@index')->name('home');
 
-Route::group(['middleware' => 'auth'], function () {
+Route::group(['prefix' => 'backend', 'middleware' => 'auth'], function () {
     Route::resource('user', 'App\Http\Controllers\UserController', ['except' => ['show']]);
     Route::get('profile', ['as' => 'profile.edit', 'uses' => 'App\Http\Controllers\ProfileController@edit']);
     Route::put('profile', ['as' => 'profile.update', 'uses' => 'App\Http\Controllers\ProfileController@update']);
@@ -86,7 +87,6 @@ Route::group(['middleware' => 'auth'], function () {
     Route::put('modal-images/{modalImage}', [ModalImageController::class, 'update'])->name('modal-images.update');
     Route::delete('modal-images/{modalImage}', [ModalImageController::class, 'destroy'])->name('modal-images.destroy');
 
-    
     //partners
     Route::get('partners', [PartnerController::class, 'index'])->name('partners.index');
     Route::get('partners/create', [PartnerController::class, 'create'])->name('partners.create');
@@ -96,7 +96,6 @@ Route::group(['middleware' => 'auth'], function () {
     Route::put('partners/{partner}', [PartnerController::class, 'update'])->name('partners.update');
     Route::delete('partners/{partner}', [PartnerController::class, 'destroy'])->name('partners.destroy');
 
-
     //category menu
     Route::get('category-menu', [CategoryMenuController::class, 'index'])->name('category-menu.index');
     Route::post('category-menu', [CategoryMenuController::class, 'store'])->name('category-menu.store');
@@ -105,6 +104,15 @@ Route::group(['middleware' => 'auth'], function () {
 
     Route::put('category-menus/sort', [CategoryMenuController::class, 'sort'])->name('category-menu.sort');
     Route::delete('category-menus/remove-item', [CategoryMenuController::class, 'removeItem'])->name('category-menu.remove-item');
+
+    //teams
+    Route::get('teams', [TeamController::class, 'index'])->name('teams.index');
+    Route::get('teams/create', [TeamController::class, 'create'])->name('teams.create');
+    Route::post('teams', [TeamController::class, 'store'])->name('teams.store');
+    Route::get('teams/{team}/edit', [TeamController::class, 'edit'])->name('teams.edit');
+    Route::get('teams/{team}', [TeamController::class, 'show'])->name('teams.show');
+    Route::put('teams/{team}', [TeamController::class, 'update'])->name('teams.update');
+    Route::delete('teams/{team}', [TeamController::class, 'destroy'])->name('teams.destroy');
 
     Route::get('upgrade', function () {
         return view('pages.upgrade');
@@ -118,5 +126,6 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('table-list', function () {
         return view('pages.tables');
     })->name('table');
+
     Route::put('profile/password', ['as' => 'profile.password', 'uses' => 'App\Http\Controllers\ProfileController@password']);
 });

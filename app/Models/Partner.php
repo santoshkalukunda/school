@@ -18,8 +18,8 @@ class Partner extends Model
     {
         return SlugOptions::create()
             ->generateSlugsFrom('title')
-            ->saveSlugsTo('slug')
-            ->doNotGenerateSlugsOnUpdate();
+            ->saveSlugsTo('slug');
+            // ->doNotGenerateSlugsOnUpdate();
     }
 
     public function getRouteKeyName()

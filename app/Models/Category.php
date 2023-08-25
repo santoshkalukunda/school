@@ -18,8 +18,8 @@ class Category extends Model
     {
         return SlugOptions::create()
             ->generateSlugsFrom('name')
-            ->saveSlugsTo('slug')
-            ->doNotGenerateSlugsOnUpdate();
+            ->saveSlugsTo('slug');
+            // ->doNotGenerateSlugsOnUpdate();
     }
 
     public function getRouteKeyName()

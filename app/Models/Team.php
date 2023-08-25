@@ -8,7 +8,7 @@ use Spatie\Sluggable\HasSlug;
 use Spatie\Sluggable\SlugOptions;
 use Wildside\Userstamps\Userstamps;
 
-class Post extends Model
+class Team extends Model
 {
     use HasFactory, Userstamps, HasSlug;
 
@@ -17,7 +17,7 @@ class Post extends Model
     public function getSlugOptions(): SlugOptions
     {
         return SlugOptions::create()
-            ->generateSlugsFrom('title')
+            ->generateSlugsFrom('name')
             ->saveSlugsTo('slug');
             // ->doNotGenerateSlugsOnUpdate();
     }
@@ -36,14 +36,8 @@ class Post extends Model
     {
         return $query->where('status', false);
     }
-
     public function user()
     {
         return $this->belongsTo(User::class);
-    }
-
-    public function categories()
-    {
-        return $this->belongsToMany(Category::class, 'posts_categories', 'post_id', 'category_id');
     }
 }
