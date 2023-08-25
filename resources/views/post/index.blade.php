@@ -13,6 +13,48 @@
                             </div>
                             <div>
                                 <a href="{{ route('posts.create') }}" class="btn btn-sm btn-primary">Add New</a>
+                                <button class="btn btn-sm btn-secondary" type="button" data-bs-toggle="offcanvas"
+                                    data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">Filter</button>
+                                <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight"
+                                    aria-labelledby="offcanvasRightLabel">
+                                    <div class="offcanvas-header">
+                                        <h5 class="offcanvas-title" id="offcanvasRightLabel">Search</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="offcanvas"
+                                            aria-label="Close"></button>
+                                    </div>
+                                    <div class="offcanvas-body">
+                                        <form action="{{ route('posts.search') }}" method="get">
+                                            <div class="mb-3">
+                                                <label for="title" class="form-label required">Title</label>
+                                                <input type="text" name="title"
+                                                    class="form-control @error('title') is-invalid @enderror" value=""
+                                                    id="title" aria-describedby="title">
+
+                                            </div>
+                                            <x-category-select />
+                                            <x-user-select />
+
+                                            <div class="mb-3">
+                                                <label for="status" class="form-label">{{ __('Status') }}</label>
+
+                                                <select class="form-control" name="status" id="status"
+                                                    aria-label="Default select example">
+                                                    <option value="">Choose</option>
+                                                    <option value="1">
+                                                        Publish</option>
+                                                    <option value="0">
+                                                        Unpublish</option>
+                                                </select>
+
+
+                                            </div>
+                                            <div class="mb-3">
+                                                <button type="submit" class="btn btn-primary">
+                                                    Search</button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>

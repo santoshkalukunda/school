@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Post;
 use App\Http\Requests\StorePostRequest;
 use App\Http\Requests\UpdatePostRequest;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 
@@ -121,5 +122,37 @@ class PostController extends Controller
         return redirect()
             ->back()
             ->with('success', 'Post Deleted');
+    }
+
+    public function search(Request $request)
+    {
+        $posts = new Post();
+
+        if ($request->has('title')) {
+            if ($request->title != null) {
+                $posts = $posts->where('title', 'like', '%' . $request->title . '%');
+            }
+        }
+        if ($request->has('user_id')) {
+            if ($request->user_id != null) {
+                $posts = $posts->where('user_id', $request->user_id);
+            }
+        }
+        if ($request->has('status')) {
+            if ($request->status != null) {
+                $posts = $posts->where('status', $request->status);
+            }
+        }
+
+        if ($request->has('category_id')) {
+            $category_id = $request->category_id;
+            $posts = $posts
+                ->whereHas('categories', function ($query) use ($category_id) {
+                    $query->whereIn('categories.id', $category_id);
+                });
+        }
+        $posts = $posts->with('user')->paginate(50);
+        $posts->appends(request()->except('page'));
+        return view('post.index', compact('posts'));
     }
 }
