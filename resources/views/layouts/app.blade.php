@@ -24,32 +24,14 @@
     <link rel="stylesheet" href="https://unpkg.com/nepali-date-picker@2.0.1/dist/nepaliDatePicker.min.css"
         crossorigin="anonymous" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
-    <link href="{{ asset('font/Kalimati.ttf') }}" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/css/select2.min.css" />
     <link rel="stylesheet"
         href="https://cdn.jsdelivr.net/npm/select2-bootstrap-5-theme@1.3.0/dist/select2-bootstrap-5-theme.min.css" />
+  
+        
+<link href="{{ asset('assets/snackbar/snackbar.min.css') }}" rel="stylesheet">
     <style>
-        @font-face {
-            font-family: 'Kalimati';
-            font-display: fallback;
-            src: url("{{ asset('font/Kalimati.ttf') }}") format('truetype');
-        }
-
-        @font-face {
-            font-family: 'Preeti';
-            font-display: fallback;
-            src: url("{{ asset('font/Preeti.otf') }}") format('openType');
-        }
-
-        .font-kalimati {
-            font-family: 'Kalimati';
-        }
-
-        .font-preeti {
-            font-family: 'Preeti';
-        }
-
         label.required:after {
             content: ' *';
             color: #fa5661;
@@ -132,6 +114,8 @@
 
     <script src="{{ asset('argon') }}/vendor/jquery/dist/jquery.min.js"></script>
     <script src="{{ asset('argon') }}/vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
     </script>
@@ -143,6 +127,8 @@
     </script>
     <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/js/select2.full.min.js"></script>
+    <script type="text/javascript" src="{{ asset('assets/snackbar/snackbar.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('assets/js/scripts.js') }}"></script>
     <script>
         $('#summernote').summernote({
             placeholder: 'Descriptions',

@@ -115,6 +115,11 @@
                     </a>
                 </li>
                 <li class="nav-item">
+                    <a class="nav-link" href="{{ route('category-menu.index') }}">
+                        <i class="ni ni-circle-08 text-pink"></i> {{ __('Category Menus') }}
+                    </a>
+                </li>
+                <li class="nav-item">
                     <a class="nav-link active" href="#navbar-examples" data-toggle="collapse" role="button"
                         aria-expanded="true" aria-controls="navbar-examples">
                         <i class="fab fa-laravel" style="color: #f4645f;"></i>

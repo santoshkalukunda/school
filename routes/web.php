@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\CarouselImageController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\CategoryMenuController;
 use App\Http\Controllers\FrontendController;
 use App\Http\Controllers\ModalImageController;
 use App\Http\Controllers\PageController;
@@ -83,6 +84,15 @@ Route::group(['middleware' => 'auth'], function () {
     // Route::get('modal-images/{modalImage}', [ModalImageController::class, 'show'])->name('modal-images.show');
     Route::put('modal-images/{modalImage}', [ModalImageController::class, 'update'])->name('modal-images.update');
     Route::delete('modal-images/{modalImage}', [ModalImageController::class, 'destroy'])->name('modal-images.destroy');
+
+    //category menu
+    Route::get('category-menu', [CategoryMenuController::class, 'index'])->name('category-menu.index');
+    Route::post('category-menu', [CategoryMenuController::class, 'store'])->name('category-menu.store');
+    Route::get('category-menu/{categoryMenu}', [CategoryMenuController::class, 'edit'])->name('category-menu.edit');
+    Route::put('category-menu/{categoryMenu}', [CategoryMenuController::class, 'update'])->name('category-menu.update');
+
+    Route::put('category-menus/sort', [CategoryMenuController::class, 'sort'])->name('category-menu.sort');
+    Route::delete('category-menus/remove-item', [CategoryMenuController::class, 'removeItem'])->name('category-menu.remove-item');
 
     Route::get('upgrade', function () {
         return view('pages.upgrade');
