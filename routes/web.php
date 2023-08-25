@@ -6,6 +6,7 @@ use App\Http\Controllers\CategoryMenuController;
 use App\Http\Controllers\FrontendController;
 use App\Http\Controllers\ModalImageController;
 use App\Http\Controllers\PageController;
+use App\Http\Controllers\PartnerController;
 use App\Http\Controllers\PostController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -84,6 +85,17 @@ Route::group(['middleware' => 'auth'], function () {
     // Route::get('modal-images/{modalImage}', [ModalImageController::class, 'show'])->name('modal-images.show');
     Route::put('modal-images/{modalImage}', [ModalImageController::class, 'update'])->name('modal-images.update');
     Route::delete('modal-images/{modalImage}', [ModalImageController::class, 'destroy'])->name('modal-images.destroy');
+
+    
+    //partners
+    Route::get('partners', [PartnerController::class, 'index'])->name('partners.index');
+    Route::get('partners/create', [PartnerController::class, 'create'])->name('partners.create');
+    Route::post('partners', [PartnerController::class, 'store'])->name('partners.store');
+    Route::get('partners/{modalImage}/edit', [PartnerController::class, 'edit'])->name('partners.edit');
+    // Route::get('partners/{modalImage}', [PartnerController::class, 'show'])->name('partners.show');
+    Route::put('partners/{modalImage}', [PartnerController::class, 'update'])->name('partners.update');
+    Route::delete('partners/{modalImage}', [PartnerController::class, 'destroy'])->name('partners.destroy');
+
 
     //category menu
     Route::get('category-menu', [CategoryMenuController::class, 'index'])->name('category-menu.index');

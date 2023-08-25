@@ -53,4 +53,9 @@ class User extends Authenticatable
     {
         return $this->hasMany(ModalImage::class);
     }
+
+    public function partners()
+    {
+        return $this->hasMany(Partner::class);
+    }
 }
