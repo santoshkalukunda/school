@@ -91,10 +91,10 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('partners', [PartnerController::class, 'index'])->name('partners.index');
     Route::get('partners/create', [PartnerController::class, 'create'])->name('partners.create');
     Route::post('partners', [PartnerController::class, 'store'])->name('partners.store');
-    Route::get('partners/{modalImage}/edit', [PartnerController::class, 'edit'])->name('partners.edit');
-    // Route::get('partners/{modalImage}', [PartnerController::class, 'show'])->name('partners.show');
-    Route::put('partners/{modalImage}', [PartnerController::class, 'update'])->name('partners.update');
-    Route::delete('partners/{modalImage}', [PartnerController::class, 'destroy'])->name('partners.destroy');
+    Route::get('partners/{partner}/edit', [PartnerController::class, 'edit'])->name('partners.edit');
+    // Route::get('partners/{partner}', [PartnerController::class, 'show'])->name('partners.show');
+    Route::put('partners/{partner}', [PartnerController::class, 'update'])->name('partners.update');
+    Route::delete('partners/{partner}', [PartnerController::class, 'destroy'])->name('partners.destroy');
 
 
     //category menu
