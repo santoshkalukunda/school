@@ -5,7 +5,7 @@
                 <div class="carousel-item">
                     <div class="carousel-img">
                         <img src="{{ $carouselImage->image ? asset('storage/' . $carouselImage->image) : asset('assets/img/no-image.png') }}"
-                            alt="{{ $carouselImage->title }}">
+                            alt="{{ $carouselImage->title }}" class="sliding-image">
                     </div>
                     <div class="carousel-text">
                         <h1 class="text-capitalize">{{ $carouselImage->title }}</h1>

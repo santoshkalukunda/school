@@ -26,23 +26,22 @@
     @include('frontend.layouts.facts')
     <!-- Facts End --> --}}
 
-    
-    <!-- Event Start -->
-    @include('frontend.layouts.event')
-    <!-- Event End -->
+
+
 
     <!-- Causes Start -->
-    @include('frontend.layouts.program')
+    @include('frontend.layouts.projects')
     <!-- Causes End -->
 
 
-    <!-- Donate Start -->
+    {{-- <!-- Donate Start -->
     @include('frontend.layouts.donate')
-
-    <!-- Donate End -->
-
+    <!-- Donate End --> --}}
 
 
+    {{-- <!-- Event Start -->
+    @include('frontend.layouts.event')
+    <!-- Event End --> --}}
 
 
     <!-- Team Start -->
@@ -50,27 +49,26 @@
 
     <!-- Team End -->
 
-  
+
     <!-- Volunteer Start -->
-    
-    <!-- Volunteer End --> 
-{{-- 
+
+    <!-- Volunteer End -->
+    {{-- 
     <!-- Volunteer Start -->
     @include('frontend.layouts.volunteer')
     <!-- Volunteer End --> --}}
 
 
-    <!-- Testimonial Start -->
-    @include('frontend.layouts.testimonial')
-    <!-- Testimonial End -->
+    <!-- partners Start -->
+    @include('frontend.layouts.partners')
+    <!-- partners End -->
 
+
+    {{-- <!-- Blog Start -->
+        @include('frontend.layouts.blog')
+        <!-- Blog End --> --}}
 
     <!-- Contact Start -->
     @include('frontend.layouts.contact')
     <!-- Contact End -->
-
-
-    <!-- Blog Start -->
-    @include('frontend.layouts.blog')
-    <!-- Blog End -->
 @endsection

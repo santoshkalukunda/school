@@ -26,6 +26,38 @@
     <!-- Template Stylesheet -->
     <link href="{{ asset('assets/css/style.css') }}" rel="stylesheet">
 
+    <style>
+        .feature-image {
+            border: 1px solid #ddd;
+            padding: 2px;
+            max-height: 180px;
+            object-fit: cover;
+            position: relative;
+            /* margin: 20px; */
+        }
+        .teams-image {
+            border: 1px solid #ddd;
+            padding: 2px;
+            width: 300px;
+            height: 300px;
+            object-fit: cover;
+            position: relative;
+            /* margin: 20px; */
+        }
+        .partner-image {
+            max-width: 100px;
+            max-height: 80px;
+            object-fit: fill;
+            /* position: relative; */
+            /* margin: 20px; */
+        }
+        .sliding-image{
+            max-height: 100vh;
+            object-fit: fill;
+        }
+    </style>
+    @stack('styles')
+
 </head>
 
 <body>

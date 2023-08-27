@@ -40,7 +40,7 @@
                                     </div>
                                     <div class="mb-3">
                                         <label for="summernote" class="form-label required">Descriptions</label>
-                                        <textarea name="descriptions" class="" id="summernote" cols="30" rows="10">{{$post->descriptions}}</textarea>
+                                        <textarea name="descriptions" class="" id="summernote" cols="30" rows="10">{{old('descriptions',$post->descriptions)}}</textarea>
                                     </div>
                                 </div>
                                 <div class="col-md-3">

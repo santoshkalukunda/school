@@ -16,16 +16,38 @@ class CategorySeeder extends Seeder
     {
         $categories = [
             [
-                'name' => 'Program',
+                'name' => 'Projects',
             ],
             [
-                'name' => 'Event',
+                'parent_id' => 1,
+                'name' => 'Ongoing Projects',
+            ],
+            [
+                'parent_id' => 1,
+                'name' => 'Completed Projects',
+            ],
+            [
+                'name' => 'News & Notice',
+            ],
+            [
+                'parent_id' => 4,
+                'name' => 'Notices',
+            ],
+            [
+                'parent_id' => 4,
+                'name' => 'Vacancy',
+            ],
+            [
+                'name' => 'Events',
             ],
             [
                 'name' => 'Blog',
             ],
             [
-                'name' => 'Page',
+                'name' => 'Photo Gallery',
+            ],
+            [
+                'name' => 'Video Gallery',
             ],
             [
                 'name' => 'No-category',

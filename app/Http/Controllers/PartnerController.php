@@ -87,6 +87,7 @@ class PartnerController extends Controller
     public function update(UpdatePartnerRequest $request, Partner $partner)
     {
         $data = $request->validated();
+        // return $request;
         if ($request->file('image')) {
             if ($partner->image) {
                 Storage::delete($partner->image);

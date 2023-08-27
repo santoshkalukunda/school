@@ -7,14 +7,14 @@
            @foreach ($categories as $category)
                @if ($categoryMenu->category_id == $category->id)
                    @if ($category->childCategories->isEmpty())
-                       <a href="program.html" class="nav-item nav-link">{{ $category->name }}</a>
+                       <a href="program.html" class="nav-item nav-link text-capitalize">{{ $category->name }}</a>
                    @else
                        <div class="nav-item dropdown">
                            <a href="#" class="nav-link dropdown-toggle"
                                data-toggle="dropdown">{{ $category->name }}</a>
                            <div class="dropdown-menu">
                                @foreach ($category->childCategories as $secondLevelCategory)
-                                   <a href="single.html" class="dropdown-item">{{ $secondLevelCategory->name }}</a>
+                                   <a href="single.html" class="dropdown-item text-capitalize">{{ $secondLevelCategory->name }}</a>
                                @endforeach
                            </div>
                        </div>

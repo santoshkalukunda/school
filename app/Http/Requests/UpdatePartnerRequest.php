@@ -25,7 +25,7 @@ class UpdatePartnerRequest extends FormRequest
     {
         return [
             'name' => 'required',
-            'image' => 'required',
+            'image' => 'nullable',
             'url' => 'nullable',
             'descriptions' => 'nullable',
             'status' => 'required',

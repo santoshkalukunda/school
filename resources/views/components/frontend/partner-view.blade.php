@@ -4,7 +4,7 @@
             <a href="{{ $partner->url ?? '#' }}">
                 <div class="testimonial-profile">
                     <img src="{{ $partner->image ? asset('storage/' . $partner->image) : asset('assets/img/no-image.png') }}"
-                        alt="Image">
+                        alt="{{ $partner->name }}" class="partner-image">
                     <div class="testimonial-name">
                         <h3 class="text-capitalize">{{ $partner->name }}</h3>
 
