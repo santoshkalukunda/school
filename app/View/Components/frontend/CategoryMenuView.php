@@ -15,15 +15,17 @@ class CategoryMenuView extends Component
      * @return void
      */
     public $categoryMenus;
+    public $categories;
 
     public function __construct()
     {
-        // $this->categoryMenus = CategoryMenu::positioned()
-        // ->get();
+        $this->categoryMenus = CategoryMenu::positioned()->get();
 
-        $this->categoryMenus = Cache::remember(config('constants.multilevel-category-menu.key'), config('constants.multilevel-category-menu.expiration_time'), function () {
-            return Category::with('childcategories.childcategories')->where('parent_id', null)->actived()->orderBy('name')->get();
-        });
+        $this->categories = Category::with('childcategories.childcategories')
+            ->where('parent_id', null)
+            ->actived()
+            ->orderBy('name')
+            ->get();
     }
 
     /**

@@ -28,7 +28,7 @@
                             </div>
                             <div class="mb-3">
                                 <select name="parent_id" class="custom-select @error('parent_id') is-invalid @enderror "
-                                    id="" required>
+                                    id="">
                                     <option value="">None</option>
                                     @foreach ($categories as $firstLevelCategory)
                                         <option value="{{ $firstLevelCategory->id }}"

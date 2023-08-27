@@ -18,7 +18,7 @@ class CategoryMenuController extends Controller
     public function index(CategoryMenu $categoryMenu = null)
     {
         $categoryMenus = CategoryMenu::positioned()->get();
-        $categories = Category::whereNotIn('id', function ($query) {
+        $categories = Category::with(['childCategories.childCategories'])->where('parent_id', null)->whereNotIn('id', function ($query) {
             $query->select('category_id')->from('category_menus');
         })
             ->latest()

@@ -23,8 +23,16 @@
                             <div class="mb-3">
                                 <select name="category_id" id=""
                                     class="custom-select @error('category_id') is-invalid @enderror">
-                                    @foreach ($categories as $category)
-                                        <option value="{{ $category->id }}">{{ $category->name }}</option>
+                                    <option value="">None</option>
+                                    @foreach ($categories as $firstLevelCategory)
+                                        <option value="{{ $firstLevelCategory->id }}">
+                                            {{ $firstLevelCategory->name }}
+                                        </option>
+                                        @foreach ($firstLevelCategory->childcategories as $secondLevelCat)
+                                            <option value="{{ $secondLevelCat->id }}">
+                                                -- {{ $secondLevelCat->name }}
+                                            </option>
+                                        @endforeach
                                     @endforeach
                                 </select>
                                 <div class="invalid-feedback">
@@ -34,19 +42,7 @@
 
                                 </div>
                             </div>
-                            <div class="mb-3">
-                                <label for="display_name" class="form-label required">Display Name</label>
-                                <input type="text" name="display_name"
-                                    class="form-control @error('display_name') is-invalid @enderror"
-                                    value="{{ old('display_name', $categoryMenu->display_name) }}" id="display_name"
-                                    aria-describedby="display_name">
-                                <div class="invalid-feedback">
-                                    @error('display_name')
-                                        {{ $message }}
-                                    @enderror
 
-                                </div>
-                            </div>
 
                             <div class="mb-3">
                                 <button type="submit" class="btn btn-primary">
