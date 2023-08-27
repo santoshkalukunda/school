@@ -20,7 +20,7 @@ class CreatePartnersTable extends Migration
                 ->constrained('users')
                 ->onDelete('cascade');
             $table->string('slug');
-            $table->string('title');
+            $table->string('name');
             $table->string('image');
             $table->string('url')->nullable();
             $table->longText('descriptions')->nullable();

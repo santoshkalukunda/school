@@ -26,13 +26,13 @@
                             <div class="row">
                                 <div class="col-md-9">
                                     <div class="mb-3">
-                                        <label for="title" class="form-label required">Name</label>
-                                        <input type="text" name="title"
-                                            class="form-control @error('title') is-invalid @enderror"
-                                            value="{{ old('title', $partner->title) }}" id="title"
-                                            aria-describedby="title">
+                                        <label for="name" class="form-label required">Name</label>
+                                        <input type="text" name="name"
+                                            class="form-control @error('name') is-invalid @enderror"
+                                            value="{{ old('name', $partner->name) }}" id="name"
+                                            aria-describedby="name">
                                         <div class="invalid-feedback">
-                                            @error('title')
+                                            @error('name')
                                                 {{ $message }}
                                             @enderror
 

@@ -33,7 +33,7 @@
                                 <tbody>
                                     @forelse($partners as $partner)
                                         <tr>
-                                            <td>{{ $partner->title }}</td>
+                                            <td>{{ $partner->name }}</td>
                                             <td>
                                                 <img id="newProfilePhotoPreview"
                                                     src="{{ $partner->image ? asset('storage/' . $partner->image) : asset('assets/img/no-image.png') }}"

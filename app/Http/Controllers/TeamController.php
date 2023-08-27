@@ -6,6 +6,7 @@ use App\Models\Team;
 use App\Http\Requests\StoreTeamRequest;
 use App\Http\Requests\UpdateTeamRequest;
 use App\Models\Page;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
 class TeamController extends Controller
@@ -111,5 +112,16 @@ class TeamController extends Controller
         return redirect()
             ->back()
             ->with('success', 'Team Deleted');
+    }
+
+    public function sort(Request $request)
+    {
+        $teams = json_decode(json_encode($request->teams));
+
+        foreach ($teams as $team) {
+            Team::whereId($team->id)->update(['position' => $team->position]);
+        }
+
+        return response()->json(['message' => 'Menu has been sorted'], 200);
     }
 }

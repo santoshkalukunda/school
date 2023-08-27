@@ -39,6 +39,13 @@ Auth::routes();
 
 Route::get('/home', 'App\Http\Controllers\HomeController@index')->name('home');
 
+Route::get('posts/{post}', [PostController::class, 'show'])->name('posts.show');
+Route::get('pages/{page}', [PageController::class, 'show'])->name('pages.show');
+Route::get('teams/{team}', [TeamController::class, 'show'])->name('teams.show');
+
+// Route::get('modal-images/{modalImage}', [ModalImageController::class, 'show'])->name('modal-images.show');
+// Route::get('partners/{partner}', [PartnerController::class, 'show'])->name('partners.show');
+
 Route::group(['prefix' => 'backend', 'middleware' => 'auth'], function () {
     Route::resource('user', 'App\Http\Controllers\UserController', ['except' => ['show']]);
     Route::get('profile', ['as' => 'profile.edit', 'uses' => 'App\Http\Controllers\ProfileController@edit']);
@@ -57,7 +64,6 @@ Route::group(['prefix' => 'backend', 'middleware' => 'auth'], function () {
     Route::get('posts/search', [PostController::class, 'search'])->name('posts.search');
     Route::post('posts', [PostController::class, 'store'])->name('posts.store');
     Route::get('posts/{post}/edit', [PostController::class, 'edit'])->name('posts.edit');
-    Route::get('posts/{post}', [PostController::class, 'show'])->name('posts.show');
     Route::put('posts/{post}', [PostController::class, 'update'])->name('posts.update');
     Route::delete('posts/{post}', [PostController::class, 'destroy'])->name('posts.destroy');
 
@@ -66,7 +72,6 @@ Route::group(['prefix' => 'backend', 'middleware' => 'auth'], function () {
     Route::get('pages/create', [PageController::class, 'create'])->name('pages.create');
     Route::post('pages', [PageController::class, 'store'])->name('pages.store');
     Route::get('pages/{page}/edit', [PageController::class, 'edit'])->name('pages.edit');
-    Route::get('pages/{page}', [PageController::class, 'show'])->name('pages.show');
     Route::put('pages/{page}', [PageController::class, 'update'])->name('pages.update');
     Route::delete('pages/{page}', [PageController::class, 'destroy'])->name('pages.destroy');
 
@@ -84,7 +89,6 @@ Route::group(['prefix' => 'backend', 'middleware' => 'auth'], function () {
     Route::get('modal-images/create', [ModalImageController::class, 'create'])->name('modal-images.create');
     Route::post('modal-images', [ModalImageController::class, 'store'])->name('modal-images.store');
     Route::get('modal-images/{modalImage}/edit', [ModalImageController::class, 'edit'])->name('modal-images.edit');
-    // Route::get('modal-images/{modalImage}', [ModalImageController::class, 'show'])->name('modal-images.show');
     Route::put('modal-images/{modalImage}', [ModalImageController::class, 'update'])->name('modal-images.update');
     Route::delete('modal-images/{modalImage}', [ModalImageController::class, 'destroy'])->name('modal-images.destroy');
 
@@ -93,7 +97,6 @@ Route::group(['prefix' => 'backend', 'middleware' => 'auth'], function () {
     Route::get('partners/create', [PartnerController::class, 'create'])->name('partners.create');
     Route::post('partners', [PartnerController::class, 'store'])->name('partners.store');
     Route::get('partners/{partner}/edit', [PartnerController::class, 'edit'])->name('partners.edit');
-    // Route::get('partners/{partner}', [PartnerController::class, 'show'])->name('partners.show');
     Route::put('partners/{partner}', [PartnerController::class, 'update'])->name('partners.update');
     Route::delete('partners/{partner}', [PartnerController::class, 'destroy'])->name('partners.destroy');
 
@@ -102,16 +105,15 @@ Route::group(['prefix' => 'backend', 'middleware' => 'auth'], function () {
     Route::post('category-menu', [CategoryMenuController::class, 'store'])->name('category-menu.store');
     Route::get('category-menu/{categoryMenu}', [CategoryMenuController::class, 'edit'])->name('category-menu.edit');
     Route::put('category-menu/{categoryMenu}', [CategoryMenuController::class, 'update'])->name('category-menu.update');
-
     Route::put('category-menus/sort', [CategoryMenuController::class, 'sort'])->name('category-menu.sort');
     Route::delete('category-menus/remove-item', [CategoryMenuController::class, 'removeItem'])->name('category-menu.remove-item');
 
     //teams
     Route::get('teams', [TeamController::class, 'index'])->name('teams.index');
     Route::get('teams/create', [TeamController::class, 'create'])->name('teams.create');
+    Route::put('teams/sort', [TeamController::class, 'sort'])->name('teams.sort');
     Route::post('teams', [TeamController::class, 'store'])->name('teams.store');
     Route::get('teams/{team}/edit', [TeamController::class, 'edit'])->name('teams.edit');
-    Route::get('teams/{team}', [TeamController::class, 'show'])->name('teams.show');
     Route::put('teams/{team}', [TeamController::class, 'update'])->name('teams.update');
     Route::delete('teams/{team}', [TeamController::class, 'destroy'])->name('teams.destroy');
 

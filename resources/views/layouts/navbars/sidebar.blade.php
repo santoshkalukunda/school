@@ -91,42 +91,42 @@
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('posts.index') }}">
-                        <i class="ni ni-circle-08 text-pink"></i> {{ __('Posts') }}
+                        <i class="bi bi-postcard text-primary"></i>{{ __('Posts') }}
                     </a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('pages.index') }}">
-                        <i class="ni ni-circle-08 text-pink"></i> {{ __('Pages') }}
+                        <i class="bi bi-file-earmark-fill text-primary"></i></i> {{ __('Pages') }}
                     </a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('carousel-images.index') }}">
-                        <i class="ni ni-circle-08 text-pink"></i> {{ __('Carousel Images') }}
+                        <i class="bi bi-file-earmark-easel text-primary"></i> {{ __('Carousel Images') }}
                     </a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('modal-images.index') }}">
-                        <i class="ni ni-circle-08 text-pink"></i> {{ __('Modal Images') }}
+                        <i class="bi bi-app-indicator text-primary"></i>{{ __('Modal Images') }}
                     </a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('categories.index') }}">
-                        <i class="ni ni-circle-08 text-pink"></i> {{ __('Categories') }}
+                        <i class="bi bi-tags text-primary"></i>{{ __('Categories') }}
                     </a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('category-menu.index') }}">
-                        <i class="ni ni-circle-08 text-pink"></i> {{ __('Category Menus') }}
+                        <i class="bi bi-menu-down text-primary"></i> {{ __('Category Menus') }}
                     </a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('partners.index') }}">
-                        <i class="ni ni-circle-08 text-pink"></i> {{ __('Partners') }}
+                        <i class="bi bi-diagram-3 text-primary"></i> {{ __('Partners') }}
                     </a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('teams.index') }}">
-                        <i class="ni ni-circle-08 text-pink"></i> {{ __('Teams') }}
+                        <i class="bi bi-people text-primary"></i> {{ __('Teams') }}
                     </a>
                 </li>
                 <li class="nav-item">

@@ -24,7 +24,7 @@ class UpdatePartnerRequest extends FormRequest
     public function rules()
     {
         return [
-            'title' => 'required',
+            'name' => 'required',
             'image' => 'required',
             'url' => 'nullable',
             'descriptions' => 'nullable',

@@ -1,6 +1,18 @@
 @extends('layouts.app', ['title' => __('Teams')])
 
 @section('content')
+    @push('styles')
+        <style>
+            .sortable-placeholder {
+                border: 2px dashed #4285f4;
+                height: 35px;
+            }
+
+            .sort-handle:hover {
+                cursor: pointer;
+            }
+        </style>
+    @endpush
     <div class="container-fluid mt--7">
         <div class="row justify-content-center">
 
@@ -34,10 +46,10 @@
                                     <th>Status</th>
                                     <th></th>
                                 </thead>
-                                <tbody>
+                                <tbody id="sortable-category-menu">
                                     @forelse($teams as $team)
-                                        <tr>
-                                            <td>
+                                        <tr data-id="{{ $team->id }}" data-order="{{ $team->position ?? 0 }}">
+                                            <td class="sort-handle p-2">
                                                 <img id="newProfilePhotoPreview"
                                                     src="{{ $team->photo ? asset('storage/' . $team->photo) : asset('assets/img/no-image.png') }}"
                                                     class="profile-nav">
@@ -95,14 +107,60 @@
                                         </tr>
                                     @endforelse
                                 </tbody>
-
-
                             </table>
                         </div>
+                        <button id="update-menu-order-btn" type="button" class="btn btn-primary mx-0 mt-3">Update
+                            Order</button>
                         {{ $teams->links() }}
                     </div>
                 </div>
             </div>
         </div>
     </div>
+    @push('scripts')
+        <script>
+            $(function() {
+                // Sorting
+                $('#sortable-category-menu').sortable({
+                    handle: '.sort-handle',
+                    placeholder: 'sortable-placeholder',
+                    update: function(event, ui) {
+                        $(this).children().each(function(index) {
+                            if ($(this).attr('data-order') != (index + 1)) {
+                                $(this).attr('data-order', (index + 1)).addClass('order-updated');
+                            }
+                        });
+                    }
+                });
+
+                function persistUpdatedOrder() {
+                    var teams = [];
+                    $('.order-updated').each(function() {
+                        teams.push({
+                            id: $(this).attr('data-id'),
+                            position: $(this).attr('data-order')
+                        });
+                    });
+                    console.table(teams);
+                    axios({
+                        method: 'put',
+                        url: "{{ route('teams.sort') }}",
+                        data: {
+                            teams: teams,
+                        }
+                    }).then(function(response) {
+                        console.log(response);
+                        if (response.status == 200) {
+                            showAlert('default', response.data.message);
+                        }
+                    });
+                }
+
+                $('#update-menu-order-btn').click(function(e) {
+                    e.preventDefault();
+                    persistUpdatedOrder();
+                });
+            });
+        </script>
+    @endpush
 @endsection

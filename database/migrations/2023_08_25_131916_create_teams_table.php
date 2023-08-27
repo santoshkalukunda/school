@@ -22,6 +22,7 @@ class CreateTeamsTable extends Migration
             $table->string('phone')->nullable();
             $table->string('email')->nullable();
             $table->string('photo')->nullable();
+            $table->smallInteger('position')->nullable();
             $table->boolean('status')->default(true);
             $table->unsignedBigInteger('created_by')->nullable();
             $table->unsignedBigInteger('updated_by')->nullable();

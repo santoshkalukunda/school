@@ -26,21 +26,23 @@
     @include('frontend.layouts.facts')
     <!-- Facts End --> --}}
 
+    
+    <!-- Event Start -->
+    @include('frontend.layouts.event')
+    <!-- Event End -->
 
     <!-- Causes Start -->
     @include('frontend.layouts.program')
     <!-- Causes End -->
 
 
-    {{-- <!-- Donate Start -->
+    <!-- Donate Start -->
     @include('frontend.layouts.donate')
 
-    <!-- Donate End --> --}}
+    <!-- Donate End -->
 
 
-    <!-- Event Start -->
-    @include('frontend.layouts.event')
-    <!-- Event End -->
+
 
 
     <!-- Team Start -->
