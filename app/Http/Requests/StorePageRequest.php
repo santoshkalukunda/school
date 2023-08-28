@@ -28,6 +28,8 @@ class StorePageRequest extends FormRequest
             'feature_image' => 'nullable',
             'descriptions' => 'nullable',
             'status' => 'required',
+            'name' => 'nullable',
+            'file' => 'nullable',
         ];
     }
 }

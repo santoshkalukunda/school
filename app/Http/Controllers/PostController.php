@@ -58,12 +58,13 @@ class PostController extends Controller
             ->posts()
             ->create($data);
         $post->categories()->attach($data['category_id']);
-
-        foreach ($request->name as $key => $name) {
-            $post->postDocuments()->create([
-                'name' => $name,
-                'file' => Storage::putFile('post-documents', $request->file('file')[$key]),
-            ]);
+        if ($request->name != '' && $request->file != '' ) {
+            foreach ($request->name as $key => $name) {
+                $post->postDocuments()->create([
+                    'name' => $name,
+                    'file' => Storage::putFile('post-documents', $request->file('file')[$key]),
+                ]);
+            }
         }
         return redirect()
             ->route('posts.index')
@@ -113,7 +114,7 @@ class PostController extends Controller
         $post->update($data);
         $post->categories()->sync($data['category_id']);
         // return  $request->name;
-        if ($request->name != "") {
+        if ($request->name != '' && $request->file != '') {
             foreach ($request->name as $key => $name) {
                 $post->postDocuments()->create([
                     'name' => $name,

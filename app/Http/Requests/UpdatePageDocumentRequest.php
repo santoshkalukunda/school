@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class UpdatePageRequest extends FormRequest
+class UpdatePageDocumentRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -13,7 +13,7 @@ class UpdatePageRequest extends FormRequest
      */
     public function authorize()
     {
-        return true;
+        return false;
     }
 
     /**
@@ -24,12 +24,7 @@ class UpdatePageRequest extends FormRequest
     public function rules()
     {
         return [
-            'title' => 'required',
-            'feature_image' => 'nullable',
-            'descriptions' => 'nullable',
-            'status' => 'required',
-            'name' => 'nullable',
-            'file' => 'nullable',
+            //
         ];
     }
 }

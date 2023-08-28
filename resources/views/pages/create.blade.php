@@ -18,7 +18,8 @@
                     </div>
 
                     <div class="card-body">
-                        <form action="{{ $page->id ? route('pages.update', $page) : route('pages.store') }}" method="post" enctype="multipart/form-data">
+                        <form action="{{ $page->id ? route('pages.update', $page) : route('pages.store') }}" method="post"
+                            enctype="multipart/form-data">
                             @csrf
                             @if ($page->id)
                                 @method('put')
@@ -40,7 +41,7 @@
                                     </div>
                                     <div class="mb-3">
                                         <label for="summernote" class="form-label required">Descriptions</label>
-                                        <textarea name="descriptions" class="" id="summernote" cols="30" rows="10">{{$page->descriptions}}</textarea>
+                                        <textarea name="descriptions" class="" id="summernote" cols="30" rows="10">{{ $page->descriptions }}</textarea>
                                     </div>
                                 </div>
                                 <div class="col-md-3">
@@ -76,8 +77,78 @@
                                         @enderror
                                     </div>
                                 </div>
-
-                                <div class="mb-3">
+                                <div class="mb-3 text-end">
+                                    <button id="rowAdder" type="button" class="btn btn-dark">
+                                        <span class="bi bi-plus-square-dotted">
+                                        </span> ADD
+                                    </button>
+                                </div>
+                                <div class="colmd-12 mb-3">
+                                    <div class="table-responsive" style="overflow-x: auto;">
+                                        <table class="table text-sm g-0">
+                                            <thead style="white-space: nowrap;">
+                                                <div class="row">
+                                                    <th>
+                                                        File Name
+                                                    </th>
+                                                    <th>
+                                                        Choose File
+                                                    </th>
+                                                    <th colspan="2">
+                                                    </th>
+                                                    </tr>
+                                            </thead>
+                                            <tbody style="white-space: nowrap;" id="newinput">
+                                                @if ($page->id)
+                                                    @foreach ($page->pageDocuments as $pageDocument)
+                                                        <tr id="tr">
+                                                            <td>
+                                                                <div>{{ $pageDocument->name }}</div>
+                                                            </td>
+                                                            <td>
+                                                                <a href="{{ asset('storage/' . $pageDocument->file) }}"
+                                                                    target="_blank" rel="noopener noreferrer">View</a>
+                                                            </td>
+                                                            <td>
+                                                                <a
+                                                                    href="{{ route('post-documents.destroy', $pageDocument) }}">
+                                                                    <button class="btn btn-danger bg-danger text-white"
+                                                                        type="button"> <i
+                                                                            class="bi bi-trash"></i>Delete</button>
+                                                            </td>
+                                                            </a>
+                                                        </tr>
+                                                    @endforeach
+                                                @else
+                                                    <tr id="tr">
+                                                        <td><input type="text" name="name[]"
+                                                                class="form-control @error('name') is-invalid @enderror"value="{{ old('name[]') }}"
+                                                                id="name">
+                                                            <div class="invalid-feedback">
+                                                                @error('name')
+                                                                    {{ $message }}
+                                                                @enderror
+                                                            </div>
+                                                        </td>
+                                                        <td><input type="file"
+                                                                name="file[]"class="form-control @error('file') is-invalid @enderror"
+                                                                value="{{ old('file[]') }}" id="file">
+                                                            <div class="invalid-feedback">
+                                                                @error('file')
+                                                                    {{ $message }}
+                                                                @enderror
+                                                            </div>
+                                                        </td>
+                                                        <td><button class="btn btn-danger bg-danger text-white"
+                                                                id="DeleteRow" type="button"> <i
+                                                                    class="bi bi-trash"></i>Delete</button></td>
+                                                    </tr>
+                                                @endif
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                                <div class="mb-3 text-end">
                                     <button type="submit" class="btn btn-primary">
                                         {{ $page->id ? 'Update' : 'Save' }}</button>
                                 </div>
@@ -90,25 +161,38 @@
         </div>
     </div>
     @push('scripts')
-    <script>
-        function readNewProfilePhotoUrl(input) {
-            if (input.files && input.files[0]) {
-                var reader = new FileReader();
-                reader.onload = function(e) {
-                    document.getElementById('newProfilePhotoPreview').setAttribute('src', e.target.result);
-                    initializeCroppie();
-                    openNewPicWindow();
+        <script>
+            function readNewProfilePhotoUrl(input) {
+                if (input.files && input.files[0]) {
+                    var reader = new FileReader();
+                    reader.onload = function(e) {
+                        document.getElementById('newProfilePhotoPreview').setAttribute('src', e.target.result);
+                        initializeCroppie();
+                        openNewPicWindow();
+                    }
+                    reader.readAsDataURL(input.files[0]);
                 }
-                reader.readAsDataURL(input.files[0]);
             }
-        }
 
-        var newProfilePhoto = document.getElementById('newProfilePhoto');
-        newProfilePhoto.addEventListener('change', function() {
-            console.log('Profile photo selected');
-            readNewProfilePhotoUrl(this);
-        });
-    </script>
-@endpush
+            var newProfilePhoto = document.getElementById('newProfilePhoto');
+            newProfilePhoto.addEventListener('change', function() {
+                console.log('Profile photo selected');
+                readNewProfilePhotoUrl(this);
+            });
+        </script>
+        <script type="text/javascript">
+            $("#rowAdder").click(function() {
+                newRowAdd =
+                    '<tr id="tr"><td><input type="text" name="name[]" class="form-control @error('name') is-invalid @enderror"value="{{ old('name[]') }}" id="name"  required><div class="invalid-feedback">@error('name'){{ $message }}@enderror</div></td>' +
+                    '<td><input type="file" name="file[]"class="form-control @error('file') is-invalid @enderror" value="{{ old('file[]') }}" id="file"> <div class="invalid-feedback">@error('file'){{ $message }}@enderror</div></td>' +
+                    '<td><button class="btn btn-danger bg-danger text-white" id="DeleteRow" type="button"> <i class="bi bi-trash"></i>Delete</button></td></tr>';
+                $('#newinput').append(newRowAdd);
+            });
+            $("body").on("click", "#DeleteRow", function() {
+                // console.log("delete");
+                $(this).parents("#tr").remove();
+            });
+        </script>
+    @endpush
 
 @endsection

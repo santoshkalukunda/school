@@ -47,9 +47,17 @@ class PageController extends Controller
         if ($request->file('feature_image')) {
             $data['feature_image'] = Storage::putFile('page-feature-image', $request->file('feature_image'));
         }
-        Auth::user()
+        $page = Auth::user()
             ->pages()
             ->create($data);
+        if ($request->name != '' && $request->file != '') {
+            foreach ($request->name as $key => $name) {
+                $page->pageDocuments()->create([
+                    'name' => $name,
+                    'file' => Storage::putFile('page-documents', $request->file('file')[$key]),
+                ]);
+            }
+        }
         return redirect()
             ->route('pages.index')
             ->with('success', 'Page Created');
@@ -96,8 +104,16 @@ class PageController extends Controller
         }
 
         $page->update($data);
+        if ($request->name != '' && $request->file != '') {
+            foreach ($request->name as $key => $name) {
+                $page->pageDocuments()->create([
+                    'name' => $name,
+                    'file' => Storage::putFile('page-documents', $request->file('file')[$key]),
+                ]);
+            }
+        }
         return redirect()
-            ->route('pages.index')
+            ->route('pages.edit', $page)
             ->with('success', 'Page Updated');
     }
 
