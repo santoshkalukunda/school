@@ -29,6 +29,8 @@ class UpdatePostRequest extends FormRequest
             'feature_image' => 'nullable',
             'descriptions' => 'nullable',
             'status' => 'nullable',
+            'name' => 'nullable',
+            'file' => 'nullable',
         ];
     }
 }

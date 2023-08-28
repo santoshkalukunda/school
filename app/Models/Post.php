@@ -46,4 +46,7 @@ class Post extends Model
     {
         return $this->belongsToMany(Category::class, 'posts_categories', 'post_id', 'category_id');
     }
+    public function postDocuments(){
+        return $this->hasMany(PostDocument::class);
+    }
 }

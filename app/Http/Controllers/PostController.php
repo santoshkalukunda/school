@@ -9,6 +9,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 
+use function PHPUnit\Framework\isEmpty;
+
 class PostController extends Controller
 {
     /**
@@ -45,7 +47,7 @@ class PostController extends Controller
      */
     public function store(StorePostRequest $request)
     {
-        // return $request;
+        //  return $request;
         $data = $request->validated();
         // return $data;
         if ($request->file('feature_image')) {
@@ -56,6 +58,13 @@ class PostController extends Controller
             ->posts()
             ->create($data);
         $post->categories()->attach($data['category_id']);
+
+        foreach ($request->name as $key => $name) {
+            $post->postDocuments()->create([
+                'name' => $name,
+                'file' => Storage::putFile('post-documents', $request->file('file')[$key]),
+            ]);
+        }
         return redirect()
             ->route('posts.index')
             ->with('success', 'Post Created');
@@ -103,8 +112,17 @@ class PostController extends Controller
 
         $post->update($data);
         $post->categories()->sync($data['category_id']);
+        // return  $request->name;
+        if ($request->name != "") {
+            foreach ($request->name as $key => $name) {
+                $post->postDocuments()->create([
+                    'name' => $name,
+                    'file' => Storage::putFile('post-documents', $request->file('file')[$key]),
+                ]);
+            }
+        }
         return redirect()
-            ->route('posts.index')
+            ->back()
             ->with('success', 'Post Updated');
     }
 
@@ -146,10 +164,9 @@ class PostController extends Controller
 
         if ($request->has('category_id')) {
             $category_id = $request->category_id;
-            $posts = $posts
-                ->whereHas('categories', function ($query) use ($category_id) {
-                    $query->whereIn('categories.id', $category_id);
-                });
+            $posts = $posts->whereHas('categories', function ($query) use ($category_id) {
+                $query->whereIn('categories.id', $category_id);
+            });
         }
         $posts = $posts->with('user')->paginate(50);
         $posts->appends(request()->except('page'));

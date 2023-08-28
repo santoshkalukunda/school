@@ -8,6 +8,7 @@ use App\Http\Controllers\ModalImageController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\PartnerController;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\PostDocumentController;
 use App\Http\Controllers\TeamController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -67,6 +68,10 @@ Route::group(['prefix' => 'backend', 'middleware' => 'auth'], function () {
     Route::put('posts/{post}', [PostController::class, 'update'])->name('posts.update');
     Route::delete('posts/{post}', [PostController::class, 'destroy'])->name('posts.destroy');
 
+    //post document delete
+    Route::get('post-documents/{postDocument}/delete', [PostDocumentController::class, 'destroy'])->name('post-documents.destroy');
+
+
     //pages
     Route::get('pages', [PageController::class, 'index'])->name('pages.index');
     Route::get('pages/create', [PageController::class, 'create'])->name('pages.create');
@@ -116,19 +121,6 @@ Route::group(['prefix' => 'backend', 'middleware' => 'auth'], function () {
     Route::get('teams/{team}/edit', [TeamController::class, 'edit'])->name('teams.edit');
     Route::put('teams/{team}', [TeamController::class, 'update'])->name('teams.update');
     Route::delete('teams/{team}', [TeamController::class, 'destroy'])->name('teams.destroy');
-
-    Route::get('upgrade', function () {
-        return view('pages.upgrade');
-    })->name('upgrade');
-    Route::get('map', function () {
-        return view('pages.maps');
-    })->name('map');
-    Route::get('icons', function () {
-        return view('pages.icons');
-    })->name('icons');
-    Route::get('table-list', function () {
-        return view('pages.tables');
-    })->name('table');
 
     Route::put('profile/password', ['as' => 'profile.password', 'uses' => 'App\Http\Controllers\ProfileController@password']);
 });

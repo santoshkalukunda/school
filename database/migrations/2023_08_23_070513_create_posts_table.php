@@ -21,7 +21,7 @@ class CreatePostsTable extends Migration
                 ->onDelete('cascade');
             $table->string('slug');
             $table->string('title');
-            $table->string('feature_image');
+            $table->string('feature_image')->nullable();
             $table->longText('descriptions')->nullable();
             $table->boolean('status')->default(true);
             $table->unsignedBigInteger('created_by')->nullable();
