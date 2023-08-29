@@ -62,6 +62,9 @@
                                                     </a>
                                                     <div class="dropdown-menu dropdown-menu-arrow">
                                                         <a class="dropdown-item "
+                                                            href="{{ route('pages.show', $page) }}">Show</a>
+
+                                                        <a class="dropdown-item "
                                                             href="{{ route('pages.edit', $page) }}">Edit</a>
 
                                                         <form action="{{ route('pages.destroy', $page) }}" method="post">

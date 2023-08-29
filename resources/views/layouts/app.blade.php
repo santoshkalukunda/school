@@ -50,9 +50,9 @@
         .feature-image {
             border: 1px solid #ddd;
             padding: 2px;
-            width: 230px;
+            max-width: 230px;
             height: 150px;
-            object-fit: cover;
+            object-fit: fill;
             position: relative;
             /* margin: 20px; */
         }

@@ -42,7 +42,7 @@
                             </div>
 
                             <div class="text-center">
-                                <button type="submit" class="btn btn-primary my-4">{{ __('लग इन') }}</button>
+                                <button type="submit" class="btn btn-primary my-4">{{ __('Login') }}</button>
                             </div>
                         </form>
                         @if (Route::has('password.request'))

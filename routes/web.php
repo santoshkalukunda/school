@@ -43,6 +43,8 @@ Route::get('/home', 'App\Http\Controllers\HomeController@index')->name('home');
 Route::get('posts/{post}', [PostController::class, 'show'])->name('posts.show');
 Route::get('pages/{page}', [PageController::class, 'show'])->name('pages.show');
 Route::get('teams/{team}', [TeamController::class, 'show'])->name('teams.show');
+Route::get('categories/{category}', [CategoryController::class, 'show'])->name('categories.show');
+
 
 // Route::get('modal-images/{modalImage}', [ModalImageController::class, 'show'])->name('modal-images.show');
 // Route::get('partners/{partner}', [PartnerController::class, 'show'])->name('partners.show');
@@ -55,7 +57,7 @@ Route::group(['prefix' => 'backend', 'middleware' => 'auth'], function () {
     //categories
     Route::get('categories', [CategoryController::class, 'index'])->name('categories.index');
     Route::post('categories', [CategoryController::class, 'store'])->name('categories.store');
-    Route::get('categories/{category}', [CategoryController::class, 'edit'])->name('categories.edit');
+    Route::get('categories/{category}/edit', [CategoryController::class, 'edit'])->name('categories.edit');
     Route::put('categories/{category}', [CategoryController::class, 'update'])->name('categories.update');
     Route::delete('categories/{category}', [CategoryController::class, 'destroy'])->name('categories.destroy');
 
@@ -123,4 +125,6 @@ Route::group(['prefix' => 'backend', 'middleware' => 'auth'], function () {
     Route::delete('teams/{team}', [TeamController::class, 'destroy'])->name('teams.destroy');
 
     Route::put('profile/password', ['as' => 'profile.password', 'uses' => 'App\Http\Controllers\ProfileController@password']);
+
+    Route::get('logs', [\Rap2hpoutre\LaravelLogViewer\LogViewerController::class, 'index']);
 });

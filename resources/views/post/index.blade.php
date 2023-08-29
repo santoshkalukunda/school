@@ -111,8 +111,11 @@
                                                     </a>
                                                     <div class="dropdown-menu dropdown-menu-arrow">
                                                         <a class="dropdown-item "
+                                                        href="{{ route('posts.show', $post) }}">Show</a>
+                                                        
+                                                        <a class="dropdown-item "
                                                             href="{{ route('posts.edit', $post) }}">Edit</a>
-
+     
                                                         <form action="{{ route('posts.destroy', $post) }}" method="post">
                                                             @method('delete')
                                                             @csrf

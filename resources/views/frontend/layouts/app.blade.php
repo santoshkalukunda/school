@@ -27,14 +27,21 @@
     <link href="{{ asset('assets/css/style.css') }}" rel="stylesheet">
 
     <style>
-        .feature-image {
+        .feature-img {
             border: 1px solid #ddd;
-            padding: 2px;
+            max-width: 100%;
+            max-height: 100vh;
+            object-fit: fill;
+            position: relative;
+        }
+
+        .feature-image {
             max-height: 180px;
             object-fit: cover;
             position: relative;
             /* margin: 20px; */
         }
+
         .teams-image {
             border: 1px solid #ddd;
             padding: 2px;
@@ -44,6 +51,7 @@
             position: relative;
             /* margin: 20px; */
         }
+
         .partner-image {
             max-width: 100px;
             max-height: 80px;
@@ -51,9 +59,15 @@
             /* position: relative; */
             /* margin: 20px; */
         }
-        .sliding-image{
+
+        .sliding-image {
             max-height: 100vh;
             object-fit: fill;
+        }
+
+        .card-hover:hover {
+            box-shadow: 1px 8px 20px grey;
+            -webkit-transition: box-shadow .2s ease-in;
         }
     </style>
     @stack('styles')
@@ -93,12 +107,10 @@
     <script src="{{ asset('assets/lib/counterup/counterup.min.js') }}"></script>
     <script src="{{ asset('assets/lib/parallax/parallax.min.js') }}"></script>
 
-    <!-- Contact Javascript File -->
-    <script src="{{ asset('assets/mail/jqBootstrapValidation.min.js') }}"></script>
-    <script src="{{ asset('assets/mail/contact.js') }}"></script>
-
     <!-- Template Javascript -->
     <script src="{{ asset('assets/js/main.js') }}"></script>
+
+    @stack('scripts')
 </body>
 
 </html>

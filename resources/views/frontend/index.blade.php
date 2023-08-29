@@ -71,4 +71,7 @@
     <!-- Contact Start -->
     @include('frontend.layouts.contact')
     <!-- Contact End -->
+
+    
+    <x-frontend.modal-image-view />
 @endsection

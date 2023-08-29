@@ -71,7 +71,7 @@ class PageController extends Controller
      */
     public function show(Page $page)
     {
-        //
+        return view('frontend.pages.show',compact('page'));
     }
 
     /**
