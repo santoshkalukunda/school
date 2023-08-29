@@ -1,4 +1,4 @@
-@extends('frontend.layouts.app')
+@extends('frontend.layouts.app',['title'=> 'Sustainable enterprise and Environment Development Working Awareness Centre (SEEWAC) Nepal'])
 
 @section('content')
     <!-- Carousel Start -->

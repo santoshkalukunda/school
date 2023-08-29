@@ -1,4 +1,4 @@
-@extends('frontend.layouts.app')
+@extends('frontend.layouts.app',['title'=>  $category->name ])
 
 @section('content')
     <style>
@@ -19,7 +19,7 @@
     <!-- Page Header End -->
     <!-- About Start -->
     <div class="container">
-        <div class="row justify-content-center">
+        <div class="row g-2 justify-content-center">
             @forelse ($category->posts as $post)
                 <div class="col-md-4">
                     <a href="{{ route('posts.show', $post) }}">

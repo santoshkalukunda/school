@@ -3,11 +3,10 @@
 
 <head>
     <meta charset="utf-8">
-    <title>SEEWAC NEPAL - Sustainable enterprise and Environment Development Working
-        Awareness Centre</title>
+    <title>{{ config('app.name') }} | {{ $title ?? '' }}</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <meta content="Free Website Template" name="keywords">
-    <meta content="Free Website Template" name="description">
+    <meta content="Organization, organization Nepal, Nepal, ORG Nepal, Dhangadhi, Sudurpashim Province" name="keywords">
+    <meta content="Sustainable enterprise and Environment Development Working Awareness Centre (SEEWAC) Nepal" name="description">
 
     <!-- Favicon -->
     <link href="{{ asset('assets/img/logo.jpg') }}" rel="icon">
