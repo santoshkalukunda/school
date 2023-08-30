@@ -129,6 +129,11 @@
                         <i class="bi bi-people text-primary"></i> {{ __('Teams') }}
                     </a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('social-medias.index') }}">
+                        <i class="bi bi-share"></i> {{ __('Social Medias') }}
+                    </a>
+                </li>
                 {{-- <li class="nav-item">
                     <a class="nav-link active" href="#navbar-examples" data-toggle="collapse" role="button"
                         aria-expanded="true" aria-controls="navbar-examples">

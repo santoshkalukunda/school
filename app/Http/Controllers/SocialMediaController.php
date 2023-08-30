@@ -18,7 +18,8 @@ class SocialMediaController extends Controller
         if (!$socialMedia) {
             $socialMedia = new SocialMedia();
         }
-        return view('social-media.index', compact('socialMedia'));
+        $socialMedias = SocialMedia::get();
+        return view('social-media.index', compact(['socialMedia','socialMedias']));
     }
 
     /**
@@ -39,7 +40,8 @@ class SocialMediaController extends Controller
      */
     public function store(StoreSocialMediaRequest $request)
     {
-        return $request;
+       SocialMedia::create($request->validated());
+       return redirect()->back()->with('success'.'Social Media Created');
     }
 
     /**
@@ -61,7 +63,7 @@ class SocialMediaController extends Controller
      */
     public function edit(SocialMedia $socialMedia)
     {
-        //
+        return $this->index($socialMedia);
     }
 
     /**
@@ -73,7 +75,10 @@ class SocialMediaController extends Controller
      */
     public function update(UpdateSocialMediaRequest $request, SocialMedia $socialMedia)
     {
-        //
+        $socialMedia->update($request->validated());
+        return redirect()
+        ->route('social-medias.index')
+        ->with('success', 'Social Media Updated');
     }
 
     /**
@@ -84,6 +89,9 @@ class SocialMediaController extends Controller
      */
     public function destroy(SocialMedia $socialMedia)
     {
-        //
+        $socialMedia->delete();
+        return redirect()
+            ->back()
+            ->with('success', 'Social Media Deleted');
     }
 }
