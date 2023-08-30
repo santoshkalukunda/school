@@ -9,6 +9,7 @@ use App\Http\Controllers\PageController;
 use App\Http\Controllers\PartnerController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\PostDocumentController;
+use App\Http\Controllers\SocialMediaController;
 use App\Http\Controllers\TeamController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -115,6 +116,12 @@ Route::group(['prefix' => 'backend', 'middleware' => 'auth'], function () {
     Route::put('category-menus/sort', [CategoryMenuController::class, 'sort'])->name('category-menu.sort');
     Route::delete('category-menus/remove-item', [CategoryMenuController::class, 'removeItem'])->name('category-menu.remove-item');
 
+     //category menu
+     Route::get('social-medias', [SocialMediaController::class, 'index'])->name('social-medias.index');
+     Route::post('social-medias', [SocialMediaController::class, 'store'])->name('social-medias.store');
+     Route::get('social-medias/{categoryMenu}', [SocialMediaController::class, 'edit'])->name('social-medias.edit');
+     Route::put('social-medias/{categoryMenu}', [SocialMediaController::class, 'update'])->name('social-medias.update');
+   
     //teams
     Route::get('teams', [TeamController::class, 'index'])->name('teams.index');
     Route::get('teams/create', [TeamController::class, 'create'])->name('teams.create');

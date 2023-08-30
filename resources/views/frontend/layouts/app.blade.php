@@ -68,6 +68,16 @@
             box-shadow: 1px 8px 20px grey;
             -webkit-transition: box-shadow .2s ease-in;
         }
+
+        .profile {
+            border: 1px solid #ddd;
+            /* border-radius: 50%; */
+            padding: 2px;
+            width: 350px;
+            height: 350px;
+            object-fit: cover;
+            position: relative;
+        }
     </style>
     @stack('styles')
 

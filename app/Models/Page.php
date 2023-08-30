@@ -40,8 +40,8 @@ class Page extends Model
     {
         return $this->belongsTo(User::class);
     }
-    public function pageDocuments()
-    {
-        return $this->hasMany(PageDocument::class);
+
+    public function documents(){
+        return $this->morphMany(Document::class, 'documentable');
     }
 }

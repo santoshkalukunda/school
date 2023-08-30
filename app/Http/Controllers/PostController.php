@@ -60,7 +60,7 @@ class PostController extends Controller
         $post->categories()->attach($data['category_id']);
         if ($request->name != '' && $request->file != '') {
             foreach ($request->name as $key => $name) {
-                $post->postDocuments()->create([
+                $post->documents()->create([
                     'name' => $name,
                     'file' => Storage::putFile('post-documents', $request->file('file')[$key]),
                 ]);
@@ -116,7 +116,7 @@ class PostController extends Controller
         // return  $request->name;
         if ($request->name != '' && $request->file != '') {
             foreach ($request->name as $key => $name) {
-                $post->postDocuments()->create([
+                $post->documents()->create([
                     'name' => $name,
                     'file' => Storage::putFile('post-documents', $request->file('file')[$key]),
                 ]);
@@ -135,11 +135,13 @@ class PostController extends Controller
      */
     public function destroy(Post $post)
     {
-        Storage::delete($post->feature_image);
-        foreach ($post->postDocuments() as $postDocument) {
-            Storage::delete($postDocument);
+        foreach ($post->documents() as $postDocument) {
+            Storage::delete($postDocument->file);
         }
+        $post->documents()->delete();
         $post->categories()->detach();
+
+        Storage::delete($post->feature_image);
         $post->delete();
         return redirect()
             ->back()

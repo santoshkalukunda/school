@@ -84,6 +84,9 @@
                                                     </a>
                                                     <div class="dropdown-menu dropdown-menu-arrow">
                                                         <a class="dropdown-item "
+                                                        href="{{ route('teams.show', $team) }}">Show</a>
+
+                                                        <a class="dropdown-item "
                                                             href="{{ route('teams.edit', $team) }}">Edit</a>
 
                                                         <form action="{{ route('posts.destroy', $team) }}" method="post">

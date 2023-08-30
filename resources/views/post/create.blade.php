@@ -98,7 +98,7 @@
                                             </thead>
                                             <tbody style="white-space: nowrap;" id="newinput">
                                                 @if ($post->id)
-                                                    @foreach ($post->postDocuments as $postDocument)
+                                                    @foreach ($post->documents as $postDocument)
                                                         <tr id="tr">
                                                             <td>
                                                                 <div>{{ $postDocument->name }}</div>

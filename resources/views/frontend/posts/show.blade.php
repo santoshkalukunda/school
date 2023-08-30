@@ -39,11 +39,11 @@
                     </p>
                 </div>
             @endif
-            @if ($post->postDocuments->isnotempty() )
+            @if ($post->documents->isnotempty() )
                 <div class="col-md-12 mt-4">
                     <h3>Related Documents:</h3>
                     <ul class="list-group list-group-flush">
-                        @foreach ($post->postDocuments as $postDocument)
+                        @foreach ($post->documents as $postDocument)
                             <li class="list-group-item d-flex justify-content-between align-items-center">
                                 <h5><i class="far fa-file-alt"></i> {{ $postDocument->name }}</h5>
                                 <span class="badge badge-lx badge-warning badge-pill">

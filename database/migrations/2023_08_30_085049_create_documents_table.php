@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreatePageDocumentsTable extends Migration
+class CreateDocumentsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,11 @@ class CreatePageDocumentsTable extends Migration
      */
     public function up()
     {
-        Schema::create('page_documents', function (Blueprint $table) {
+        Schema::create('documents', function (Blueprint $table) {
             $table->id();
-            $table
-            ->foreignId('page_id')
-            ->constrained('pages')
-            ->onDelete('cascade');
-        $table->string('name');
-        $table->string('file');
+            $table->string('name');
+            $table->string('file');
+            $table->morphs('documentable');
             $table->timestamps();
         });
     }
@@ -32,6 +29,6 @@ class CreatePageDocumentsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('page_documents');
+        Schema::dropIfExists('documents');
     }
 }

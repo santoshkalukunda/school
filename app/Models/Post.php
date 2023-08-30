@@ -19,7 +19,7 @@ class Post extends Model
         return SlugOptions::create()
             ->generateSlugsFrom('title')
             ->saveSlugsTo('slug');
-            // ->doNotGenerateSlugsOnUpdate();
+        // ->doNotGenerateSlugsOnUpdate();
     }
 
     public function getRouteKeyName()
@@ -46,7 +46,9 @@ class Post extends Model
     {
         return $this->belongsToMany(Category::class, 'posts_categories', 'post_id', 'category_id');
     }
-    public function postDocuments(){
-        return $this->hasMany(PostDocument::class);
+
+    public function documents()
+    {
+        return $this->morphMany(Document::class, 'documentable');
     }
 }

@@ -119,7 +119,7 @@
                                         <label for="" class="form-label required">Photos</label>
                                         <div class="mb-2 align-self-center">
                                             <img id="newProfilePhotoPreview"
-                                                src="{{ $team->photo ? asset('storage/' . $team->photo) : asset('assets/img/no-image.png') }}"
+                                                src="{{ $team->photo ? asset('storage/' . $team->photo) : asset('assets/img/dummy-profile.png') }}"
                                                 class="profile">
                                             <div class="edit-profile mx-md-6">
                                                 <label class="btn btn-secondary " for="newProfilePhoto">Choose</label>

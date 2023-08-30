@@ -100,7 +100,7 @@
                                             </thead>
                                             <tbody style="white-space: nowrap;" id="newinput">
                                                 @if ($page->id)
-                                                    @foreach ($page->pageDocuments as $pageDocument)
+                                                    @foreach ($page->documents as $pageDocument)
                                                         <tr id="tr">
                                                             <td>
                                                                 <div>{{ $pageDocument->name }}</div>

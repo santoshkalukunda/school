@@ -52,7 +52,7 @@ class PageController extends Controller
             ->create($data);
         if ($request->name != '' && $request->file != '') {
             foreach ($request->name as $key => $name) {
-                $page->pageDocuments()->create([
+                $page->documents()->create([
                     'name' => $name,
                     'file' => Storage::putFile('page-documents', $request->file('file')[$key]),
                 ]);
@@ -71,7 +71,7 @@ class PageController extends Controller
      */
     public function show(Page $page)
     {
-        return view('frontend.pages.show',compact('page'));
+        return view('frontend.pages.show', compact('page'));
     }
 
     /**
@@ -106,7 +106,7 @@ class PageController extends Controller
         $page->update($data);
         if ($request->name != '' && $request->file != '') {
             foreach ($request->name as $key => $name) {
-                $page->pageDocuments()->create([
+                $page->documents()->create([
                     'name' => $name,
                     'file' => Storage::putFile('page-documents', $request->file('file')[$key]),
                 ]);
@@ -125,6 +125,10 @@ class PageController extends Controller
      */
     public function destroy(Page $page)
     {
+        foreach ($page->documents() as $pageDocument) {
+            Storage::delete($pageDocument->file);
+        }
+        $page->documents()->delete();
         Storage::delete($page->feature_image);
         $page->delete();
         return redirect()

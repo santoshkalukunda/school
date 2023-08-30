@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreatePostDocumentsTable extends Migration
+class CreateSocialMediaTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,8 @@ class CreatePostDocumentsTable extends Migration
      */
     public function up()
     {
-        Schema::create('post_documents', function (Blueprint $table) {
+        Schema::create('social_media', function (Blueprint $table) {
             $table->id();
-            $table
-                ->foreignId('post_id')
-                ->constrained('posts')
-                ->onDelete('cascade');
-            $table->string('name');
-            $table->string('file');
             $table->timestamps();
         });
     }
@@ -32,6 +26,6 @@ class CreatePostDocumentsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('post_documents');
+        Schema::dropIfExists('social_media');
     }
 }
