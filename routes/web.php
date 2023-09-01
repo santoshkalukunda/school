@@ -4,6 +4,7 @@ use App\Http\Controllers\AppSettingController;
 use App\Http\Controllers\CarouselImageController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\CategoryMenuController;
+use App\Http\Controllers\ContactController;
 use App\Http\Controllers\FrontendController;
 use App\Http\Controllers\ModalImageController;
 use App\Http\Controllers\PageController;
@@ -46,7 +47,7 @@ Route::get('posts/{post}', [PostController::class, 'show'])->name('posts.show');
 Route::get('pages/{page}', [PageController::class, 'show'])->name('pages.show');
 Route::get('teams/{team}', [TeamController::class, 'show'])->name('teams.show');
 Route::get('categories/{category}', [CategoryController::class, 'show'])->name('categories.show');
-
+Route::post('contact-us', [ContactController::class, 'store'])->name('contact-us.store');
 
 // Route::get('modal-images/{modalImage}', [ModalImageController::class, 'show'])->name('modal-images.show');
 // Route::get('partners/{partner}', [PartnerController::class, 'show'])->name('partners.show');
@@ -74,7 +75,6 @@ Route::group(['prefix' => 'backend', 'middleware' => 'auth'], function () {
 
     //post document delete
     Route::get('post-documents/{postDocument}/delete', [PostDocumentController::class, 'destroy'])->name('post-documents.destroy');
-
 
     //pages
     Route::get('pages', [PageController::class, 'index'])->name('pages.index');
@@ -117,13 +117,13 @@ Route::group(['prefix' => 'backend', 'middleware' => 'auth'], function () {
     Route::put('category-menus/sort', [CategoryMenuController::class, 'sort'])->name('category-menu.sort');
     Route::delete('category-menus/remove-item', [CategoryMenuController::class, 'removeItem'])->name('category-menu.remove-item');
 
-     //social media
-     Route::get('social-medias', [SocialMediaController::class, 'index'])->name('social-medias.index');
-     Route::post('social-medias', [SocialMediaController::class, 'store'])->name('social-medias.store');
-     Route::get('social-medias/{socialMedia}', [SocialMediaController::class, 'edit'])->name('social-medias.edit');
-     Route::put('social-medias/{socialMedia}', [SocialMediaController::class, 'update'])->name('social-medias.update');
-     Route::delete('social-medias/{socialMedia}', [SocialMediaController::class, 'destroy'])->name('social-medias.destroy');
-   
+    //social media
+    Route::get('social-medias', [SocialMediaController::class, 'index'])->name('social-medias.index');
+    Route::post('social-medias', [SocialMediaController::class, 'store'])->name('social-medias.store');
+    Route::get('social-medias/{socialMedia}', [SocialMediaController::class, 'edit'])->name('social-medias.edit');
+    Route::put('social-medias/{socialMedia}', [SocialMediaController::class, 'update'])->name('social-medias.update');
+    Route::delete('social-medias/{socialMedia}', [SocialMediaController::class, 'destroy'])->name('social-medias.destroy');
+
     //teams
     Route::get('teams', [TeamController::class, 'index'])->name('teams.index');
     Route::get('teams/create', [TeamController::class, 'create'])->name('teams.create');
@@ -135,9 +135,13 @@ Route::group(['prefix' => 'backend', 'middleware' => 'auth'], function () {
 
     Route::put('profile/password', ['as' => 'profile.password', 'uses' => 'App\Http\Controllers\ProfileController@password']);
 
-
-    Route::put('app-settings', [AppSettingController::class, 'store'])->name('app-settings.store');
+    //site settings
     Route::get('app-settings', [AppSettingController::class, 'index'])->name('app-settings.index');
+    Route::put('app-settings', [AppSettingController::class, 'store'])->name('app-settings.store');
+
+    //contact-us-store
+    Route::get('contact-us', [ContactController::class, 'index'])->name('contact-us.index');
+    Route::delete('contact-us/{contact}', [ContactController::class, 'destroy'])->name('contact-us.destroy');
 
     Route::get('logs', [\Rap2hpoutre\LaravelLogViewer\LogViewerController::class, 'index']);
 });

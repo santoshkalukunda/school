@@ -130,6 +130,11 @@
                     </a>
                 </li>
                 <li class="nav-item">
+                    <a class="nav-link" href="{{ route('contact-us.index') }}">
+                        <i class="bi bi-envelope"></i> {{ __('Contact Us') }}
+                    </a>
+                </li>
+                <li class="nav-item">
                     <a class="nav-link" href="{{ route('social-medias.index') }}">
                         <i class="bi bi-share"></i> {{ __('Social Medias') }}
                     </a>

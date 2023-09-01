@@ -11,7 +11,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-12">
-                    <h2>{{ $page->title }}</h2>
+                    <h2 class="text-capitalize">{{ $page->title }}</h2>
                 </div>
             </div>
         </div>
