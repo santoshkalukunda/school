@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "661502d8f4d6641573a4b3011c06a169",
+    "content-hash": "d2ce4e6778e31be23543bd7c863d96d8",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -959,6 +959,61 @@
                 }
             ],
             "time": "2023-04-17T16:11:26+00:00"
+        },
+        {
+            "name": "jamesbhatta/app-settings",
+            "version": "dev-main",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/jamesbhatta/app-settings.git",
+                "reference": "672f7398af54ab4d37aa2414bea3cc90fe4d4483"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/jamesbhatta/app-settings/zipball/672f7398af54ab4d37aa2414bea3cc90fe4d4483",
+                "reference": "672f7398af54ab4d37aa2414bea3cc90fe4d4483",
+                "shasum": ""
+            },
+            "require-dev": {
+                "mattiasgeniar/phpunit-query-count-assertions": "^1.1",
+                "orchestra/testbench": "^6.7"
+            },
+            "default-branch": true,
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "JamesBhatta\\AppSettings\\AppSettingServiceProvider"
+                    ],
+                    "aliases": {
+                        "AppSetting": "JamesBhatta\\AppSettings\\Facades\\AppSetting"
+                    }
+                }
+            },
+            "autoload": {
+                "files": [
+                    "src/Helpers/helpers.php"
+                ],
+                "psr-4": {
+                    "JamesBhatta\\AppSettings\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "manojbhatta",
+                    "email": "jmsbhatta@gmail.com"
+                }
+            ],
+            "description": "Store application settings on the fly.",
+            "support": {
+                "issues": "https://github.com/jamesbhatta/app-settings/issues",
+                "source": "https://github.com/jamesbhatta/app-settings/tree/main"
+            },
+            "time": "2022-05-09T07:04:15+00:00"
         },
         {
             "name": "laravel-frontend-presets/argon",

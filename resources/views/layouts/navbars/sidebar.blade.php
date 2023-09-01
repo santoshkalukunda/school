@@ -7,7 +7,7 @@
         </button>
         <!-- Brand -->
         <a class="navbar-brand pt-0" href="{{ route('home') }}">
-            <img src="{{ asset('assets/img/logo.jpg') }}" class="navbar-brand-img" alt="..."> SEEWAC
+            <img src="{{ appSettings('logo') ? asset('storage/' . appSettings('logo')) : asset('assets/img/no-image.png') }}" class="navbar-brand-img" alt="{{appSettings('site_name')}}">
         </a>
         <!-- User -->
         <ul class="nav align-items-center d-md-none">
@@ -132,6 +132,11 @@
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('social-medias.index') }}">
                         <i class="bi bi-share"></i> {{ __('Social Medias') }}
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('app-settings.index') }}">
+                        <i class="bi bi-gear"></i> {{ __('Site Settings') }}
                     </a>
                 </li>
                 {{-- <li class="nav-item">

@@ -9,7 +9,7 @@
     <meta content="Sustainable enterprise and Environment Development Working Awareness Centre (SEEWAC) Nepal" name="description">
 
     <!-- Favicon -->
-    <link href="{{ asset('assets/img/logo.jpg') }}" rel="icon">
+    <link href="{{ appSettings('logo') ? asset('storage/' . appSettings('logo')) : asset('assets/img/no-image.png') }}" rel="icon">
 
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap"
@@ -21,7 +21,7 @@
     <link href="{{ asset('assets/lib/flaticon/font/flaticon.css') }}" rel="stylesheet">
     <link href="{{ asset('assets/lib/animate/animate.min.css') }}" rel="stylesheet">
     <link href="{{ asset('assets/lib/owlcarousel/assets/owl.carousel.min.css') }}" rel="stylesheet">
-
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
     <!-- Template Stylesheet -->
     <link href="{{ asset('assets/css/style.css') }}" rel="stylesheet">
 

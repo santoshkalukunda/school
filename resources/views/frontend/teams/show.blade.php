@@ -90,7 +90,7 @@
                     @endif
 
                 </div>
-                <div class="col-md-12">
+                {{-- <div class="col-md-12">
                     <a href="http://" class="btn btn-outline-warning" target="_blank">
                         Primary
                     </a>
@@ -98,7 +98,7 @@
                         Primary
                     </a>
 
-                </div>
+                </div> --}}
             </div>
         </div>
     </div>

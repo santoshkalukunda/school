@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AppSettingController;
 use App\Http\Controllers\CarouselImageController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\CategoryMenuController;
@@ -133,6 +134,10 @@ Route::group(['prefix' => 'backend', 'middleware' => 'auth'], function () {
     Route::delete('teams/{team}', [TeamController::class, 'destroy'])->name('teams.destroy');
 
     Route::put('profile/password', ['as' => 'profile.password', 'uses' => 'App\Http\Controllers\ProfileController@password']);
+
+
+    Route::put('app-settings', [AppSettingController::class, 'store'])->name('app-settings.store');
+    Route::get('app-settings', [AppSettingController::class, 'index'])->name('app-settings.index');
 
     Route::get('logs', [\Rap2hpoutre\LaravelLogViewer\LogViewerController::class, 'index']);
 });
