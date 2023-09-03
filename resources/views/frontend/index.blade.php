@@ -4,44 +4,6 @@
     <!-- Carousel Start -->
     @include('frontend.layouts.carousel')
 
-    <!-- Carousel End -->
-
-    <!-- Video Modal Start-->
-
-    <!-- Video Modal End -->
-
-    @include('frontend.layouts.message-from-chairperson')
-
-    {{-- <!-- About Start -->
-    @include('frontend.layouts.about')
-    <!-- About End --> --}}
-
-
-    <!-- Service Start -->
-    @include('frontend.layouts.service')
-    <!-- Service End -->
-
-
-    {{-- <!-- Facts Start -->
-    @include('frontend.layouts.facts')
-    <!-- Facts End --> --}}
-
-
-
-
-    <!-- Causes Start -->
-    @include('frontend.layouts.projects')
-    <!-- Causes End -->
-
-
-    {{-- <!-- Donate Start -->
-    @include('frontend.layouts.donate')
-    <!-- Donate End --> --}}
-
-
-    {{-- <!-- Event Start -->
-    @include('frontend.layouts.event')
-    <!-- Event End --> --}}
 
    <!-- partners Start -->
    @include('frontend.layouts.partners')
