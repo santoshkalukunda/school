@@ -7,7 +7,9 @@
         </button>
         <!-- Brand -->
         <a class="navbar-brand pt-0" href="{{ route('home') }}">
-            <img src="{{ appSettings('logo') ? asset('storage/' . appSettings('logo')) : asset('assets/img/no-image.png') }}" class="navbar-brand-img" alt="{{appSettings('site_name')}}">
+            <img src="{{ appSettings('logo') ? asset('storage/' . appSettings('logo')) : asset('assets/img/no-image.png') }}"
+                class="navbar-brand-img" alt="{{ appSettings('site_name') }}">
+            <span>{{ appSettings('site_name') }}</span>
         </a>
         <!-- User -->
         <ul class="nav align-items-center d-md-none">
@@ -16,8 +18,9 @@
                     aria-expanded="false">
                     <div class="media align-items-center">
                         <span class="avatar avatar-sm rounded-circle">
-                            <img alt="Image placeholder" src="{{ asset('argon') }}/img/theme/team-1-800x800.jpg">
-                        </span>
+                            <img src="{{ Auth::user()->profile ? asset('storage/' . Auth::user()->profile) : asset('assets/img/logo.jpg') }}"
+                                class="profile-nav">
+                      </span>
                     </div>
                 </a>
                 <div class="dropdown-menu dropdown-menu-arrow dropdown-menu-right">
@@ -27,18 +30,6 @@
                     <a href="{{ route('profile.edit') }}" class="dropdown-item">
                         <i class="ni ni-single-02"></i>
                         <span>{{ __('My profile') }}</span>
-                    </a>
-                    <a href="#" class="dropdown-item">
-                        <i class="ni ni-settings-gear-65"></i>
-                        <span>{{ __('Settings') }}</span>
-                    </a>
-                    <a href="#" class="dropdown-item">
-                        <i class="ni ni-calendar-grid-58"></i>
-                        <span>{{ __('Activity') }}</span>
-                    </a>
-                    <a href="#" class="dropdown-item">
-                        <i class="ni ni-support-16"></i>
-                        <span>{{ __('Support') }}</span>
                     </a>
                     <div class="dropdown-divider"></div>
                     <a href="{{ route('logout') }}" class="dropdown-item"
@@ -57,7 +48,9 @@
                 <div class="row">
                     <div class="col-6 collapse-brand">
                         <a href="{{ route('home') }}">
-                            <img src="{{ asset('argon') }}/img/brand/blue.png">
+                            <img src="{{ appSettings('logo') ? asset('storage/' . appSettings('logo')) : asset('assets/img/no-image.png') }}"
+                                class="navbar-brand-img" alt="{{ appSettings('site_name') }}">
+                            <span>{{ appSettings('site_name') }}</span>
                         </a>
                     </div>
                     <div class="col-6 collapse-close">
@@ -71,17 +64,6 @@
                 </div>
             </div>
             <!-- Form -->
-            <form class="mt-4 mb-3 d-md-none">
-                <div class="input-group input-group-rounded input-group-merge">
-                    <input type="search" class="form-control form-control-rounded form-control-prepended"
-                        placeholder="{{ __('Search') }}" aria-label="Search">
-                    <div class="input-group-prepend">
-                        <div class="input-group-text">
-                            <span class="fa fa-search"></span>
-                        </div>
-                    </div>
-                </div>
-            </form>
             <!-- Navigation -->
             <ul class="navbar-nav">
                 <li class="nav-item">
@@ -137,6 +119,11 @@
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('social-medias.index') }}">
                         <i class="bi bi-share"></i> {{ __('Social Medias') }}
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('users.index') }}">
+                        <i class="bi bi-people"></i> {{ __('Users') }}
                     </a>
                 </li>
                 <li class="nav-item">

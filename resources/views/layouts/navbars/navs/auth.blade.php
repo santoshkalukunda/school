@@ -21,7 +21,7 @@
                     <div class="media align-items-center">
                         <div class="justify-content-center">
                             <img
-                                src="{{ Auth::user()->profile_picture ? asset('storage/' . Auth::user()->profile_picture) : asset('assets/img/logo.jpg') }}"
+                                src="{{ Auth::user()->profile ? asset('storage/' . Auth::user()->profile) : asset('assets/img/logo.jpg') }}"
                                 class="profile-nav ">
                         </div>
                         <div class="media-body ml-2 d-none d-lg-block">
@@ -31,11 +31,11 @@
                 </a>
                 <div class="dropdown-menu dropdown-menu-arrow dropdown-menu-right">
                     <div class=" dropdown-header noti-title">
-                        <h6 class="text-overflow m-0">{{ __('स्वगतम!') }}</h6>
+                        <h6 class="text-overflow m-0">{{ __('Welcome!') }}</h6>
                     </div>
                     <a href="{{ route('profile.edit') }}" class="dropdown-item">
                         <i class="ni ni-single-02"></i>
-                        <span>{{ __('मेरो प्रोफाइल') }}</span>
+                        <span>{{ __('My Profile') }}</span>
                     </a>
                     {{-- <a href="#" class="dropdown-item">
                         <i class="ni ni-settings-gear-65"></i>

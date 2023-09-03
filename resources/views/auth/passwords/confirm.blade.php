@@ -3,6 +3,16 @@
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
+        <div class="col-md-12 text-center">
+            <div>
+                <img src="{{ appSettings('logo') ? asset('storage/' . appSettings('logo')) : asset('assets/img/no-image.png') }}"
+                    class="logo" alt="{{ appSettings('site_name') }}">
+            </div>
+            <div class="my-2 text-white">
+                <h1 class="text-white">{{ appSettings('site_name') }}</h1>
+                <div>{{ appSettings('address') }}</div>
+            </div>
+        </div>
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header">{{ __('Confirm Password') }}</div>

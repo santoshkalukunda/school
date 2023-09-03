@@ -1,16 +1,6 @@
 @extends('layouts.app', ['title' => __('App Settings')])
 
 @section('content')
-    @push('styles')
-        <style>
-            .logo {
-                width: 230px;
-                height: 230px;
-                object-fit: contain;
-                position: relative;
-            }
-        </style>
-    @endpush
     <div class="container-fluid mt--7">
         <div class="row">
 

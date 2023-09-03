@@ -10,7 +10,8 @@
 
     <title>{{ config('app.name') }} | {{ $title ?? '' }}</title>
     <!-- Favicon -->
-    <link href="{{ appSettings('logo') ? asset('storage/' . appSettings('logo')) : asset('assets/img/no-image.png') }}" rel="icon" type="image/png">
+    <link href="{{ appSettings('logo') ? asset('storage/' . appSettings('logo')) : asset('assets/img/no-image.png') }}"
+        rel="icon" type="image/png">
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
     <!-- Extra details for Live View on GitHub Pages -->
@@ -66,7 +67,6 @@
             position: relative;
             margin: 2px;
         }
-
         .profile {
             border: 1px solid #ddd;
             border-radius: 50%;
@@ -88,6 +88,12 @@
             position: relative;
             margin: 2px;
         }
+        .logo {
+                width: 230px;
+                height: 230px;
+                object-fit: contain;
+                position: relative;
+            }
     </style>
     @stack('styles')
 </head>
@@ -105,8 +111,11 @@
         @include('layouts.navbars.navbar')
         @include('layouts.headers.cards')
         @yield('content')
-        @include('layouts.footers.auth')
+        @auth
+            @include('layouts.footers.auth')
+        @endauth
     </div>
+
 
     @guest()
         @include('layouts.footers.guest')

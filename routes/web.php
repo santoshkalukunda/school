@@ -13,6 +13,7 @@ use App\Http\Controllers\PostController;
 use App\Http\Controllers\PostDocumentController;
 use App\Http\Controllers\SocialMediaController;
 use App\Http\Controllers\TeamController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -35,11 +36,10 @@ Route::get('/', [FrontendController::class, 'index'])->name('index');
 Route::get('/about', [FrontendController::class, 'about'])->name('about');
 Route::get('/contact-us', [FrontendController::class, 'contactUs'])->name('contact-us');
 
-Auth::routes();
+Auth::routes(['register' => false]);
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Auth::routes();
 
 Route::get('/home', 'App\Http\Controllers\HomeController@index')->name('home');
 
@@ -133,7 +133,17 @@ Route::group(['prefix' => 'backend', 'middleware' => 'auth'], function () {
     Route::put('teams/{team}', [TeamController::class, 'update'])->name('teams.update');
     Route::delete('teams/{team}', [TeamController::class, 'destroy'])->name('teams.destroy');
 
+    //profile
     Route::put('profile/password', ['as' => 'profile.password', 'uses' => 'App\Http\Controllers\ProfileController@password']);
+    //user
+    Route::get('users', [UserController::class, 'index'])->name('users.index');
+    Route::get('users/register', [UserController::class, 'register'])->name('users.register');
+    Route::post('users', [UserController::class, 'store'])->name('users.store');
+    Route::get('users/{user}/edit', [UserController::class, 'edit'])->name('users.edit');
+    Route::get('users/{user}/change-password', [UserController::class, 'changePassword'])->name('users.changePassword');
+    Route::post('users/{user}/change-password', [UserController::class, 'changePasswordUpdate'])->name('users.changePasswordUpdate');
+    Route::put('users/{user}', [UserController::class, 'update'])->name('users.update');
+    Route::delete('users/{user}', [UserController::class, 'destroy'])->name('users.destroy');
 
     //site settings
     Route::get('app-settings', [AppSettingController::class, 'index'])->name('app-settings.index');

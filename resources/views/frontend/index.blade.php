@@ -43,7 +43,10 @@
     @include('frontend.layouts.event')
     <!-- Event End --> --}}
 
-
+   <!-- partners Start -->
+   @include('frontend.layouts.partners')
+   <!-- partners End -->
+   
     <!-- Team Start -->
     @include('frontend.layouts.team')
 
@@ -59,18 +62,12 @@
     <!-- Volunteer End --> --}}
 
 
-    <!-- partners Start -->
-    @include('frontend.layouts.partners')
-    <!-- partners End -->
+ 
 
 
     {{-- <!-- Blog Start -->
         @include('frontend.layouts.blog')
         <!-- Blog End --> --}}
-
-    <!-- Contact Start -->
-    @include('frontend.layouts.contact')
-    <!-- Contact End -->
 
     
     <x-frontend.modal-image-view />

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\ProfileRequest;
 use App\Http\Requests\PasswordRequest;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Storage;
 
 class ProfileController extends Controller
 {
@@ -26,13 +27,19 @@ class ProfileController extends Controller
      */
     public function update(ProfileRequest $request)
     {
-        if (auth()->user()->id == 1) {
-            return back()->withErrors(['not_allow_profile' => __('You are not allowed to change data for a default user.')]);
+        $data = $request->validated();
+        if ($request->file('profile')) {
+            if (auth()->user()->profile) {
+                Storage::delete(auth()->user()->profile);
+            }
+            $data['profile'] = Storage::putFile('user-profile', $request->file('profile'));
         }
-
-        auth()->user()->update($request->all());
-
-        return back()->withStatus(__('Profile successfully updated.'));
+        auth()
+            ->user()
+            ->update($data);
+        return redirect()
+            ->back()
+            ->with('success', 'Profile Updated');
     }
 
     /**
@@ -43,12 +50,12 @@ class ProfileController extends Controller
      */
     public function password(PasswordRequest $request)
     {
-        if (auth()->user()->id == 1) {
-            return back()->withErrors(['not_allow_password' => __('You are not allowed to change the password for a default user.')]);
-        }
+        auth()
+            ->user()
+            ->update(['password' => Hash::make($request->get('password'))]);
 
-        auth()->user()->update(['password' => Hash::make($request->get('password'))]);
-
-        return back()->withPasswordStatus(__('Password successfully updated.'));
+        return redirect()
+            ->back()
+            ->with('success', 'Password Changed');
     }
 }
