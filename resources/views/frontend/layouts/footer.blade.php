@@ -1,50 +1,64 @@
-<div class="footer">
+<footer id="footer">
     <div class="container">
-        <div class="row">
+        <div class="row gy-4">
             <div class="col-lg-4 col-md-6">
                 <div class="footer-contact">
-                    <h2>About Us</h2>
-                    <p><i class="fa fa-map-marker-alt"></i> {{ appSettings('address') }}</p>
-                    <p><i class="fa fa-phone-alt"></i>+977-091-520835</p>
-                    <p><i class="fa fa-envelope"></i>seewackailali@gmail.com</p>
-                    <div class="footer-social">
-                        <a class="btn btn-custom" href="{{ appSettings('facebook') }}" target="_blank"><i
-                                class="fab fa-facebook-f"></i></a>
-                        <a class="btn btn-custom" href="{{ appSettings('twitter') }}"><i class="fab fa-twitter"></i></a>
-                        <a class="btn btn-custom" href="{{ appSettings('tiktok') }}"><i class="bi bi-tiktok"></i></a>
-                        <a class="btn btn-custom" href="{{ appSettings('youtube') }}"><i class="fab fa-youtube"></i></a>
-                        <a class="btn btn-custom" href="{{ appSettings('instagram') }}"><i
-                                class="fab fa-instagram"></i></a>
-                    </div>
+                    <a href="/" class="logo me-auto"><img
+                            src="{{ appSettings('logo') ? asset('storage/' . appSettings('logo')) : asset('assets/img/no-image.png') }}"
+                            alt="{{ appSettings('site_name') }}" style="height: 50px;">
+                    </a>
+                    <div class="my-2"><i>{{ appSettings('tagline') }}</i></div>
+                    <div class="address"><i class="bi bi-geo-alt"></i> {{ appSettings('address') }}</div>
+                    <div class="phone"><i class="bi bi-phone"></i> {{ appSettings('phone') }}</div>
+                    <div class="email"><i class="bi bi-envelope"></i> {{ appSettings('email') }}</div>
+                </div>
+                <div class="social-links">
+                    <a href="{{ appSettings('facebook') }}" class="facebook"><i class="bx bxl-facebook"></i></a>
+                    <a href="{{ appSettings('twitter') }}" class="twitter"><i class="bx bxl-twitter"></i></a>
+                    <a href="{{ appSettings('instagram') }}" class="instagram"><i class="bx bxl-instagram"></i></a>
+                    <a href="{{ appSettings('youtube') }}" class="google-plus"><i class="bx bxl-youtube"></i></a>
+                    <a href="{{ appSettings('tiktok') }}" class="linkedin"><i class="bx bxl-tiktok"></i></a>
                 </div>
             </div>
 
             <div class="col-lg-4 col-md-6">
                 <div class="footer-link">
-                    <h2>Useful Links</h2>
-                    <a href="{{ route('pages.show', 'terms-of-use') }}">Terms of use</a>
-                    <a href="{{ route('pages.show', 'privacy-policy') }}">Privacy policy</a>
-                    <a href="{{ route('pages.show', 'cookies') }}">Cookies</a>
-                    <a href="{{ route('pages.show', 'help') }}">Help</a>
-                    <a href="{{ route('pages.show', 'fqas') }}">FQAs</a>
+                    {{-- <h4 class="pl-3">Useful Links</h4> --}}
+                    <div class="navbar">
+                        <a class="nav-link"  href="{{ route('pages.show', 'terms-of-use') }}">Terms of use</a>
+                    </div>
+                    <div class="navbar">
+                   
+                          <a class="nav-link" href="{{ route('pages.show', 'privacy-policy') }}">Privacy Policy</a>
+                    </div>
+                    <div class="navbar">
+                   
+                          <a class="nav-link" href="{{ route('pages.show', 'cookies') }}">Cookies</a>
+                    </div>
+                    <div class="navbar">
+                   
+                          <a class="nav-link" href="{{ route('pages.show', 'help') }}">Help</a>
+                    </div>
+                    <div class="navbar">
+                   
+                          <a class="nav-link" href="{{ route('pages.show', 'fqas') }}">FQAs</a>
+                    </div>
                 </div>
             </div>
             <div class="col-lg-4 col-md-6">
                 <div class="footer-link">
-                    <h2>Maps</h2>
+                    {{-- <h4 class="text-danger">Maps</h4> --}}
                     {!! appSettings('maps') !!}
                 </div>
             </div>
         </div>
-    </div>
-    <div class="container copyright">
-        <div class="row">
-            <div class="col-md-6">
-                <p>&copy; <a href="/">{{ appSettings('site_name') }}</a>, All Right Reserved.</p>
-            </div>
-            <div class="col-md-6">
-                <p>Designed By <a href="https://mohrain.com">Mohrain</a></p>
-            </div>
+
+        <div class="copyright text-center">
+            &copy; Copyright <strong><span>Forum for Awareness and Youth Activity (FAYA), Nepal </span></strong>. All
+            Rights Reserved
+        </div>
+        <div class="credits text-center">
+            Developed by <a href="https://mohrain.com/">Mohrain</a>
         </div>
     </div>
-</div>
+</footer>

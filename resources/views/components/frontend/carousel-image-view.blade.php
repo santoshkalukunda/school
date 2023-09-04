@@ -1,25 +1,16 @@
-<div class="carousel">
-    <div class="container-fluid">
-        <div class="owl-carousel">
-            @foreach ($carouselImages as $carouselImage)
-                <div class="carousel-item">
-                    <div class="carousel-img">
-                        <img src="{{ $carouselImage->image ? asset('storage/' . $carouselImage->image) : asset('assets/img/no-image.png') }}"
-                            alt="{{ $carouselImage->title }}" class="sliding-image">
-                    </div>
-                    <div class="carousel-text">
-                        <h1 class="text-capitalize">{{ $carouselImage->title }}</h1>
-                        <p class="text-capitalize">
-                            {{ $carouselImage->descriptions }}
-                        </p>
-                        @if ($carouselImage->url)
-                            <div class="carousel-btn">
-                                <a class="btn btn-custom" href="{{ $carouselImage->url }}">View More</a>
-                            </div>
-                        @endif
-                    </div>
-                </div>
-            @endforeach
+@foreach ($carouselImages as $carouselImage)
+    <div class="carousel-item {{$loop->first ? "active" : ""}} "
+        style="background-image: url({{ $carouselImage->image ? asset('storage/' . $carouselImage->image) : asset('assets/img/no-image.png') }})">
+        <div class="carousel-container">
+            <div class="container">
+                <h2 class="animate__animated animate__fadeInDown">{{ $carouselImage->title }}</span></h2>
+                <p class="animate__animated animate__fadeInUp">{!! $carouselImage->descriptions !!}</p>
+                @if ($carouselImage->url)
+                    <a href="{{ $carouselImage->url }}"
+                        class="btn-get-started animate__animated animate__fadeInUp scrollto">Read
+                        More</a>
+                @endif
+            </div>
         </div>
     </div>
-</div>
+@endforeach

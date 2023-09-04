@@ -1,4 +1,4 @@
-@extends('frontend.layouts.app',['title'=>  $category->name ])
+@extends('frontend.layouts.app', ['title' => $category->name])
 
 @section('content')
     <style>
@@ -6,41 +6,36 @@
             text-align: justify;
         }
     </style>
-    <!-- Page Header Start -->
-    <div class="page-header">
+    <section class="services section-bg">
         <div class="container">
+
+            <div class="section-title">
+                <h2 class="text-capitalize">{{ $category->name }}</h2>
+            </div>
+
             <div class="row">
-                <div class="col-12">
-                    <h2>{{ $category->name }}</h2>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Page Header End -->
-    <!-- About Start -->
-    <div class="container">
-        <div class="row g-2 justify-content-center">
-            @forelse ($category->posts as $post)
-                <div class="col-md-4">
-                    <a href="{{ route('posts.show', $post) }}">
-                        <div class="card card-hover">
-                            <img src="{{ $post->feature_image ? asset('storage/' . $post->feature_image) : asset('assets/img/no-image.png') }}"
-                                alt="{{ $post->title }}" class="feature-image">
-                            <div class="card-body">
-                                <h5 class="card-title text-capitalize">{{ $post->title }}</h5>
-                                <p class="card-text">
-                                    {{ Str::limit(strip_tags($post->descriptions), 100, $end = '...') }}
-                                </p>
+                @forelse ($category->posts as $post)
+                    <div class="col-md-4">
+                        <a href="{{ route('posts.show', $post) }}">
+                            <div class="card card-hover">
+                                <img src="{{ $post->feature_image ? asset('storage/' . $post->feature_image) : asset('assets/img/no-image.png') }}"
+                                    alt="{{ $post->title }}" class="feature-image">
+                                <div class="card-body">
+                                    <h5 class="card-title text-capitalize" style="color: #d9251a">{{ $post->title }}</h5>
+                                    <p class="card-text">
+                                        {{ Str::limit(strip_tags($post->descriptions), 100, $end = '...') }}
+                                    </p>
+                                </div>
                             </div>
-                        </div>
-                    </a>
-                </div>
-            @empty
-            <div class="col-md-12 text-center">
-                <div class="text-warning">:) Not available !!!</div>
+                        </a>
+                    </div>
+                @empty
+                    <div class="col-md-12 text-center">
+                        <div class="text-danger">:) Not available !!!</div>
+                    </div>
+                @endforelse
             </div>
-            @endforelse
+
         </div>
-    </div>
-    <!-- About End -->
+    </section>
 @endsection

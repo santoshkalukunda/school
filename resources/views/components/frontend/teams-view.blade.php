@@ -1,21 +1,19 @@
-<div class="row">
-    @foreach ($teams as $team)
-        <div class="col-lg-3 col-md-6">
-            <div class="team-item">
-                <div class="team-img">
-                    <img class="teams-image" src="{{ $team->photo ? asset('storage/' . $team->photo) : asset('assets/img/no-image.png') }}" alt="{{$team->name}}">
-                </div>
-                <div class="team-text">
-                    <h2 class="text-capitalize">{{$team->name}}</h2>
-                    <p class="text-capitalize">{{$team->designation}}</p>
-                    <div class="team-social">
-                        <a href="{{route('teams.show',$team)}}">View</a>
-                        {{-- <a href=""><i class="fab fa-facebook-f"></i></a>
-                        <a href=""><i class="fab fa-linkedin-in"></i></a>
-                        <a href=""><i class="fab fa-instagram"></i></a> --}}
-                    </div>
-                </div>
+@foreach ($teams as $team)
+    <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
+        <div class="member">
+            <img src="{{ $team->photo ? asset('storage/' . $team->photo) : asset('assets/img/no-image.png') }}"
+                alt="{{ $team->name }}">
+            <h4>{{ $team->name }}</h4>
+            <span>{{ $team->designation }}</span>
+            <div class="text-center">
+                <a href="{{ route('teams.show', $team) }}">View</a>
+            </div>
+            <div class="social">
+                <a href=""><i class="bi bi-twitter"></i></a>
+                <a href=""><i class="bi bi-facebook"></i></a>
+                <a href=""><i class="bi bi-instagram"></i></a>
+                <a href=""><i class="bi bi-linkedin"></i></a>
             </div>
         </div>
-    @endforeach
-</div>
+    </div>
+@endforeach

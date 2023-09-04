@@ -1,9 +1,16 @@
-<div class="testimonial">
+<section id="clients" class="clients">
     <div class="container">
-        <div class="section-header text-center">
-            <p>Our Partners</p>
-            {{-- <h2>What people are talking about our charity activities</h2> --}}
+
+        <div class="section-title">
+            <h2>Our Partners</h2>
         </div>
-        <x-frontend.partner-view />
+
+        <div class="clients-slider swiper">
+            <div class="swiper-wrapper align-items-center">
+                <x-frontend.partner-view />
+            </div>
+            <div class="swiper-pagination"></div>
+        </div>
+
     </div>
-</div>
+</section>

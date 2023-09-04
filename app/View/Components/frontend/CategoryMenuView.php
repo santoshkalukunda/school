@@ -24,7 +24,6 @@ class CategoryMenuView extends Component
         $this->categories = Category::with('childcategories.childcategories')
             ->where('parent_id', null)
             ->actived()
-            ->orderBy('name')
             ->get();
     }
 

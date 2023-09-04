@@ -33,20 +33,17 @@ use Illuminate\Support\Facades\Route;
 // });
 
 Route::get('/', [FrontendController::class, 'index'])->name('index');
-Route::get('/about', [FrontendController::class, 'about'])->name('about');
-Route::get('/contact-us', [FrontendController::class, 'contactUs'])->name('contact-us');
 
 Auth::routes(['register' => false]);
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-
-Route::get('/home', 'App\Http\Controllers\HomeController@index')->name('home');
-
 Route::get('posts/{post}', [PostController::class, 'show'])->name('posts.show');
 Route::get('pages/{page}', [PageController::class, 'show'])->name('pages.show');
 Route::get('teams/{team}', [TeamController::class, 'show'])->name('teams.show');
 Route::get('categories/{category}', [CategoryController::class, 'show'])->name('categories.show');
+
+Route::get('contact-us', [FrontendController::class, 'contactUs'])->name('contact-us');
 Route::post('contact-us', [ContactController::class, 'store'])->name('contact-us.store');
 
 // Route::get('modal-images/{modalImage}', [ModalImageController::class, 'show'])->name('modal-images.show');
@@ -149,7 +146,7 @@ Route::group(['prefix' => 'backend', 'middleware' => 'auth'], function () {
     Route::get('app-settings', [AppSettingController::class, 'index'])->name('app-settings.index');
     Route::put('app-settings', [AppSettingController::class, 'store'])->name('app-settings.store');
 
-    //contact-us-store
+    //contact-us-list
     Route::get('contact-us', [ContactController::class, 'index'])->name('contact-us.index');
     Route::delete('contact-us/{contact}', [ContactController::class, 'destroy'])->name('contact-us.destroy');
 
