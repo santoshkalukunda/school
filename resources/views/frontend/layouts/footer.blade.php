@@ -41,7 +41,7 @@
                     </div>
                     <div class="navbar">
                    
-                          <a class="nav-link" href="{{ route('pages.show', 'fqas') }}">FQAs</a>
+                          <a class="nav-link" href="{{ route('pages.show', 'frequently-asked-question') }}">FQAs</a>
                     </div>
                 </div>
             </div>
