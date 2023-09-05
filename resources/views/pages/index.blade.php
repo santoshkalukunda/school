@@ -23,6 +23,7 @@
                             <table class="table table-md table-bordered">
                                 <thead>
                                     <th>Title</th>
+                                    <th>Slug</th>
                                     <th>Feature Image</th>
                                     <th>Published Date</th>
                                     <th>Created By</th>
@@ -34,6 +35,7 @@
                                     @forelse($pages as $page)
                                         <tr>
                                             <td>{{ $page->title }}</td>
+                                            <td>{{ $page->slug }}</td>
                                             <td>
                                                 <img id="newProfilePhotoPreview"
                                                     src="{{ $page->feature_image ? asset('storage/' . $page->feature_image) : asset('assets/img/no-image.png') }}"
