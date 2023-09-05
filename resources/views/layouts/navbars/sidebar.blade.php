@@ -160,6 +160,12 @@
                                      {{ __('Site Settings') }}
                                 </a>
                             </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('logs') }}">
+                                    {{-- <i class="bi bi-gear"></i> --}}
+                                     {{ __('Logs') }}
+                                </a>
+                            </li>
                         </ul>
                     </div>
                 </li>

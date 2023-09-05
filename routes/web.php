@@ -158,5 +158,5 @@ Route::group(['prefix' => 'backend', 'middleware' => 'auth'], function () {
     Route::get('contact-us', [ContactController::class, 'index'])->name('contact-us.index');
     Route::delete('contact-us/{contact}', [ContactController::class, 'destroy'])->name('contact-us.destroy');
 
-    Route::get('logs', [\Rap2hpoutre\LaravelLogViewer\LogViewerController::class, 'index']);
+    Route::get('logs', [\Rap2hpoutre\LaravelLogViewer\LogViewerController::class, 'index'])->name('logs');
 });
