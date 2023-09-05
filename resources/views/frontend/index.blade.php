@@ -35,6 +35,6 @@
         {{-- <!-- ======= Contact Section ======= -->
         @include('frontend.layouts.contact')
         <!-- End Contact Section --> --}}
-
+        <x-frontend.modal-image-view />
     </main><!-- End #main -->
 @endsection

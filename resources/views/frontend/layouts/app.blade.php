@@ -76,13 +76,13 @@
             border: 1px solid #ddd;
             border-radius: 50%;
             padding: 2px;
-            width: 350px;
-            height: 350px;
+            width: 300px;
+            height: 300px;
             object-fit: cover;
             position: relative;
         }
     </style>
-    @yield('styles')
+     @stack('styles')
 
 </head>
 
@@ -103,6 +103,7 @@
             class="bi bi-arrow-up-short"></i></a>
 
     <!-- Vendor JS Files -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="{{ asset('frontend/assets/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
     <script src="{{ asset('frontend/assets/vendor/glightbox/js/glightbox.min.js') }}"></script>
     <script src="{{ asset('frontend/assets/vendor/isotope-layout/isotope.pkgd.min.js') }}"></script>
@@ -111,7 +112,7 @@
 
     <!-- Template Main JS File -->
     <script src="{{ asset('frontend/assets/js/main.js') }}"></script>
-    @yield('scripts')
+    @stack('scripts')
 </body>
 
 </html>

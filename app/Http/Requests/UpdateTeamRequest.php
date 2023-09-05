@@ -28,7 +28,7 @@ class UpdateTeamRequest extends FormRequest
             'designation' => 'required',
             'email' => 'required',
             'phone' => 'nullable',
-            'address' => 'nullable',
+            'address' => 'required',
             'status' => 'required',
             'photo' => 'nullable',
             'team_type_id' => 'required',

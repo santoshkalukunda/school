@@ -39,15 +39,15 @@
                         <li class="dropdown"><a href="#"><span>Leadership</span> <i
                                     class="bi bi-chevron-right"></i></a>
                             <ul>
-                                <li><a href="#">SMT</a></li>
-                                <li><a href="#">Excutive Board</a></li>
+                                <li><a href="{{ route('team-types.show','senior-management-team') }}">SMT</a></li>
+                                <li><a href="{{ route('team-types.show','excutive-board') }}">Excutive Board</a></li>
                             </ul>
                         </li>
                     </ul>
                 </li>
                 <x-frontend.category-menu-view />
 
-                <li><a class="nav-link scrollto" href="{{route('contact-us')}}">Contact</a></li>
+                <li><a class="nav-link scrollto" href="{{ route('contact-us') }}">Contact</a></li>
                 <li><a class="getstarted scrollto" href="#">Donate Us</a></li>
             </ul>
             <i class="bi bi-list mobile-nav-toggle"></i>

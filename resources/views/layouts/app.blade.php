@@ -41,7 +41,7 @@
         .carousel-image {
             border: 1px solid #ddd;
             padding: 2px;
-            /* width: 700px; */
+            max-width: 600px; */
             height: 300px;
             object-fit: fill;
             position: relative;

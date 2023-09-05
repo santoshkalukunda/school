@@ -43,6 +43,7 @@ Route::get('posts/{post}', [PostController::class, 'show'])->name('posts.show');
 Route::get('pages/{page}', [PageController::class, 'show'])->name('pages.show');
 Route::get('teams/{team}', [TeamController::class, 'show'])->name('teams.show');
 Route::get('categories/{category}', [CategoryController::class, 'show'])->name('categories.show');
+Route::get('team-types/{teamType}', [TeamTypeController::class, 'show'])->name('team-types.show');
 
 Route::get('contact-us', [FrontendController::class, 'contactUs'])->name('contact-us');
 Route::post('contact-us', [ContactController::class, 'store'])->name('contact-us.store');
@@ -125,7 +126,7 @@ Route::group(['prefix' => 'backend', 'middleware' => 'auth'], function () {
     //team types
     Route::get('team-types', [TeamTypeController::class, 'index'])->name('team-types.index');
     Route::post('team-types', [TeamTypeController::class, 'store'])->name('team-types.store');
-    Route::get('team-types/{teamType}', [TeamTypeController::class, 'edit'])->name('team-types.edit');
+    Route::get('team-types/{teamType}/edit', [TeamTypeController::class, 'edit'])->name('team-types.edit');
     Route::put('team-types/{teamType}', [TeamTypeController::class, 'update'])->name('team-types.update');
     Route::delete('team-types/{teamType}', [TeamTypeController::class, 'destroy'])->name('team-types.destroy');
 

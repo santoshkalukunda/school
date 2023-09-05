@@ -54,7 +54,7 @@ class TeamTypeController extends Controller
      */
     public function show(TeamType $teamType)
     {
-        //
+        return view('frontend.team-types.show',compact('teamType'));
     }
 
     /**
