@@ -1,11 +1,11 @@
 <?php
 
-namespace App\View\Components\frontend;
+namespace App\View\Components\Frontend;
 
-use App\Models\CarouselImage;
+use App\Models\Partner;
 use Illuminate\View\Component;
 
-class CarouselImageView extends Component
+class PartnerView extends Component
 {
     /**
      * Create a new component instance.
@@ -13,11 +13,11 @@ class CarouselImageView extends Component
      * @return void
      */
 
-     public $carouselImages;
+    public $partners;
 
     public function __construct()
     {
-       $this->carouselImages = CarouselImage::latest()->published()->get();
+        $this->partners = Partner::latest()->published()->get();
     }
 
     /**
@@ -27,6 +27,6 @@ class CarouselImageView extends Component
      */
     public function render()
     {
-        return view('components.frontend.carousel-image-view');
+        return view('components.frontend.partner-view');
     }
 }
