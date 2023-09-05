@@ -8,7 +8,7 @@ use Spatie\Sluggable\HasSlug;
 use Spatie\Sluggable\SlugOptions;
 use Wildside\Userstamps\Userstamps;
 
-class Team extends Model
+class TeamType extends Model
 {
     use HasFactory, Userstamps, HasSlug;
 
@@ -36,8 +36,7 @@ class Team extends Model
     {
         return $query->where('status', false);
     }
-    public function teamType()
-    {
-        return $this->belongsTo(TeamType::class);
+    public function teams(){
+        return $this->hasMany(Team::class);
     }
 }

@@ -27,8 +27,9 @@
                             <div class="row">
                                 <div class="col-md-9">
                                     <div class="row">
-
-
+                                        <div class="col-md-6">
+                                            <x-team-type-select :team="$team" />
+                                        </div>
                                         <div class="col-md-6 mb-3">
                                             <label for="name" class="form-label required">Name</label>
                                             <input type="text" name="name"
@@ -97,7 +98,7 @@
                                         </div>
                                         <div class="col-md-6 mb-3">
                                             <label for="status" class="form-label">{{ __('Status') }}</label>
-    
+
                                             <select class="form-control" name="status" id="status"
                                                 aria-label="Default select example">
                                                 <option value="1" {{ $team->status == '1' ? 'selected' : '' }}>
@@ -105,7 +106,7 @@
                                                 <option value="0" {{ $team->status == '0' ? 'selected' : '' }}>
                                                     Unpublish</option>
                                             </select>
-    
+
                                             @error('status')
                                                 <span class="invalid-feedback" role="alert">
                                                     <strong>{{ $message }}</strong>

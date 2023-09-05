@@ -13,6 +13,7 @@ use App\Http\Controllers\PostController;
 use App\Http\Controllers\PostDocumentController;
 use App\Http\Controllers\SocialMediaController;
 use App\Http\Controllers\TeamController;
+use App\Http\Controllers\TeamTypeController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -120,6 +121,13 @@ Route::group(['prefix' => 'backend', 'middleware' => 'auth'], function () {
     Route::get('social-medias/{socialMedia}', [SocialMediaController::class, 'edit'])->name('social-medias.edit');
     Route::put('social-medias/{socialMedia}', [SocialMediaController::class, 'update'])->name('social-medias.update');
     Route::delete('social-medias/{socialMedia}', [SocialMediaController::class, 'destroy'])->name('social-medias.destroy');
+
+    //team types
+    Route::get('team-types', [TeamTypeController::class, 'index'])->name('team-types.index');
+    Route::post('team-types', [TeamTypeController::class, 'store'])->name('team-types.store');
+    Route::get('team-types/{teamType}', [TeamTypeController::class, 'edit'])->name('team-types.edit');
+    Route::put('team-types/{teamType}', [TeamTypeController::class, 'update'])->name('team-types.update');
+    Route::delete('team-types/{teamType}', [TeamTypeController::class, 'destroy'])->name('team-types.destroy');
 
     //teams
     Route::get('teams', [TeamController::class, 'index'])->name('teams.index');

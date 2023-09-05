@@ -116,26 +116,17 @@
                         <i class="bi bi-envelope"></i> {{ __('Contact Us') }}
                     </a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ route('social-medias.index') }}">
-                        <i class="bi bi-share"></i> {{ __('Social Medias') }}
-                    </a>
-                </li>
-                <li class="nav-item">
+                {{-- <li class="nav-item">
                     <a class="nav-link" href="{{ route('users.index') }}">
                         <i class="bi bi-people"></i> {{ __('Users') }}
                     </a>
-                </li>
+                </li> --}}
+              
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('app-settings.index') }}">
-                        <i class="bi bi-gear"></i> {{ __('Site Settings') }}
-                    </a>
-                </li>
-                {{-- <li class="nav-item">
                     <a class="nav-link active" href="#navbar-examples" data-toggle="collapse" role="button"
                         aria-expanded="true" aria-controls="navbar-examples">
                         <i class="fab fa-laravel" style="color: #f4645f;"></i>
-                        <span class="nav-link-text" style="color: #f4645f;">{{ __('Laravel Examples') }}</span>
+                        <span class="nav-link-text" style="color: #f4645f;">{{ __('Settigns') }}</span>
                     </a>
 
                     <div class="collapse show" id="navbar-examples">
@@ -146,13 +137,32 @@
                                 </a>
                             </li>
                             <li class="nav-item">
+                                <a class="nav-link" href="{{ route('team-types.index') }}">
+                                    {{-- <i class="bi bi-share"></i>  --}}
+                                    {{ __('Team Types') }}
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('social-medias.index') }}">
+                                    {{-- <i class="bi bi-share"></i>  --}}
+                                    {{ __('Social Medias') }}
+                                </a>
+                            </li>
+                            
+                            <li class="nav-item">
                                 <a class="nav-link" href="{{ route('user.index') }}">
                                     {{ __('User Management') }}
                                 </a>
                             </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('app-settings.index') }}">
+                                    {{-- <i class="bi bi-gear"></i> --}}
+                                     {{ __('Site Settings') }}
+                                </a>
+                            </li>
                         </ul>
                     </div>
-                </li> --}}
+                </li>
             </ul>
         </div>
     </div>

@@ -34,13 +34,13 @@
                         <div class="table-responsive">
                             <table class="table table-md table-bordered">
                                 <thead>
+                                    <th>Team Type</th>
                                     <th>Photo</th>
                                     <th>Name</th>
                                     <th>Designation</th>
                                     <th>Address</th>
                                     <th>Email</th>
                                     <th>Phone</th>
-                                    <th>Social Media</th>
                                     <th>Created By</th>
                                     <th>Updated By</th>
                                     <th>Status</th>
@@ -49,6 +49,7 @@
                                 <tbody id="sortable-category-menu">
                                     @forelse($teams as $team)
                                         <tr data-id="{{ $team->id }}" data-order="{{ $team->position ?? 0 }}">
+                                            <td>{{ $team->teamType->name }}</td>
                                             <td class="sort-handle p-2">
                                                 <img id="newProfilePhotoPreview"
                                                     src="{{ $team->photo ? asset('storage/' . $team->photo) : asset('assets/img/no-image.png') }}"
@@ -61,7 +62,6 @@
                                             <td>{{ $team->address }}</td>
                                             <td>{{ $team->email }}</td>
                                             <td>{{ $team->phone }}</td>
-                                            <td></td>
                                             <td>{{ $team->creator->name }}</td>
                                             <td>{{ $team->editor->name }}</td>
                                             <td>
@@ -84,7 +84,7 @@
                                                     </a>
                                                     <div class="dropdown-menu dropdown-menu-arrow">
                                                         <a class="dropdown-item "
-                                                        href="{{ route('teams.show', $team) }}">Show</a>
+                                                            href="{{ route('teams.show', $team) }}">Show</a>
 
                                                         <a class="dropdown-item "
                                                             href="{{ route('teams.edit', $team) }}">Edit</a>

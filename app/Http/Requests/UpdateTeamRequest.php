@@ -31,6 +31,7 @@ class UpdateTeamRequest extends FormRequest
             'address' => 'nullable',
             'status' => 'required',
             'photo' => 'nullable',
+            'team_type_id' => 'required',
         ];
     }
 }
