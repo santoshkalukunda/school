@@ -25,7 +25,7 @@
                         <li class="dropdown"><a href="#"><span>How we work</span> <i
                                     class="bi bi-chevron-right"></i></a>
                             <ul>
-                                <li><a href="{{route('pages.show','theory-of-constraints')}}">TOC</a></li>
+                                <li><a href="{{route('pages.show','theory-of-change')}}">TOC</a></li>
                                 <li><a href="{{route('pages.show','thematic-goal')}}">Thematic Goal</a></li>
                                 <li><a href="{{route('pages.show','cross-cutting-issues')}}">Cross-Cutting Issues</a></li>
                                 <li><a href="{{route('pages.show','commitment-and-appraisal')}}">Commitment and Appraisal </a></li>
