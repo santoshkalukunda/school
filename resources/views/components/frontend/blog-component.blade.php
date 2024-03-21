@@ -29,7 +29,7 @@
                 </div>
             @empty
                 <div class="text-primary text-center">
-                    {{ $category->name }} not found !!!
+                   Blogs not found !!!
                 </div>
             @endforelse
         </div>

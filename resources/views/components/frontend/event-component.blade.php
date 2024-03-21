@@ -31,7 +31,7 @@
                 </div>
             @empty
                 <div class="text-primary text-center">
-                    {{ $category->name }} not found !!!
+                    Event not found !!!
                 </div>
             @endforelse
         </div>
