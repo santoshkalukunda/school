@@ -1,40 +1,42 @@
-@extends('frontend.layouts.app', ['title' => appSettings('tagline')])
-
+@extends('frontend.layouts.app', ['title' => 'Home'])
 @section('content')
-    <!-- ======= Hero Section ======= -->
+    <!-- Carousel Start -->
     @include('frontend.layouts.carousel')
-    <!-- End Hero -->
-
-    <main id="main">
-        {{-- <!-- ======= Featured Services Section ======= -->
-        @include('frontend.layouts.feature')
-
-        <!-- End Featured Services Section --> --}}
-
-        <!-- ======= About Us Section ======= -->
-        @include('frontend.layouts.about')
-        <!-- End About Us Section -->
-
-        {{-- <!-- ======= Why Us Section ======= -->
-        @include('frontend.layouts.why-us')
-        <!-- End Why Us Section --> --}}
-
-        <!-- ======= Our partners Section ======= -->
-        @include('frontend.layouts.partners')
-        <!-- End Our partners Section -->
+    <!-- Carousel End -->
 
 
-        {{-- <!-- ======= Portfolio Section ======= -->
-        @include('frontend.layouts.portfolio')
-        <!-- End Portfolio Section --> --}}
+    <!-- our-feature Start -->
+    <x-frontend.our-feature />
+    <!-- our-feature End -->
 
-        <!-- ======= Team Section ======= -->
-        {{-- @include('frontend.layouts.teams') --}}
-        <!-- End Team Section -->
 
-        {{-- <!-- ======= Contact Section ======= -->
-        @include('frontend.layouts.contact')
-        <!-- End Contact Section --> --}}
-        <x-frontend.modal-image-view />
-    </main><!-- End #main -->
+    <!-- About Start -->
+    <x-frontend.about-us />
+    <!-- About End -->
+
+
+    <!-- Call To Action Start -->
+    {{-- @include('frontend.layouts.action') --}}
+
+    <!-- Call To Action End -->
+
+
+    <!-- event Start -->
+    <x-frontend.event-component />
+    <!-- event End -->
+
+    <!-- Testimonial Start -->
+    @include('frontend.layouts.testimonial')
+    <!-- Testimonial End -->
+
+    <!-- blog Start -->
+    <x-frontend.blog-component />
+    <!-- blog End -->
+
+
+
+
+    <!-- Team Start -->
+    {{-- @include('frontend.layouts.team') --}}
+    <!-- Team End -->
 @endsection

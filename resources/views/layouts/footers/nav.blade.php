@@ -5,16 +5,5 @@
                 &copy; {{ now()->year }} {{appSettings('site_name')}}
             </div>
         </div>
-        <div class="col-xl-6">
-            <ul class="nav nav-footer justify-content-center justify-content-xl-end">
-                <li class="nav-item nav-link">
-                    Developed By
-                </li>
-                <li class="nav-item">
-                    <a href="https://www.mohrain.com" class="nav-link" target="_blank">Mohrain</a>
-                </li>
-
-            </ul>
-        </div>
     </div>
 </div>

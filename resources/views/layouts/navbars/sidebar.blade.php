@@ -83,14 +83,10 @@
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('carousel-images.index') }}">
-                        <i class="bi bi-file-earmark-easel text-primary"></i> {{ __('Carousel Images') }}
+                        <i class="bi bi-file-earmark-easel text-primary"></i> {{ __('Slider Images') }}
                     </a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ route('modal-images.index') }}">
-                        <i class="bi bi-app-indicator text-primary"></i>{{ __('Modal Images') }}
-                    </a>
-                </li>
+           
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('categories.index') }}">
                         <i class="bi bi-tags text-primary"></i>{{ __('Categories') }}
@@ -98,29 +94,17 @@
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('category-menu.index') }}">
-                        <i class="bi bi-menu-down text-primary"></i> {{ __('Category Menus') }}
+                        <i class="bi bi-menu-down text-primary"></i> {{ __('Menus') }}
                     </a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ route('partners.index') }}">
-                        <i class="bi bi-diagram-3 text-primary"></i> {{ __('Partners') }}
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ route('teams.index') }}">
-                        <i class="bi bi-people text-primary"></i> {{ __('Teams') }}
-                    </a>
-                </li>
+         
+        
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('contact-us.index') }}">
                         <i class="bi bi-envelope"></i> {{ __('Contact Us') }}
                     </a>
                 </li>
-                {{-- <li class="nav-item">
-                    <a class="nav-link" href="{{ route('users.index') }}">
-                        <i class="bi bi-people"></i> {{ __('Users') }}
-                    </a>
-                </li> --}}
+          
               
                 <li class="nav-item">
                     <a class="nav-link active" href="#navbar-examples" data-toggle="collapse" role="button"
@@ -134,18 +118,6 @@
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('profile.edit') }}">
                                     {{ __('User profile') }}
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ route('team-types.index') }}">
-                                    {{-- <i class="bi bi-share"></i>  --}}
-                                    {{ __('Team Types') }}
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ route('social-medias.index') }}">
-                                    {{-- <i class="bi bi-share"></i>  --}}
-                                    {{ __('Social Medias') }}
                                 </a>
                             </li>
                             

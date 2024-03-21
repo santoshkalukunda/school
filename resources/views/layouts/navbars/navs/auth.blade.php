@@ -21,7 +21,7 @@
                     <div class="media align-items-center">
                         <div class="justify-content-center">
                             <img
-                                src="{{ Auth::user()->profile ? asset('storage/' . Auth::user()->profile) : asset('assets/img/logo.jpg') }}"
+                                src="{{ Auth::user()->profile ? asset('storage/' . Auth::user()->profile) : asset('assets/img/dummy-profile.png') }}"
                                 class="profile-nav ">
                         </div>
                         <div class="media-body ml-2 d-none d-lg-block">
@@ -37,17 +37,7 @@
                         <i class="ni ni-single-02"></i>
                         <span>{{ __('My Profile') }}</span>
                     </a>
-                    {{-- <a href="#" class="dropdown-item">
-                        <i class="ni ni-settings-gear-65"></i>
-                        <span>{{ __('Settings') }}</span>
-                    </a>
-                    <a href="#" class="dropdown-item">
-                        <i class="ni ni-calendar-grid-58"></i>
-                        <span>{{ __('Activity') }}</span>
-                    </a>
-                    <a href="#" class="dropdown-item">
-                        <i class="ni ni-support-16"></i>
-                        <span>{{ __('Support') }}</span> --}}
+             
                     </a>
                     <div class="dropdown-divider"></div>
                     <a href="{{ route('logout') }}" class="dropdown-item" onclick="event.preventDefault();

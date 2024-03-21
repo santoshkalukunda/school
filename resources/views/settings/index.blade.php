@@ -159,7 +159,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="col-md-6">
+                                        {{-- <div class="col-md-6">
                                             <div class="mb-3">
                                                 <label for="tiktok" class="form-label">Tiktok</label>
                                                 <input type="url" name="tiktok"
@@ -173,7 +173,7 @@
 
                                                 </div>
                                             </div>
-                                        </div>
+                                        </div> --}}
                                         <div class="col-md-6">
                                             <div class="mb-3">
                                                 <label for="youtube" class="form-label">YouTube</label>

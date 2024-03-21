@@ -3,116 +3,75 @@
 
 <head>
     <meta charset="utf-8">
+    <title>{{ $title ?? '' }}-{{ config('app.name') }}</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
-
-    <title>{{ config('app.name') }} | {{ $title ?? '' }}</title>
-    <meta content="Organization, organization Nepal, Nepal,Fayanepal, ORG Nepal, Dhangadhi, Sudurpashim Province"
-        name="keywords">
+    <meta content="" name="keywords">
     <meta content="" name="description">
 
-    <!-- Favicons -->
+    <!-- Favicon -->
     <link href="{{ appSettings('logo') ? asset('storage/' . appSettings('logo')) : asset('assets/img/no-image.png') }}"
-        rel="icon">
+    rel="icon" type="image/png">
 
-    <!-- Google Fonts -->
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
+        href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600&family=Inter:wght@600&family=Lobster+Two:wght@700&display=swap"
         rel="stylesheet">
 
-    <!-- Vendor CSS Files -->
-    <link href="{{ asset('frontend/assets/vendor/animate.css/animate.min.css') }}" rel="stylesheet">
-    <link href="{{ asset('frontend/assets/vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
-    <link href="{{ asset('frontend/assets/vendor/bootstrap-icons/bootstrap-icons.css') }}" rel="stylesheet">
-    <link href="{{ asset('frontend/assets/vendor/boxicons/css/boxicons.min.css') }}" rel="stylesheet">
-    <link href="{{ asset('frontend/assets/vendor/glightbox/css/glightbox.min.css') }}" rel="stylesheet">
-    <link href="{{ asset('frontend/assets/vendor/swiper/swiper-bundle.min.css') }}" rel="stylesheet">
-    <!-- Template Main CSS File -->
-    <link href="{{ asset('frontend/assets/css/style.css') }}" rel="stylesheet">
-    <style>
-        .feature-img {
-            border: 1px solid #ddd;
-            width: 100%;
-            max-height: 100vh;
-            object-fit: fill;
-            position: relative;
-        }
+    <!-- Icon Font Stylesheet -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
 
-        .feature-image {
-            max-height: 180px;
-            object-fit: cover;
-            position: relative;
-            /* margin: 20px; */
-        }
+    <!-- Libraries Stylesheet -->
+    <link href="{{ asset('frontend/lib/animate/animate.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('frontend/lib/owlcarousel/assets/owl.carousel.min.css') }}" rel="stylesheet">
 
-        .teams-image {
-            border: 1px solid #ddd;
-            padding: 2px;
-            width: 300px;
-            height: 300px;
-            object-fit: cover;
-            position: relative;
-            /* margin: 20px; */
-        }
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="{{ asset('frontend/css/bootstrap.min.css') }}" rel="stylesheet">
 
-        .partner-image {
-            max-width: 100px;
-            max-height: 80px;
-            object-fit: fill;
-            /* position: relative; */
-            /* margin: 20px; */
-        }
-
-        .sliding-image {
-            max-height: 100vh;
-            object-fit: fill;
-        }
-
-        .card-hover:hover {
-            box-shadow: 1px 8px 20px grey;
-            -webkit-transition: box-shadow .2s ease-in;
-        }
-
-        .profile {
-            border: 1px solid #ddd;
-            border-radius: 50%;
-            padding: 2px;
-            width: 300px;
-            height: 300px;
-            object-fit: cover;
-            position: relative;
-        }
-    </style>
-     @stack('styles')
-
+    <!-- Template Stylesheet -->
+    <link href="{{ asset('frontend/css/style.css') }}" rel="stylesheet">
 </head>
 
 <body>
+    <div class="container-xxl bg-white p-0">
+        <!-- Spinner Start -->
+        <div id="spinner"
+            class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+            <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
+                <span class="sr-only">Loading...</span>
+            </div>
+        </div>
+        <!-- Spinner End -->
 
-    <!-- ======= Top Bar ======= -->
-    @include('frontend.layouts.top-bar')
 
-    <!-- ======= Header ======= -->
-    @include('frontend.layouts.nav')
-    <!-- End Header -->
-    @yield('content')
-    <!-- ======= Footer ======= -->
-    @include('frontend.layouts.footer')
-    <!-- End Footer -->
+        <!-- Navbar Start -->
+        @include('frontend.layouts.nav')
+        <!-- Navbar End -->
 
-    <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
-            class="bi bi-arrow-up-short"></i></a>
 
-    <!-- Vendor JS Files -->
+        @yield('content')
+
+        <!-- Footer Start -->
+        @include('frontend.layouts.footer')
+        <!-- Footer End -->
+
+
+        <!-- Back to Top -->
+        <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
+    </div>
+
+    <!-- JavaScript Libraries -->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-    <script src="{{ asset('frontend/assets/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
-    <script src="{{ asset('frontend/assets/vendor/glightbox/js/glightbox.min.js') }}"></script>
-    <script src="{{ asset('frontend/assets/vendor/isotope-layout/isotope.pkgd.min.js') }}"></script>
-    <script src="{{ asset('frontend/assets/vendor/swiper/swiper-bundle.min.js') }}"></script>
-    <script src="{{ asset('frontend/assets/vendor/php-email-form/validate.js') }}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="{{ asset('frontend/lib/wow/wow.min.js') }}"></script>
+    <script src="{{ asset('frontend/lib/easing/easing.min.js') }}"></script>
+    <script src="{{ asset('frontend/lib/waypoints/waypoints.min.js') }}"></script>
+    <script src="{{ asset('frontend/lib/owlcarousel/owl.carousel.min.js') }}"></script>
 
-    <!-- Template Main JS File -->
-    <script src="{{ asset('frontend/assets/js/main.js') }}"></script>
-    @stack('scripts')
+    <!-- Template Javascript -->
+    <script src="{{ asset('frontend/js/main.js') }}"></script>
 </body>
 
 </html>

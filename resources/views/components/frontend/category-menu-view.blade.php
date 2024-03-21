@@ -2,19 +2,18 @@
      @foreach ($categories as $category)
          @if ($categoryMenu->category_id == $category->id)
              @if ($category->childCategories->isEmpty())
-                 <li><a class="nav-link scrollto text-capitalize"
-                         href="{{ route('categories.show', $category) }}">{{ $category->name }}</a></li>
+                 <a class="nav-item nav-link" href="{{ route('categories.show', $category) }}">{{ $category->name }}</a>
              @else
-                 <li class="dropdown"><a href="#"><span>{{ $category->name }}</span> <i
-                             class="bi bi-chevron-down"></i></a>
-                     <ul>
+                 <div class="nav-item dropdown">
+                     <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">{{ $category->name }}</a>
+                     <div class="dropdown-menu rounded-0 rounded-bottom border-0 shadow-sm m-0">
+
                          @foreach ($category->childCategories as $secondLevelCategory)
-                             <li><a
-                                     href="{{ route('categories.show', $secondLevelCategory) }}">{{ $secondLevelCategory->name }}</a>
-                             </li>
+                             <a class="dropdown-item"
+                                 href="{{ route('categories.show', $secondLevelCategory) }}">{{ $secondLevelCategory->name }}</a>
                          @endforeach
-                     </ul>
-                 </li>
+                     </div>
+                 </div>
              @endif
          @endif
      @endforeach

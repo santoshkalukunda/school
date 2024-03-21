@@ -1,64 +1,81 @@
-<footer id="footer">
-    <div class="container">
-        <div class="row gy-4">
-            <div class="col-lg-4 col-md-6">
-                <div class="footer-contact">
-                    <a href="/" class="logo me-auto"><img
-                            src="{{ appSettings('logo') ? asset('storage/' . appSettings('logo')) : asset('assets/img/no-image.png') }}"
-                            alt="{{ appSettings('site_name') }}" style="height: 50px;">
-                    </a>
-                    <div class="my-2"><i>{{ appSettings('tagline') }}</i></div>
-                    <div class="address"><i class="bi bi-geo-alt"></i> {{ appSettings('address') }}</div>
-                    <div class="phone"><i class="bi bi-phone"></i> {{ appSettings('phone') }}</div>
-                    <div class="email"><i class="bi bi-envelope"></i> {{ appSettings('email') }}</div>
-                </div>
-                <div class="social-links">
-                    <a href="{{ appSettings('facebook') }}" class="facebook"><i class="bx bxl-facebook"></i></a>
-                    <a href="{{ appSettings('twitter') }}" class="twitter"><i class="bx bxl-twitter"></i></a>
-                    <a href="{{ appSettings('instagram') }}" class="instagram"><i class="bx bxl-instagram"></i></a>
-                    <a href="{{ appSettings('youtube') }}" class="google-plus"><i class="bx bxl-youtube"></i></a>
-                    <a href="{{ appSettings('tiktok') }}" class="linkedin"><i class="bx bxl-tiktok"></i></a>
+<div class="container-fluid bg-dark text-white-50 footer pt-5 mt-5 wow fadeIn" data-wow-delay="0.1s">
+    <div class="container py-5">
+        <div class="row g-5">
+            <div class="col-lg-3 col-md-6">
+                <h3 class="text-white mb-4">Get In Touch</h3>
+                <p class="mb-2"><i class="fa fa-map-marker-alt me-3"></i>{{ appSettings('address') }}</p>
+                <p class="mb-2"><i class="fa fa-phone-alt me-3"></i>{{ appSettings('phone') }}</p>
+                <p class="mb-2"><i class="fa fa-envelope me-3"></i>{{ appSettings('email') }}</p>
+                <div class="d-flex pt-2">
+                    <a class="btn btn-outline-light btn-social" href="{{ appSettings('twitter') }}"><i
+                            class="fab fa-twitter"></i></a>
+                    <a class="btn btn-outline-light btn-social" href="{{ appSettings('facebook') }}"><i
+                            class="fab fa-facebook-f"></i></a>
+                    <a class="btn btn-outline-light btn-social" href="{{ appSettings('youtube') }}"><i
+                            class="fab fa-youtube"></i></a>
+                    <a class="btn btn-outline-light btn-social" href="{{ appSettings('instagram') }}"><i
+                            class="fab fa-instagram"></i></a>
                 </div>
             </div>
-
-            <div class="col-lg-4 col-md-6">
-                <div class="footer-link">
-                    {{-- <h4 class="pl-3">Useful Links</h4> --}}
-                    <div class="navbar">
-                        <a class="nav-link"  href="{{ route('pages.show', 'terms-of-use') }}">Terms of use</a>
+            <div class="col-lg-3 col-md-6">
+                <h3 class="text-white mb-4">Quick Links</h3>
+                <a class="btn btn-link text-white-50" href="">About Us</a>
+                <a class="btn btn-link text-white-50" href="">Contact Us</a>
+                <a class="btn btn-link text-white-50" href="">Our Services</a>
+                <a class="btn btn-link text-white-50" href="">Privacy Policy</a>
+                <a class="btn btn-link text-white-50" href="">Terms & Condition</a>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <h3 class="text-white mb-4">Photo Gallery</h3>
+                <div class="row g-2 pt-2">
+                    <div class="col-4">
+                        <img class="img-fluid rounded bg-light p-1" src="{{ asset('frontend/img/classes-1.jpg') }}"
+                            alt="">
                     </div>
-                    <div class="navbar">
-                   
-                          <a class="nav-link" href="{{ route('pages.show', 'privacy-policy') }}">Privacy Policy</a>
+                    <div class="col-4">
+                        <img class="img-fluid rounded bg-light p-1" src="{{ asset('frontend/img/classes-2.jpg') }}"
+                            alt="">
                     </div>
-                    <div class="navbar">
-                   
-                          <a class="nav-link" href="{{ route('pages.show', 'cookies') }}">Cookies</a>
+                    <div class="col-4">
+                        <img class="img-fluid rounded bg-light p-1" src="{{ asset('frontend/img/classes-3.jpg') }}"
+                            alt="">
                     </div>
-                    <div class="navbar">
-                   
-                          <a class="nav-link" href="{{ route('pages.show', 'help') }}">Help</a>
+                    <div class="col-4">
+                        <img class="img-fluid rounded bg-light p-1" src="{{ asset('frontend/img/classes-4.jpg') }}"
+                            alt="">
                     </div>
-                    <div class="navbar">
-                   
-                          <a class="nav-link" href="{{ route('pages.show', 'frequently-asked-question') }}">FQAs</a>
+                    <div class="col-4">
+                        <img class="img-fluid rounded bg-light p-1" src="{{ asset('frontend/img/classes-5.jpg') }}"
+                            alt="">
+                    </div>
+                    <div class="col-4">
+                        <img class="img-fluid rounded bg-light p-1" src="{{ asset('frontend/img/classes-6.jpg') }}"
+                            alt="">
                     </div>
                 </div>
             </div>
-            <div class="col-lg-4 col-md-6">
-                <div class="footer-link">
-                    {{-- <h4 class="text-danger">Maps</h4> --}}
-                    {!! appSettings('maps') !!}
+            <div class="col-lg-3 col-md-6">
+                <h3 class="text-white mb-4">Newsletter</h3>
+                <p>Dolor amet sit justo amet elitr clita ipsum elitr est.</p>
+                <div class="position-relative mx-auto" style="max-width: 400px;">
+                    <input class="form-control bg-transparent w-100 py-3 ps-4 pe-5" type="text"
+                        placeholder="Your email">
+                    <button type="button"
+                        class="btn btn-primary py-2 position-absolute top-0 end-0 mt-2 me-2">SignUp</button>
                 </div>
             </div>
-        </div>
-
-        <div class="copyright text-center">
-            &copy; Copyright <strong><span>Forum for Awareness and Youth Activity (FAYA), Nepal </span></strong>. All
-            Rights Reserved
-        </div>
-        <div class="credits text-center">
-            Developed by <a href="https://mohrain.com/">Mohrain</a>
         </div>
     </div>
-</footer>
+    <div class="container">
+        <div class="copyright">
+            <div class="row">
+                <div class="col-md-12 text-center text-md-start mb-3 mb-md-0">
+                    &copy; {{ now()->year }} {{ appSettings('site_name') }}, All Right Reserved.
+
+                    <!--/*** This template is free as long as you keep the footer author’s credit link/attribution link/backlink. If you'd like to use the template without the footer author’s credit link/attribution link/backlink, you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". Thank you for your support. ***/-->
+                    {{-- Designed By <a class="border-bottom" href="https://htmlcodex.com">HTML Codex</a> --}}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

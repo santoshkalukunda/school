@@ -42,8 +42,8 @@
                                                     class="feature-image-thum">
                                             </td>
                                             <td>{{ $page->created_at }}</td>
-                                            <td>{{ $page->creator->name }}</td>
-                                            <td>{{ $page->editor->name }}</td>
+                                            <td>{{ $page->creator->name ?? '' }}</td>
+                                            <td>{{ $page->editor->name ?? '' }}</td>
                                             <td>
                                                 @if ($page->status == true)
                                                     <span class="badge badge-primary">

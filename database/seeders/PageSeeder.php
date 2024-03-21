@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Page;
 use Illuminate\Database\Seeder;
 
 class PageSeeder extends Seeder
@@ -13,6 +14,28 @@ class PageSeeder extends Seeder
      */
     public function run()
     {
-        //
+        $pages = [
+            [
+                'title' => 'About Us',
+                'user_id' => 1,
+            ],
+            [
+                'title' => 'Vision',
+                'user_id' => 1,
+            ],
+            [
+                'title' => 'Mission',
+                'user_id' => 1,
+            ],
+            [
+                'title' => 'Message From Principal',
+                'user_id' => 1,
+            ],
+        ];
+
+        foreach ($pages as  $page) {
+            Page::create($page);
+        }
+
     }
 }

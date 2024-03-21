@@ -41,15 +41,14 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 Route::get('posts/{post}', [PostController::class, 'show'])->name('posts.show');
 Route::get('pages/{page}', [PageController::class, 'show'])->name('pages.show');
-Route::get('teams/{team}', [TeamController::class, 'show'])->name('teams.show');
+
 Route::get('categories/{category}', [CategoryController::class, 'show'])->name('categories.show');
-Route::get('team-types/{teamType}', [TeamTypeController::class, 'show'])->name('team-types.show');
+
+Route::get('about-us', [FrontendController::class, 'about'])->name('about-us');
 
 Route::get('contact-us', [FrontendController::class, 'contactUs'])->name('contact-us');
 Route::post('contact-us', [ContactController::class, 'store'])->name('contact-us.store');
 
-// Route::get('modal-images/{modalImage}', [ModalImageController::class, 'show'])->name('modal-images.show');
-// Route::get('partners/{partner}', [PartnerController::class, 'show'])->name('partners.show');
 
 Route::group(['prefix' => 'backend', 'middleware' => 'auth'], function () {
     Route::resource('user', 'App\Http\Controllers\UserController', ['except' => ['show']]);
@@ -73,7 +72,7 @@ Route::group(['prefix' => 'backend', 'middleware' => 'auth'], function () {
     Route::delete('posts/{post}', [PostController::class, 'destroy'])->name('posts.destroy');
 
     //post document delete
-    Route::get('post-documents/{postDocument}/delete', [PostDocumentController::class, 'destroy'])->name('post-documents.destroy');
+    // Route::get('post-documents/{postDocument}/delete', [DocumentControlle::class, 'destroy'])->name('post-documents.destroy');
 
     //pages
     Route::get('pages', [PageController::class, 'index'])->name('pages.index');
@@ -92,21 +91,7 @@ Route::group(['prefix' => 'backend', 'middleware' => 'auth'], function () {
     Route::put('carousel-images/{carouselImage}', [CarouselImageController::class, 'update'])->name('carousel-images.update');
     Route::delete('carousel-images/{carouselImage}', [CarouselImageController::class, 'destroy'])->name('carousel-images.destroy');
 
-    //modal-images
-    Route::get('modal-images', [ModalImageController::class, 'index'])->name('modal-images.index');
-    Route::get('modal-images/create', [ModalImageController::class, 'create'])->name('modal-images.create');
-    Route::post('modal-images', [ModalImageController::class, 'store'])->name('modal-images.store');
-    Route::get('modal-images/{modalImage}/edit', [ModalImageController::class, 'edit'])->name('modal-images.edit');
-    Route::put('modal-images/{modalImage}', [ModalImageController::class, 'update'])->name('modal-images.update');
-    Route::delete('modal-images/{modalImage}', [ModalImageController::class, 'destroy'])->name('modal-images.destroy');
 
-    //partners
-    Route::get('partners', [PartnerController::class, 'index'])->name('partners.index');
-    Route::get('partners/create', [PartnerController::class, 'create'])->name('partners.create');
-    Route::post('partners', [PartnerController::class, 'store'])->name('partners.store');
-    Route::get('partners/{partner}/edit', [PartnerController::class, 'edit'])->name('partners.edit');
-    Route::put('partners/{partner}', [PartnerController::class, 'update'])->name('partners.update');
-    Route::delete('partners/{partner}', [PartnerController::class, 'destroy'])->name('partners.destroy');
 
     //category menu
     Route::get('category-menu', [CategoryMenuController::class, 'index'])->name('category-menu.index');
@@ -115,29 +100,6 @@ Route::group(['prefix' => 'backend', 'middleware' => 'auth'], function () {
     Route::put('category-menu/{categoryMenu}', [CategoryMenuController::class, 'update'])->name('category-menu.update');
     Route::put('category-menus/sort', [CategoryMenuController::class, 'sort'])->name('category-menu.sort');
     Route::delete('category-menus/remove-item', [CategoryMenuController::class, 'removeItem'])->name('category-menu.remove-item');
-
-    //social media
-    Route::get('social-medias', [SocialMediaController::class, 'index'])->name('social-medias.index');
-    Route::post('social-medias', [SocialMediaController::class, 'store'])->name('social-medias.store');
-    Route::get('social-medias/{socialMedia}', [SocialMediaController::class, 'edit'])->name('social-medias.edit');
-    Route::put('social-medias/{socialMedia}', [SocialMediaController::class, 'update'])->name('social-medias.update');
-    Route::delete('social-medias/{socialMedia}', [SocialMediaController::class, 'destroy'])->name('social-medias.destroy');
-
-    //team types
-    Route::get('team-types', [TeamTypeController::class, 'index'])->name('team-types.index');
-    Route::post('team-types', [TeamTypeController::class, 'store'])->name('team-types.store');
-    Route::get('team-types/{teamType}/edit', [TeamTypeController::class, 'edit'])->name('team-types.edit');
-    Route::put('team-types/{teamType}', [TeamTypeController::class, 'update'])->name('team-types.update');
-    Route::delete('team-types/{teamType}', [TeamTypeController::class, 'destroy'])->name('team-types.destroy');
-
-    //teams
-    Route::get('teams', [TeamController::class, 'index'])->name('teams.index');
-    Route::get('teams/create', [TeamController::class, 'create'])->name('teams.create');
-    Route::put('teams/sort', [TeamController::class, 'sort'])->name('teams.sort');
-    Route::post('teams', [TeamController::class, 'store'])->name('teams.store');
-    Route::get('teams/{team}/edit', [TeamController::class, 'edit'])->name('teams.edit');
-    Route::put('teams/{team}', [TeamController::class, 'update'])->name('teams.update');
-    Route::delete('teams/{team}', [TeamController::class, 'destroy'])->name('teams.destroy');
 
     //profile
     Route::put('profile/password', ['as' => 'profile.password', 'uses' => 'App\Http\Controllers\ProfileController@password']);
