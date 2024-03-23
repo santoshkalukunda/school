@@ -24,7 +24,7 @@
             <div class="col-lg-6 about-img wow fadeInUp" data-wow-delay="0.5s">
                 <div class="row">
                     <div class="col-12 text-center">
-                        <img class="img-fluid w-75 rounded-circle bg-light p-3"
+                        <img class="img-fluid w-75 bg-light p-3"
                             src="{{ asset('storage/' . $aboutUs->feature_image) }}" alt="">
                     </div>
                 </div>

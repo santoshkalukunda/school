@@ -20,9 +20,7 @@ class PostController extends Controller
      */
     public function index()
     {
-        $posts = Post::with('categories')
-            ->latest()
-            ->paginate(50);
+        $posts = Post::with('categories')->latest()->paginate(50);
         return view('post.index', compact('posts'));
     }
 
@@ -54,9 +52,7 @@ class PostController extends Controller
             $data['feature_image'] = Storage::putFile('feature-image', $request->file('feature_image'));
         }
 
-        $post = Auth::user()
-            ->posts()
-            ->create($data);
+        $post = Auth::user()->posts()->create($data);
         $post->categories()->attach($data['category_id']);
         if ($request->name != '' && $request->file != '') {
             foreach ($request->name as $key => $name) {
@@ -66,9 +62,7 @@ class PostController extends Controller
                 ]);
             }
         }
-        return redirect()
-            ->route('posts.index')
-            ->with('success', 'Post Created');
+        return redirect()->route('posts.index')->with('success', 'Post Created');
     }
 
     /**
@@ -122,9 +116,7 @@ class PostController extends Controller
                 ]);
             }
         }
-        return redirect()
-            ->back()
-            ->with('success', 'Post Updated');
+        return redirect()->route('posts.index')->with('success', 'Post Updated');
     }
 
     /**
@@ -143,9 +135,7 @@ class PostController extends Controller
 
         Storage::delete($post->feature_image);
         $post->delete();
-        return redirect()
-            ->back()
-            ->with('success', 'Post Deleted');
+        return redirect()->back()->with('success', 'Post Deleted');
     }
 
     public function search(Request $request)
