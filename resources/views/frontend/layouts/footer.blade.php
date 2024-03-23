@@ -23,7 +23,7 @@
                 <a class="btn btn-link text-white-50" href="{{route('contact-us')}}">Contact Us</a>
                 <a class="btn btn-link text-white-50" href="{{route('categories.show','our-features')}}">Our Feature</a>
                 <a class="btn btn-link text-white-50" href="{{route('pages.show','privacy-policy')}}">Privacy Policy</a>
-                <a class="btn btn-link text-white-50" href="{{route('pages.show','terms-&-condition')}}">Terms & Condition</a>
+                <a class="btn btn-link text-white-50" href="{{route('pages.show','terms-condition')}}">Terms & Condition</a>
             </div>
             <div class="col-lg-6 col-md-12">
                 <h3 class="text-white mb-4">Maps</h3>
