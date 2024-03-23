@@ -19,11 +19,14 @@
             </div>
             <div class="col-lg-3 col-md-6">
                 <h3 class="text-white mb-4">Quick Links</h3>
-                <a class="btn btn-link text-white-50" href="{{route('about-us')}}">About Us</a>
-                <a class="btn btn-link text-white-50" href="{{route('contact-us')}}">Contact Us</a>
-                <a class="btn btn-link text-white-50" href="{{route('categories.show','our-features')}}">Our Feature</a>
-                <a class="btn btn-link text-white-50" href="{{route('pages.show','privacy-policy')}}">Privacy Policy</a>
-                <a class="btn btn-link text-white-50" href="{{route('pages.show','terms-condition')}}">Terms & Condition</a>
+                <a class="btn btn-link text-white-50" href="{{ route('about-us') }}">About Us</a>
+                <a class="btn btn-link text-white-50" href="{{ route('contact-us') }}">Contact Us</a>
+                <a class="btn btn-link text-white-50" href="{{ route('categories.show', 'our-features') }}">Our
+                    Feature</a>
+                <a class="btn btn-link text-white-50" href="{{ route('pages.show', 'privacy-policy') }}">Privacy
+                    Policy</a>
+                <a class="btn btn-link text-white-50" href="{{ route('pages.show', 'terms-condition') }}">Terms &
+                    Condition</a>
             </div>
             <div class="col-lg-6 col-md-12">
                 <h3 class="text-white mb-4">Maps</h3>
@@ -74,11 +77,15 @@
     <div class="container">
         <div class="copyright">
             <div class="row">
-                <div class="col-md-12 text-center text-md-start mb-3 mb-md-0">
+                <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
                     &copy; {{ now()->year }} {{ appSettings('site_name') }}, All Right Reserved.
+                </div>
+                <div class="col-md-6 text-center text-md-end">
+                    <div class="footer-menu">
+                        Designed & Developed By <a class="border-bottom" href="https://spellinnovation.com/home">Spell
+                            Innovation</a>
 
-                    <!--/*** This template is free as long as you keep the footer author’s credit link/attribution link/backlink. If you'd like to use the template without the footer author’s credit link/attribution link/backlink, you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". Thank you for your support. ***/-->
-                    {{-- Designed By <a class="border-bottom" href="https://htmlcodex.com">HTML Codex</a> --}}
+                    </div>
                 </div>
             </div>
         </div>
