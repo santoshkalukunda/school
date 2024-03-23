@@ -19,11 +19,11 @@
             </div>
             <div class="col-lg-3 col-md-6">
                 <h3 class="text-white mb-4">Quick Links</h3>
-                <a class="btn btn-link text-white-50" href="">About Us</a>
-                <a class="btn btn-link text-white-50" href="">Contact Us</a>
-                <a class="btn btn-link text-white-50" href="">Our Services</a>
-                <a class="btn btn-link text-white-50" href="">Privacy Policy</a>
-                <a class="btn btn-link text-white-50" href="">Terms & Condition</a>
+                <a class="btn btn-link text-white-50" href="{{route('about-us')}}">About Us</a>
+                <a class="btn btn-link text-white-50" href="{{route('contact-us')}}">Contact Us</a>
+                <a class="btn btn-link text-white-50" href="{{route('categories.show','our-features')}}">Our Feature</a>
+                <a class="btn btn-link text-white-50" href="{{route('pages.show','privacy-policy')}}">Privacy Policy</a>
+                <a class="btn btn-link text-white-50" href="{{route('pages.show','terms-&-condition')}}">Terms & Condition</a>
             </div>
             <div class="col-lg-6 col-md-12">
                 <h3 class="text-white mb-4">Maps</h3>
