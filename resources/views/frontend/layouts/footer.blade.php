@@ -25,7 +25,12 @@
                 <a class="btn btn-link text-white-50" href="">Privacy Policy</a>
                 <a class="btn btn-link text-white-50" href="">Terms & Condition</a>
             </div>
-            <div class="col-lg-3 col-md-6">
+            <div class="col-lg-6 col-md-12">
+                <h3 class="text-white mb-4">Maps</h3>
+
+                {!! appSettings('maps') !!}
+            </div>
+            {{-- <div class="col-lg-3 col-md-6">
                 <h3 class="text-white mb-4">Photo Gallery</h3>
                 <div class="row g-2 pt-2">
                     <div class="col-4">
@@ -53,8 +58,8 @@
                             alt="">
                     </div>
                 </div>
-            </div>
-            <div class="col-lg-3 col-md-6">
+            </div> --}}
+            {{-- <div class="col-lg-3 col-md-6">
                 <h3 class="text-white mb-4">Newsletter</h3>
                 <p>Dolor amet sit justo amet elitr clita ipsum elitr est.</p>
                 <div class="position-relative mx-auto" style="max-width: 400px;">
@@ -63,7 +68,7 @@
                     <button type="button"
                         class="btn btn-primary py-2 position-absolute top-0 end-0 mt-2 me-2">SignUp</button>
                 </div>
-            </div>
+            </div> --}}
         </div>
     </div>
     <div class="container">

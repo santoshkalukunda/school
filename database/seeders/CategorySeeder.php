@@ -30,6 +30,9 @@ class CategorySeeder extends Seeder
             [
                 'name' => 'No-category',
             ],
+            [
+                'name' => 'What Students Say',
+            ],
         ];
         foreach ($categories as $category) {
             Category::create($category);

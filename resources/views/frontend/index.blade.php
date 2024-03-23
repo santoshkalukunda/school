@@ -25,9 +25,9 @@
     <x-frontend.event-component />
     <!-- event End -->
 
-    <!-- Testimonial Start -->
-    @include('frontend.layouts.testimonial')
-    <!-- Testimonial End -->
+    <!-- what student Say Start -->
+   <x-frontend.what-studen-say />
+    <!-- what student Say End -->
 
     <!-- blog Start -->
     <x-frontend.blog-component />
