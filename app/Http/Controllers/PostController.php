@@ -20,7 +20,7 @@ class PostController extends Controller
      */
     public function index()
     {
-        $posts = Post::with('categories')->latest()->paginate(50);
+        $posts = Post::with('categories')->latest()->paginate(10);
         return view('post.index', compact('posts'));
     }
 
@@ -164,7 +164,7 @@ class PostController extends Controller
                 $query->whereIn('categories.id', $category_id);
             });
         }
-        $posts = $posts->with('user')->paginate(50);
+        $posts = $posts->with('user')->paginate(10);
         $posts->appends(request()->except('page'));
         return view('post.index', compact('posts'));
     }

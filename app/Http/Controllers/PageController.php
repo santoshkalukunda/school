@@ -17,7 +17,7 @@ class PageController extends Controller
      */
     public function index()
     {
-        $pages = Page::latest()->paginate(50);
+        $pages = Page::latest()->paginate(10);
         return view('pages.index', compact('pages'));
     }
 
