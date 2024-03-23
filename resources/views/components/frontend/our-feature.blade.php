@@ -11,7 +11,10 @@
 
         <div class="row g-4">
             @foreach ($ourFeatures as $ourFeature)
-                <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.1s">
+            @php
+                $i=0.1;
+            @endphp
+                <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="{{$i=$i+0.3}}s">
                     <a href="{{ route('posts.show', $ourFeature) }}">
                         <div class="facility-item">
                             <div class="facility-icon bg-primary">
