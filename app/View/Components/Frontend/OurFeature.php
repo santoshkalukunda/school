@@ -2,6 +2,7 @@
 
 namespace App\View\Components\Frontend;
 
+use App\Models\Category;
 use App\Models\Post;
 use Illuminate\View\Component;
 
@@ -13,11 +14,13 @@ class OurFeature extends Component
      * @return void
      */
     public $ourFeatures;
-    public function __construct()
+    public $category;
+    public function __construct($category)
     {
-        $categoryID = 1;
-        $this->ourFeatures = Post::whereHas('categories', function ($query) use ($categoryID) {
-            $query->where('category_id', $categoryID);
+        $this->category= Category::findOrfail($category);
+        $categoryId = $this->category->id;
+        $this->ourFeatures = Post::whereHas('categories', function ($query) use ($categoryId) {
+            $query->where('category_id', $categoryId);
         })
             ->published()
             ->latest()

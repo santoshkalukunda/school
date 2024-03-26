@@ -6,7 +6,7 @@
 
 
     <!-- our-feature Start -->
-    <x-frontend.our-feature />
+    <x-frontend.our-feature :category="1" />
     <!-- our-feature End -->
 
 
@@ -22,7 +22,7 @@
 
 
     <!-- event Start -->
-    <x-frontend.event-component />
+    <x-frontend.event-component :category="2"/>
     <!-- event End -->
 
     <!-- what student Say Start -->
@@ -30,7 +30,7 @@
     <!-- what student Say End -->
 
     <!-- blog Start -->
-    <x-frontend.blog-component />
+    <x-frontend.blog-component :category="3" />
     <!-- blog End -->
 
 

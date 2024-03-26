@@ -22,21 +22,28 @@
                 @endif
             </div>
             <div class="row g-4 mb-5">
-                <div class="col-md-6 col-lg-4 text-center wow fadeInUp" data-wow-delay="0.1s">
+                <div class="col-md-6 col-lg-3 text-center wow fadeInUp" data-wow-delay="0.1s">
+                    <div class="bg-light rounded-circle d-inline-flex align-items-center justify-content-center mb-4"
+                        style="width: 75px; height: 75px;">
+                        <i class="fa fa-clock fa-2x text-primary"></i>
+                    </div>
+                    <h6>{{ appSettings('openingTime') }}</h6>
+                </div>
+                <div class="col-md-6 col-lg-3 text-center wow fadeInUp" data-wow-delay="0.1s">
                     <div class="bg-light rounded-circle d-inline-flex align-items-center justify-content-center mb-4"
                         style="width: 75px; height: 75px;">
                         <i class="fa fa-map-marker-alt fa-2x text-primary"></i>
                     </div>
                     <h6>{{ appSettings('address') }}</h6>
                 </div>
-                <div class="col-md-6 col-lg-4 text-center wow fadeInUp" data-wow-delay="0.3s">
+                <div class="col-md-6 col-lg-3 text-center wow fadeInUp" data-wow-delay="0.3s">
                     <div class="bg-light rounded-circle d-inline-flex align-items-center justify-content-center mb-4"
                         style="width: 75px; height: 75px;">
                         <i class="fa fa-envelope-open fa-2x text-primary"></i>
                     </div>
                     <h6>{{ appSettings('email') }}</h6>
                 </div>
-                <div class="col-md-6 col-lg-4 text-center wow fadeInUp" data-wow-delay="0.5s">
+                <div class="col-md-6 col-lg-3 text-center wow fadeInUp" data-wow-delay="0.5s">
                     <div class="bg-light rounded-circle d-inline-flex align-items-center justify-content-center mb-4"
                         style="width: 75px; height: 75px;">
                         <i class="fa fa-phone-alt fa-2x text-primary"></i>

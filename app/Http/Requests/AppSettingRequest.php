@@ -36,6 +36,7 @@ class AppSettingRequest extends FormRequest
             'tiktok' => 'nullable',
             'youtube' => 'nullable',
             'logo' => 'nullable',
+            'openingTime' => 'nullable'
         ];
     }
 }

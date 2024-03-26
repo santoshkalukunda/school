@@ -45,7 +45,8 @@
         </div>
         <!-- Spinner End -->
 
-
+        @include('frontend.layouts.top-bar')
+        
         <!-- Navbar Start -->
         @include('frontend.layouts.nav')
         <!-- Navbar End -->

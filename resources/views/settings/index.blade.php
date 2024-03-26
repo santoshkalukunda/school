@@ -101,6 +101,21 @@
                                         </div>
                                         <div class="col-md-6">
                                             <div class="mb-3">
+                                                <label for="openingTime" class="form-label">Opening Time</label>
+                                                <input type="text" name="openingTime"
+                                                    class="form-control @error('openingTime') is-invalid @enderror"
+                                                    value="{{ old('openingTime', appSettings('openingTime')) }}" id="openingTime"
+                                                    aria-describedby="openingTime">
+                                                <div class="invalid-feedback">
+                                                    @error('openingTime')
+                                                        {{ $message }}
+                                                    @enderror
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="mb-3">
                                                 <label for="maps" class="form-label required">Maps</label>
                                                 <input type="text" name="maps"
                                                     class="form-control @error('maps') is-invalid @enderror"
@@ -159,21 +174,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        {{-- <div class="col-md-6">
-                                            <div class="mb-3">
-                                                <label for="tiktok" class="form-label">Tiktok</label>
-                                                <input type="url" name="tiktok"
-                                                    class="form-control @error('tiktok') is-invalid @enderror"
-                                                    value="{{ old('tiktok', appSettings('tiktok')) }}" id="tiktok"
-                                                    aria-describedby="tiktok">
-                                                <div class="invalid-feedback">
-                                                    @error('tiktok')
-                                                        {{ $message }}
-                                                    @enderror
 
-                                                </div>
-                                            </div>
-                                        </div> --}}
                                         <div class="col-md-6">
                                             <div class="mb-3">
                                                 <label for="youtube" class="form-label">YouTube</label>

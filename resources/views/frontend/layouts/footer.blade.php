@@ -3,6 +3,7 @@
         <div class="row g-5">
             <div class="col-lg-3 col-md-6">
                 <h3 class="text-white mb-4">Get In Touch</h3>
+                <p class="mb-2"><i class="bi bi-clock-fill clock-icon me-3"></i>{{ appSettings('openingTime') }}</p>
                 <p class="mb-2"><i class="fa fa-map-marker-alt me-3"></i>{{ appSettings('address') }}</p>
                 <p class="mb-2"><i class="fa fa-phone-alt me-3"></i>{{ appSettings('phone') }}</p>
                 <p class="mb-2"><i class="fa fa-envelope me-3"></i>{{ appSettings('email') }}</p>

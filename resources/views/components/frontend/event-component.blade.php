@@ -35,5 +35,9 @@
                 </div>
             @endforelse
         </div>
+        <div class="text-center mx-auto mt-4" >
+            <a class="bg-primary text-white rounded-pill py-2 px-3"
+            href="{{ route('categories.show', $category) }}">View All {{$category->name}}</a>
+        </div>
     </div>
 </div>

@@ -2,6 +2,7 @@
 
 namespace App\View\Components\Frontend;
 
+use App\Models\Category;
 use App\Models\Post;
 use Illuminate\View\Component;
 
@@ -13,9 +14,11 @@ class EventComponent extends Component
      * @return void
      */
     public $posts;
-    public function __construct()
+    public $category;
+    public function __construct($category)
     {
-        $categoryID = 2;
+        $this->category = Category::findOrFail($category);
+        $categoryID = $this->category->id;
         $this->posts = Post::whereHas('categories', function ($query) use ($categoryID) {
             $query->where('category_id', $categoryID);
         })
