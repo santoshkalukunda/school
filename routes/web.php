@@ -6,6 +6,7 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\CategoryMenuController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\FrontendController;
+use App\Http\Controllers\GalleryController;
 use App\Http\Controllers\ModalImageController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\PartnerController;
@@ -48,6 +49,9 @@ Route::get('about-us', [FrontendController::class, 'about'])->name('about-us');
 
 Route::get('contact-us', [FrontendController::class, 'contactUs'])->name('contact-us');
 Route::post('contact-us', [ContactController::class, 'store'])->name('contact-us.store');
+
+Route::get('galleries/photos', [GalleryController::class, 'photo'])->name('galleries.photo');
+Route::get('galleries/videos', [GalleryController::class, 'video'])->name('galleries.video');
 
 
 Route::group(['prefix' => 'backend', 'middleware' => 'auth'], function () {
@@ -121,5 +125,13 @@ Route::group(['prefix' => 'backend', 'middleware' => 'auth'], function () {
     Route::get('contact-us', [ContactController::class, 'index'])->name('contact-us.index');
     Route::delete('contact-us/{contact}', [ContactController::class, 'destroy'])->name('contact-us.destroy');
 
+      //galleries
+      Route::get('galleries', [GalleryController::class, 'index'])->name('galleries.index');
+      Route::get('galleries/create', [GalleryController::class, 'create'])->name('galleries.create');
+      Route::post('galleries', [GalleryController::class, 'store'])->name('galleries.store');
+      Route::get('galleries/{gallery}/edit', [GalleryController::class, 'edit'])->name('galleries.edit');
+      Route::put('galleries/{gallery}', [GalleryController::class, 'update'])->name('galleries.update');
+      Route::delete('galleries/{gallery}', [GalleryController::class, 'destroy'])->name('galleries.destroy');
+  
     Route::get('logs', [\Rap2hpoutre\LaravelLogViewer\LogViewerController::class, 'index'])->name('logs');
 });

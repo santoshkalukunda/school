@@ -30,6 +30,8 @@
     <!-- Customized Bootstrap Stylesheet -->
     <link href="{{ asset('frontend/css/bootstrap.min.css') }}" rel="stylesheet">
 
+    <link href="{{ asset('assets/glightbox/css/glightbox.min.css') }}" rel="stylesheet">
+
     <!-- Template Stylesheet -->
     <link href="{{ asset('frontend/css/style.css') }}" rel="stylesheet">
 </head>
@@ -70,7 +72,8 @@
     <script src="{{ asset('frontend/lib/easing/easing.min.js') }}"></script>
     <script src="{{ asset('frontend/lib/waypoints/waypoints.min.js') }}"></script>
     <script src="{{ asset('frontend/lib/owlcarousel/owl.carousel.min.js') }}"></script>
-
+    <script src="{{ asset('assets/glightbox/js/glightbox.min.js') }}"></script>
+    <script src="{{ asset('assets/isotope-layout/isotope.pkgd.min.js') }}"></script>
     <!-- Template Javascript -->
     <script src="{{ asset('frontend/js/main.js') }}"></script>
 </body>

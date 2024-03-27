@@ -77,5 +77,44 @@
         }
     });
     
+      /**
+   * Porfolio isotope and filter
+   */
+      window.addEventListener('load', function() {
+        const portfolioContainer = document.querySelector('.portfolio-container');
+        
+        if (portfolioContainer) {
+          const portfolioIsotope = new Isotope(portfolioContainer, {
+            itemSelector: '.portfolio-item',
+            layoutMode: 'fitRows'
+          });
+      
+          const portfolioFilters = document.querySelectorAll('#portfolio-flters li');
+      
+          portfolioFilters.forEach(function(filter) {
+            filter.addEventListener('click', function(event) {
+              event.preventDefault();
+              
+              portfolioFilters.forEach(function(item) {
+                item.classList.remove('filter-active');
+              });
+      
+              this.classList.add('filter-active');
+      
+              const filterValue = this.getAttribute('data-filter');
+              portfolioIsotope.arrange({ filter: filterValue });
+            });
+          });
+        }
+      });
+
+  /**
+   * Initiate portfolio lightbox 
+   */
+  const portfolioLightbox = GLightbox({
+    selector: '.portfolio-lightbox'
+  });
+
 })(jQuery);
+
 

@@ -16,6 +16,13 @@
             <a href="{{ route('about-us') }}"
                 class="nav-item nav-link {{ Request::is('about-us') ? 'active' : '' }}">About Us</a>
             <x-frontend.category-menu-view />
+            <div class="nav-item dropdown">
+                <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Gallery</a>
+                <div class="dropdown-menu rounded-0 rounded-bottom border-0 shadow-sm m-0">
+                    <a href="{{ route('galleries.photo')}}" class="dropdown-item {{ request()->route()->getName() == 'galleries.photo' ? 'active' : '' }}">Photo Gallery</a>
+                    <a href="{{ route('galleries.video')}}" class="dropdown-item {{ request()->route()->getName() == 'galleries.video' ? 'active' : '' }}">Video Gallery</a>
+                </div>
+            </div>
             <a href="{{route('contact-us')}}" class="nav-item nav-link">Contact Us</a>
         </div>
         <a href="{{ route('login') }}" class="btn btn-primary rounded-pill px-3 d-none d-lg-block">

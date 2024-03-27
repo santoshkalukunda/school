@@ -23,7 +23,7 @@
     <!-- what student Say Start -->
    <x-frontend.what-studen-say />
     <!-- what student Say End -->
-
+    <x-frontend.photo-gallery-list />
     <!-- blog Start -->
     <x-frontend.blog-component :category="3" />
     <!-- blog End -->

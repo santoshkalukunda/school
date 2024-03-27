@@ -86,6 +86,11 @@
                         <i class="bi bi-file-earmark-easel text-primary"></i> {{ __('Slider Images') }}
                     </a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('galleries.index') }}">
+                        <i class="bi bi-image text-primary"></i>{{ __('Gallery') }}
+                    </a>
+                </li>
            
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('categories.index') }}">
