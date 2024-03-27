@@ -15,27 +15,30 @@ class CategorySeeder extends Seeder
     public function run()
     {
         $categories = [
-            //2
+            //1
             [
                 'name' => 'Our Features',
             ],
-            //3
+            //2
             [
                 'name' => 'Events',
             ],
-            //4
+            //3
             [
                 'name' => 'Blogs',
             ],
-            [
-                'name' => 'No-category',
-            ],
+            //4
             [
                 'name' => 'What Students Say',
             ],
+            //5
             [
-                'name' => 'Why Choose us',
-            ]
+                'name' => 'Why Choose Us',
+            ],
+            //6
+            [
+                'name' => 'No-category',
+            ],
         ];
         foreach ($categories as $category) {
             Category::create($category);

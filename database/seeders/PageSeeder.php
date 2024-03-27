@@ -28,7 +28,19 @@ class PageSeeder extends Seeder
                 'user_id' => 1,
             ],
             [
+                'title' => 'Message From Chairperson',
+                'user_id' => 1,
+            ],
+            [
                 'title' => 'Message From Principal',
+                'user_id' => 1,
+            ],
+            [
+                'title' => 'Message From Coordinator',
+                'user_id' => 1,
+            ],
+            [
+                'title' => 'Ad',
                 'user_id' => 1,
             ],
         ];
