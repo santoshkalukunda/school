@@ -14,12 +14,7 @@
     <x-frontend.about-us />
     <!-- About End -->
 
-
-    <!-- Call To Action Start -->
-    {{-- @include('frontend.layouts.action') --}}
-
-    <!-- Call To Action End -->
-
+    <x-frontend.why-choose-us :category="6"/>
 
     <!-- event Start -->
     <x-frontend.event-component :category="2"/>

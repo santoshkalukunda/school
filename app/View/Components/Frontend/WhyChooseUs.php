@@ -6,24 +6,23 @@ use App\Models\Category;
 use App\Models\Post;
 use Illuminate\View\Component;
 
-class OurFeature extends Component
+class WhyChooseUs extends Component
 {
     /**
      * Create a new component instance.
      *
      * @return void
      */
-    public $ourFeatures;
-    public $category; 
+    public $posts;
+    public $category;
     public function __construct($category)
     {
-        $this->category= Category::findOrfail($category);
-        $categoryId = $this->category->id;
-        $this->ourFeatures = Post::whereHas('categories', function ($query) use ($categoryId) {
-            $query->where('category_id', $categoryId);
+        $this->category = Category::findOrFail($category);
+        $categoryID = $this->category->id;
+        $this->posts = Post::whereHas('categories', function ($query) use ($categoryID) {
+            $query->where('category_id', $categoryID);
         })
             ->published()
-            ->latest()
             ->get();
     }
 
@@ -34,6 +33,6 @@ class OurFeature extends Component
      */
     public function render()
     {
-        return view('components.frontend.our-feature');
+        return view('components.frontend.why-choose-us');
     }
 }

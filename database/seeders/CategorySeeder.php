@@ -33,6 +33,9 @@ class CategorySeeder extends Seeder
             [
                 'name' => 'What Students Say',
             ],
+            [
+                'name' => 'Why Choose us',
+            ]
         ];
         foreach ($categories as $category) {
             Category::create($category);
