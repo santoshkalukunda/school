@@ -190,10 +190,10 @@
                                                 </div>
                                             </div>
                                         </div>
+
                                     </div>
                                 </div>
                                 <div class="col-md-4">
-
                                     <div class="mb-3">
                                         <label for="" class="form-label required">Logos</label>
                                         <div class="mb-2 align-self-center">
@@ -215,13 +215,38 @@
                                                 class="logo" style="max-height: 100px;">
                                             <div class="edit-profile mx-md-6 mt-2">
                                                 <label class="btn btn-secondary " for="feviconInput">Choose</label>
-                                                <input type="file" id="feviconInput" name="fevicon"
-                                                    accept="image/*" hidden>
+                                                <input type="file" id="feviconInput" name="fevicon" accept="image/*"
+                                                    hidden>
                                             </div>
                                         </div>
                                     </div>
 
                                 </div>
+                            </div>
+                            <hr>
+                            <div class="row">
+                                <div class="col-md-12 mb-3">
+                                    <b>
+                                        Top Bar Setting
+                                    </b>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-check form-switch">
+                                        <label for="exampleColorInput" class="form-label">Color </label>
+                                        <input type="color" name="top_color" class="form-control form-control-color"
+                                            id="exampleColorInput"
+                                            value="{{ old('top_color', appSettings('top_color') ?? '#563d7c') }}"
+                                            title="Choose your color">
+                                    </div>
+                                </div>
+                                <div class="col-md-4 px-4 ">
+                                    <label>Top Bar</label>
+                                    <select class="form-select" name="top_bar" aria-label="Default select example">
+                                        <option value="show">Show</option>
+                                        <option value="hide" {{ old('top_bar', appSettings('top_bar')=='hide' ? 'selected' : '' ) }}>Hide</option>
+                                    </select>
+                                </div>
+
 
                             </div>
                             <div class="mb-3 text-end">

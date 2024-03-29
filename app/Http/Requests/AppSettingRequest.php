@@ -37,7 +37,11 @@ class AppSettingRequest extends FormRequest
             'youtube' => 'nullable',
             'logo' => 'nullable',
             'fevicon' => 'nullable',
-            'openingTime' => 'nullable'
+            'openingTime' => 'nullable',
+            'top_color' => 'nullable',
+            'top_bar' => 'nullable',
+
+
         ];
     }
 }
