@@ -14,6 +14,8 @@
     <x-frontend.about-us />
     <!-- About End -->
 
+    <x-frontend.ad-component :page="7" />
+
     <x-frontend.why-choose-us :category="5"/>
 
     <!-- event Start -->
