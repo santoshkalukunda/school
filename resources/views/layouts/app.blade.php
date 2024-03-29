@@ -10,8 +10,8 @@
 
     <title>{{ config('app.name') }} | {{ $title ?? '' }}</title>
     <!-- Favicon -->
-    <link href="{{ appSettings('logo') ? asset('storage/' . appSettings('logo')) : asset('assets/img/no-image.png') }}"
-        rel="icon" type="image/png">
+    <link href="{{ appSettings('fevicon') ? asset('storage/' . appSettings('fevicon')) : asset('assets/img/no-image.png') }}"
+    rel="icon" type="image/png">
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
     <!-- Extra details for Live View on GitHub Pages -->

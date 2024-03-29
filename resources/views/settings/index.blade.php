@@ -104,8 +104,8 @@
                                                 <label for="openingTime" class="form-label">Opening Time</label>
                                                 <input type="text" name="openingTime"
                                                     class="form-control @error('openingTime') is-invalid @enderror"
-                                                    value="{{ old('openingTime', appSettings('openingTime')) }}" id="openingTime"
-                                                    aria-describedby="openingTime">
+                                                    value="{{ old('openingTime', appSettings('openingTime')) }}"
+                                                    id="openingTime" aria-describedby="openingTime">
                                                 <div class="invalid-feedback">
                                                     @error('openingTime')
                                                         {{ $message }}
@@ -149,8 +149,8 @@
                                                 <label for="instagram" class="form-label">Instagram</label>
                                                 <input type="url" name="instagram"
                                                     class="form-control @error('instagram') is-invalid @enderror"
-                                                    value="{{ old('instagram', appSettings('instagram')) }}" id="instagram"
-                                                    aria-describedby="instagram">
+                                                    value="{{ old('instagram', appSettings('instagram')) }}"
+                                                    id="instagram" aria-describedby="instagram">
                                                 <div class="invalid-feedback">
                                                     @error('instagram')
                                                         {{ $message }}
@@ -207,6 +207,19 @@
                                             </div>
                                         </div>
                                     </div>
+                                    <div class="mb-3">
+                                        <label for="" class="form-label required">Fevicon</label>
+                                        <div class="mb-2 align-self-center">
+                                            <img id="feviconPreview"
+                                                src="{{ appSettings('fevicon') ? asset('storage/' . appSettings('fevicon')) : asset('assets/img/no-image.png') }}"
+                                                class="logo" style="max-height: 100px;">
+                                            <div class="edit-profile mx-md-6 mt-2">
+                                                <label class="btn btn-secondary " for="feviconInput">Choose</label>
+                                                <input type="file" id="feviconInput" name="fevicon"
+                                                    accept="image/*" hidden>
+                                            </div>
+                                        </div>
+                                    </div>
 
                                 </div>
 
@@ -241,6 +254,26 @@
             newProfilePhoto.addEventListener('change', function() {
                 console.log('Profile photo selected');
                 readNewProfilePhotoUrl(this);
+            });
+        </script>
+
+        <script>
+            function feviconPreview(input) {
+                if (input.files && input.files[0]) {
+                    var reader = new FileReader();
+                    reader.onload = function(e) {
+                        document.getElementById('feviconPreview').setAttribute('src', e.target.result);
+                        initializeCroppie();
+                        openNewPicWindow();
+                    }
+                    reader.readAsDataURL(input.files[0]);
+                }
+            }
+
+            var feviconInput = document.getElementById('feviconInput');
+            feviconInput.addEventListener('change', function() {
+                console.log('Profile photo selected');
+                feviconPreview(this);
             });
         </script>
         <script type="text/javascript">

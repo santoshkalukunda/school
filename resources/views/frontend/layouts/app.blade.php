@@ -9,7 +9,7 @@
     <meta content="" name="description">
 
     <!-- Favicon -->
-    <link href="{{ appSettings('logo') ? asset('storage/' . appSettings('logo')) : asset('assets/img/no-image.png') }}"
+    <link href="{{ appSettings('fevicon') ? asset('storage/' . appSettings('fevicon')) : asset('assets/img/no-image.png') }}"
     rel="icon" type="image/png">
 
     <!-- Google Web Fonts -->
