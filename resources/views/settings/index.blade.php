@@ -227,24 +227,33 @@
                             <div class="row">
                                 <div class="col-md-12 mb-3">
                                     <b>
-                                        Top Bar Setting
+                                        Theme Settings
                                     </b>
                                 </div>
                                 <div class="col-md-4">
-                                    <div class="form-check form-switch">
-                                        <label for="exampleColorInput" class="form-label">Color </label>
+                                    <label>Top Bar</label>
+                                    <select class="form-select" name="top_bar" aria-label="Default select example">
+                                        <option value="show">Show</option>
+                                        <option value="hide" {{ old('top_bar', appSettings('top_bar')=='hide' ? 'selected' : '' ) }}>Hide</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="">
+                                        <label for="exampleColorInput" class="form-label">Topbar Color </label>
                                         <input type="color" name="top_color" class="form-control form-control-color"
                                             id="exampleColorInput"
                                             value="{{ old('top_color', appSettings('top_color') ?? '#563d7c') }}"
                                             title="Choose your color">
                                     </div>
                                 </div>
-                                <div class="col-md-4 px-4 ">
-                                    <label>Top Bar</label>
-                                    <select class="form-select" name="top_bar" aria-label="Default select example">
-                                        <option value="show">Show</option>
-                                        <option value="hide" {{ old('top_bar', appSettings('top_bar')=='hide' ? 'selected' : '' ) }}>Hide</option>
-                                    </select>
+                                <div class="col-md-4">
+                                    <div class="">
+                                        <label for="exampleColorInput" class="form-label">Footer Color </label>
+                                        <input type="color" name="footer_color" class="form-control form-control-color"
+                                            id="exampleColorInput"
+                                            value="{{ old('footer_color', appSettings('footer_color') ?? '#563d7c') }}"
+                                            title="Choose your color">
+                                    </div>
                                 </div>
 
 

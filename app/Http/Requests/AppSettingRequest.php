@@ -40,7 +40,7 @@ class AppSettingRequest extends FormRequest
             'openingTime' => 'nullable',
             'top_color' => 'nullable',
             'top_bar' => 'nullable',
-
+            'footer_color' => 'nullable',
 
         ];
     }
